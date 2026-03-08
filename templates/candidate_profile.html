@@ -29,7 +29,10 @@
 
         <div class="col-lg-8 reveal-up delay-2">
           <article class="card-glass p-4 p-lg-5">
-            <h2 class="panel-title">Credentials</h2>
+            <h2 class="panel-title">Brief Introduction</h2>
+            <p>{{ candidate.brief_introduction }}</p>
+
+            <h2 class="panel-title mt-3">Credentials</h2>
             <div id="credentials-container" class="candidate-credentials-full">
               {% for raw_line in candidate.credentials.split('\n') %}
                 {% set line = raw_line.strip() %}
@@ -49,22 +52,6 @@
                     <p class="credentials-item">{{ line }}</p>
                   {% endif %}
                 {% endif %}
-              {% endfor %}
-            </div>
-
-            <h2 class="panel-title mt-3">Brief Introduction</h2>
-            <p>{{ candidate.brief_introduction }}</p>
-
-            <h2 class="panel-title mt-3">Council GPOA Highlights</h2>
-            <div id="gpoa-container" class="row g-2 mt-1">
-              {% for item in council.gpoa %}
-                <div class="col-md-6">
-                  <div class="mini-feature gpoa-mini-card h-100">
-                    <div class="platform-icon gpoa-mini-icon"><i class="bi {{ item.icon }}"></i></div>
-                    <h3>{{ item.title }}</h3>
-                    <p class="gpoa-summary">{{ item.description }}</p>
-                  </div>
-                </div>
               {% endfor %}
             </div>
 
