@@ -29,11 +29,11 @@
                 <article class="platform-card h-100">
                   <div class="platform-icon"><i class="bi {{ section.icon }}"></i></div>
                   <h3>{{ section.title }}</h3>
-                  <p>{{ section.description }}</p>
-                  {% if section.items %}
-                    <div class="mt-2 mb-0">
-                      {% for detail in section.items %}
-                        <p class="mb-1">- {{ detail }}</p>
+                  <p class="gpoa-summary">{{ section.description }}</p>
+                  {% if section.get('items') %}
+                    <div class="gpoa-details mt-3 mb-0">
+                      {% for detail in section.get('items') %}
+                        <p class="gpoa-detail-item mb-2">{{ detail }}</p>
                       {% endfor %}
                     </div>
                   {% endif %}

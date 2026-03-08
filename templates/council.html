@@ -51,11 +51,11 @@
             <article class="platform-card h-100">
               <div class="platform-icon"><i class="bi {{ item.icon }}"></i></div>
               <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-              {% if item.items %}
-                <div class="mt-2 mb-0">
-                  {% for detail in item.items %}
-                    <p class="mb-1">- {{ detail }}</p>
+              <p class="gpoa-summary">{{ item.description }}</p>
+              {% if item.get('items') %}
+                <div class="gpoa-details mt-3 mb-0">
+                  {% for detail in item.get('items') %}
+                    <p class="gpoa-detail-item mb-2">{{ detail }}</p>
                   {% endfor %}
                 </div>
               {% endif %}
