@@ -3,21 +3,6 @@
 {% block title %}Home | Nagkakaisang Tugon{% endblock %}
 
 {% block content %}
-  <audio id="homeSong" autoplay loop preload="auto" playsinline aria-hidden="true">
-    <source src="{{ url_for('static', filename='audio/Tayo Ang Bukas (Tugon Dapat) - Diadem.mp3') }}" type="audio/mpeg">
-    <source src="{{ url_for('static', filename='audio/home-song.mp3') }}" type="audio/mpeg">
-  </audio>
-  <div class="music-controls" aria-label="Music controls">
-    <button id="musicPlayBtn" class="music-control-btn" type="button">
-      <i class="bi bi-play-fill" aria-hidden="true"></i>
-      <span>Play</span>
-    </button>
-    <button id="musicPauseBtn" class="music-control-btn music-control-btn-secondary" type="button">
-      <i class="bi bi-pause-fill" aria-hidden="true"></i>
-      <span>Pause</span>
-    </button>
-  </div>
-
   <section class="hero-section overflow-hidden">
     <div class="hero-orb hero-orb-one"></div>
     <div class="hero-orb hero-orb-two"></div>
