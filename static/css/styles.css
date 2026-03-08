@@ -7,6 +7,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -149,6 +150,7 @@ a {
 .subpage-hero {
   position: relative;
   background: linear-gradient(135deg, #E5B80B 0%, #F4D03F 35%, #FFE682 100%);
+  scroll-snap-align: start;
 }
 
 .hero-section {
@@ -395,6 +397,7 @@ a {
 
 .section-space {
   padding: 5.5rem 0;
+  scroll-snap-align: start;
 }
 
 .section-accent {
@@ -824,6 +827,7 @@ a {
 .site-footer {
   background: linear-gradient(180deg, #1f1f1f 0%, #151515 100%);
   color: rgba(255, 255, 255, 0.86);
+  scroll-snap-align: start;
 }
 
 .footer-brand {
