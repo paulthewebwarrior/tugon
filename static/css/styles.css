@@ -502,8 +502,9 @@ a {
 }
 
 .candidate-credentials-full {
-  white-space: pre-line;
   line-height: 1.9;
+  display: grid;
+  gap: 0.35rem;
 }
 
 .candidate-credentials-full strong {
@@ -540,24 +541,29 @@ a {
 .credentials-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
   padding-left: 0;
   list-style: none;
+  margin-bottom: 0.5rem;
 }
 
 .credentials-item {
   position: relative;
-  padding-left: 1.3rem;
+  padding: 0.55rem 0.65rem 0.55rem 1.5rem;
+  margin: 0;
   color: #5A5A5A;
-  line-height: 1.65;
+  line-height: 1.6;
   font-size: 0.96rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(229, 184, 11, 0.18);
+  border-radius: 10px;
 }
 
 .credentials-item::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 0.65em;
+  left: 0.7rem;
+  top: 1rem;
   width: 6px;
   height: 6px;
   background: linear-gradient(135deg, #F4D03F, #E5B80B);
@@ -698,6 +704,27 @@ a {
   border-radius: 50%;
   background: linear-gradient(145deg, #f4d03f, #d89f00);
   box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.2);
+}
+
+.gpoa-mini-card {
+  border: 1px solid rgba(229, 184, 11, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf1 100%);
+}
+
+.gpoa-mini-card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.gpoa-mini-card .gpoa-summary {
+  margin-bottom: 0;
+}
+
+.gpoa-mini-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
 }
 
 .highlight-list {

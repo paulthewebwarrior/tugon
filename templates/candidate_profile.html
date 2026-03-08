@@ -30,17 +30,51 @@
         <div class="col-lg-8 reveal-up delay-2">
           <article class="card-glass p-4 p-lg-5">
             <h2 class="panel-title">Credentials</h2>
-            <p class="candidate-credentials-full">{{ candidate.credentials|replace('\n', '<br>')|safe }}</p>
+            <div class="candidate-credentials-full">
+              {% set credentials_parts = candidate.credentials.split('\n\n') %}
+              {% for section in credentials_parts %}
+                {% if section.strip() %}
+                  {% set lines = section.strip().split('\n') %}
+                  {% if lines|length > 0 %}
+                    {%  if 'ACADEMIC EXCELLENCE' in lines[0] or 'EXTRA CURRICULARS' in lines[0] or 'INTERNATIONAL LEVEL' in lines[0] or 'NATIONAL LEVEL' in lines[0] or 'REGIONAL LEVEL' in lines[0] or 'CITY-WIDE LEVEL' in lines[0] or 'SCHOOL LEVEL' in lines[0] %}
+                      <div class="credentials-header mt-3">
+                        {% if 'ACADEMIC' in lines[0] %}
+                          <i class="bi bi-mortarboard-fill"></i>
+                        {% elif 'INTERNATIONAL' in lines[0] %}
+                          <i class="bi bi-globe"></i>
+                        {% else %}
+                          <i class="bi bi-star-fill"></i>
+                        {% endif %}
+                        {{ lines[0] }}
+                      </div>
+                      <div class="credentials-list" role="list">
+                        {% for item in lines[1:] if item.strip() %}
+                          <p class="credentials-item" role="listitem">{{ item.strip() }}</p>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                      <div class="credentials-list" role="list">
+                        {% for item in lines if item.strip() %}
+                          <p class="credentials-item" role="listitem">{{ item.strip() }}</p>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
 
             <h2 class="panel-title mt-4">Brief Introduction</h2>
             <p>{{ candidate.brief_introduction }}</p>
 
-            <div class="row g-3 mt-2">
+            <h2 class="panel-title mt-4">Council GPOA Highlights</h2>
+            <div class="row g-3 mt-1">
               {% for item in council.gpoa %}
                 <div class="col-md-6">
-                  <div class="mini-feature h-100">
+                  <div class="mini-feature gpoa-mini-card h-100">
+                    <div class="platform-icon gpoa-mini-icon"><i class="bi {{ item.icon }}"></i></div>
                     <h3>{{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
+                    <p class="gpoa-summary">{{ item.description }}</p>
                   </div>
                 </div>
               {% endfor %}
