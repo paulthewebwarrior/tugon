@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeSong = document.getElementById("homeSong");
 
   if (homeSong) {
+    homeSong.autoplay = true;
+
     const playHomeSong = () => {
       homeSong.play().catch(() => {
         // Ignore errors when playback is blocked or no source file exists.
@@ -9,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     playHomeSong();
+    window.addEventListener("load", playHomeSong, { once: true });
 
     const unlockAudio = () => {
       playHomeSong();

@@ -3,7 +3,7 @@
 {% block title %}Home | Nagkakaisang Tugon{% endblock %}
 
 {% block content %}
-  <audio id="homeSong" loop preload="auto" aria-hidden="true">
+  <audio id="homeSong" autoplay loop preload="auto" playsinline aria-hidden="true">
     <source src="{{ url_for('static', filename='audio/home-song.mp3') }}" type="audio/mpeg">
   </audio>
 
