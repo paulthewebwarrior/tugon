@@ -698,6 +698,37 @@ a {
   transform: translateY(0);
 }
 
+.music-fallback-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1040;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #1e1b16;
+  background: linear-gradient(135deg, #E5B80B 0%, #F4D03F 35%, #FFE682 100%);
+  box-shadow: 0 12px 28px rgba(229, 184, 11, 0.32);
+}
+
+.music-fallback-btn:hover,
+.music-fallback-btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(229, 184, 11, 0.38);
+}
+
+.music-fallback-btn i {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
 .delay-1 {
   transition-delay: 0.08s;
 }
@@ -754,6 +785,13 @@ a {
 
   .candidate-photo {
     height: 220px;
+  }
+
+  .music-fallback-btn {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    font-size: 0.74rem;
+    padding: 0.46rem 0.75rem;
   }
 
   .contact-form,

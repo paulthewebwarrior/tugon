@@ -1,28 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
   const homeSong = document.getElementById("homeSong");
+  const musicFallbackBtn = document.getElementById("musicFallbackBtn");
 
   if (homeSong) {
     homeSong.autoplay = true;
 
+    const setFallbackVisibility = (isVisible) => {
+      if (!musicFallbackBtn) return;
+      musicFallbackBtn.hidden = !isVisible;
+      musicFallbackBtn.setAttribute("aria-hidden", String(!isVisible));
+    };
+
     const playHomeSong = () => {
-      homeSong.play().catch(() => {
-        // Ignore errors when playback is blocked or no source file exists.
-      });
+      homeSong
+        .play()
+        .then(() => {
+          setFallbackVisibility(false);
+        })
+        .catch((error) => {
+          if (error && error.name === "NotAllowedError") {
+            setFallbackVisibility(true);
+          }
+        });
     };
 
     playHomeSong();
     window.addEventListener("load", playHomeSong, { once: true });
 
-    const unlockAudio = () => {
-      playHomeSong();
-      document.removeEventListener("click", unlockAudio);
-      document.removeEventListener("keydown", unlockAudio);
-      document.removeEventListener("touchstart", unlockAudio);
-    };
+    homeSong.addEventListener("playing", () => setFallbackVisibility(false));
 
-    document.addEventListener("click", unlockAudio, { once: true });
-    document.addEventListener("keydown", unlockAudio, { once: true });
-    document.addEventListener("touchstart", unlockAudio, { once: true });
+    if (musicFallbackBtn) {
+      musicFallbackBtn.addEventListener("click", playHomeSong);
+    }
   }
 
   const revealElements = document.querySelectorAll(".reveal-up");
