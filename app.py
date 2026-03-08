@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import os
 import re
 from datetime import date
@@ -9,14 +8,11 @@ from typing import Any
 
 from flask import Flask, flash, redirect, render_template, request, url_for
 
+import database
+
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
-CANDIDATES_FILE = DATA_DIR / "candidates.json"
-MESSAGES_FILE = DATA_DIR / "messages.json"
-
-JSONCacheEntry = tuple[int, int, list[dict[str, Any]]]
-_JSON_CACHE: dict[Path, JSONCacheEntry] = {}
 
 
 COUNCILS: list[dict[str, Any]] = [
@@ -207,65 +203,29 @@ def set_cache_headers(response: Any) -> Any:
 
 
 def ensure_storage() -> None:
+    """Ensure database is initialized."""
     DATA_DIR.mkdir(exist_ok=True)
-
-    if not CANDIDATES_FILE.exists():
-        CANDIDATES_FILE.write_text("[]", encoding="utf-8")
-
-    if not MESSAGES_FILE.exists():
-        MESSAGES_FILE.write_text("[]", encoding="utf-8")
-
-
-def read_json(file_path: Path) -> list[dict[str, Any]]:
-    try:
-        stat = file_path.stat()
-    except OSError:
-        return []
-
-    cache_entry = _JSON_CACHE.get(file_path)
-    cache_key = (stat.st_mtime_ns, stat.st_size)
-    if cache_entry and cache_entry[0] == cache_key[0] and cache_entry[1] == cache_key[1]:
-        return [dict(item) for item in cache_entry[2]]
-
-    try:
-        with file_path.open("r", encoding="utf-8") as file:
-            raw = json.load(file)
-    except json.JSONDecodeError:
-        # Fallback gracefully if data gets corrupted.
-        return []
-    except OSError:
-        return []
-
-    if not isinstance(raw, list):
-        return []
-
-    payload = [item for item in raw if isinstance(item, dict)]
-    _JSON_CACHE[file_path] = (cache_key[0], cache_key[1], payload)
-    return [dict(item) for item in payload]
-
-
-def write_json(file_path: Path, payload: list[dict[str, Any]]) -> None:
-    temp_path = file_path.with_suffix(f"{file_path.suffix}.tmp")
-    with temp_path.open("w", encoding="utf-8") as file:
-        json.dump(payload, file, indent=2, ensure_ascii=False)
-    temp_path.replace(file_path)
-    _JSON_CACHE.pop(file_path, None)
+    # Database initialization is handled by the database module on import
 
 
 def load_candidates() -> list[dict[str, Any]]:
-    return normalize_candidates(read_json(CANDIDATES_FILE))
+    """Load all candidates from SQLite database."""
+    return normalize_candidates(database.load_candidates())
 
 
 def save_candidates(candidates: list[dict[str, Any]]) -> None:
-    write_json(CANDIDATES_FILE, normalize_candidates(candidates))
+    """Save candidates to SQLite database."""
+    database.save_candidates(normalize_candidates(candidates))
 
 
 def load_messages() -> list[dict[str, Any]]:
-    return read_json(MESSAGES_FILE)
+    """Load all messages from SQLite database."""
+    return database.load_messages()
 
 
-def save_messages(messages: list[dict[str, Any]]) -> None:
-    write_json(MESSAGES_FILE, messages)
+def save_message(message: dict[str, Any]) -> None:
+    """Save a single message to SQLite database."""
+    database.save_message(message)
 
 
 def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
