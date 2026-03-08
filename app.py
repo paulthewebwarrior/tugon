@@ -97,60 +97,6 @@ COUNCIL_BY_CODE = {c["code"]: c for c in COUNCILS}
 COUNCIL_BY_SLUG = {c["slug"]: c for c in COUNCILS}
 
 
-SEED_MULTI_COUNCIL_CANDIDATES: list[dict[str, Any]] = [
-    {
-        "id": "csc-kate-de-villa",
-        "name": "Kate De Villa",
-        "position": "President",
-        "photo": "images/default-candidate.svg",
-        "credentials": "Student Leader Awardee\nFormer College Representative\nCampus Policy Forum Moderator",
-        "plan_of_action": "Lead campus-wide policy consultations, strengthen welfare systems, and publish regular governance reports.",
-        "council": "CSC",
-        "created_at": "2026-03-08",
-    },
-    {
-        "id": "csc-miguel-santos",
-        "name": "Miguel Santos",
-        "position": "Vice President",
-        "photo": "images/default-candidate.svg",
-        "credentials": "Leadership Congress Delegate\nUniversity Event Coordinator\nPeer Mentor",
-        "plan_of_action": "Coordinate inter-college programs and ensure project execution timelines are publicly tracked.",
-        "council": "CSC",
-        "created_at": "2026-03-08",
-    },
-    {
-        "id": "cassc-alyssa-rivera",
-        "name": "Alyssa Rivera",
-        "position": "President",
-        "photo": "images/default-candidate.svg",
-        "credentials": "Dean's Lister\nResearch Conference Presenter\nDepartment Organization Officer",
-        "plan_of_action": "Advance arts and science student services, research support systems, and transparent policy communication.",
-        "council": "CASSC",
-        "created_at": "2026-03-08",
-    },
-    {
-        "id": "cbasc-ian-delacruz",
-        "name": "Ian Dela Cruz",
-        "position": "President",
-        "photo": "images/default-candidate.svg",
-        "credentials": "Business Pitch Champion\nStudent Entrepreneur Network Officer\nInternship Ambassador",
-        "plan_of_action": "Expand internship pipelines, entrepreneurship support, and practical business development opportunities.",
-        "council": "CBASC",
-        "created_at": "2026-03-08",
-    },
-    {
-        "id": "cfadsc-luna-marquez",
-        "name": "Luna Marquez",
-        "position": "President",
-        "photo": "images/default-candidate.svg",
-        "credentials": "Design Competition Finalist\nStudio Organization Coordinator\nCreative Project Lead",
-        "plan_of_action": "Strengthen studio resource access, showcase student creatives, and protect student welfare in production-heavy programs.",
-        "council": "CFADSC",
-        "created_at": "2026-03-08",
-    },
-]
-
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "nagkakaisang-tugon-dev-secret")
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000  # 1 year for static files
@@ -226,11 +172,6 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             del normalized_item["plan"]
 
         normalized.append(normalized_item)
-
-    existing_ids = {candidate.get("id") for candidate in normalized}
-    for seed_candidate in SEED_MULTI_COUNCIL_CANDIDATES:
-        if seed_candidate["id"] not in existing_ids:
-            normalized.append(seed_candidate)
 
     return normalized
 
@@ -321,7 +262,7 @@ def home() -> str:
         spotlight_candidates=spotlight_candidates,
         council_cards=council_cards,
         platform_sections=platform_sections,
-        election_day=str(date(2026, 5, 15)),
+        election_day=str(date(2026, 3, 25)),
         gallery_items=get_gallery_items()[:3],
     )
 
