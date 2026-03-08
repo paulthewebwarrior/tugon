@@ -64,11 +64,11 @@
               {% endfor %}
             </div>
 
-            <h2 class="panel-title mt-4">Brief Introduction</h2>
+            <h2 class="panel-title mt-3">Brief Introduction</h2>
             <p>{{ candidate.brief_introduction }}</p>
 
-            <h2 class="panel-title mt-4">Council GPOA Highlights</h2>
-            <div class="row g-3 mt-1">
+            <h2 class="panel-title mt-3">Council GPOA Highlights</h2>
+            <div class="row g-2 mt-1">
               {% for item in council.gpoa %}
                 <div class="col-md-6">
                   <div class="mini-feature gpoa-mini-card h-100">
@@ -80,7 +80,7 @@
               {% endfor %}
             </div>
 
-            <a class="btn btn-outline-campaign mt-4" href="{{ url_for('council_page', slug=council.slug) }}">Back to {{ council.short_name }}</a>
+            <a class="btn btn-outline-campaign mt-3" href="{{ url_for('council_page', slug=council.slug) }}">Back to {{ council.short_name }}</a>
           </article>
         </div>
       </div>

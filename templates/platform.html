@@ -18,12 +18,12 @@
   <section class="section-space bg-white">
     <div class="container">
       {% for council in councils %}
-        <div class="gpoa-group reveal-up {% if not loop.first %}mt-5{% endif %}">
+        <div class="gpoa-group reveal-up {% if not loop.first %}mt-4{% endif %}">
           <div class="gpoa-group-header">
             <span class="eyebrow">{{ council.short_name }}</span>
             <h2>{{ council.name }}</h2>
           </div>
-          <div class="row g-4">
+          <div class="row g-3">
             {% for section in council.gpoa %}
               <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
                 <article class="platform-card h-100">
@@ -31,7 +31,7 @@
                   <h3>{{ section.title }}</h3>
                   <p class="gpoa-summary">{{ section.description }}</p>
                   {% if section.get('items') %}
-                    <div class="gpoa-details mt-3 mb-0">
+                    <div class="gpoa-details mt-2 mb-0">
                       {% for detail in section.get('items') %}
                         <p class="gpoa-detail-item mb-2">{{ detail }}</p>
                       {% endfor %}
