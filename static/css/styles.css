@@ -31,6 +31,12 @@
   --card-bg: rgba(40, 40, 40, 0.95);
   --navbar-bg: rgba(20, 20, 20, 0.85);
   --navbar-border: rgba(255, 255, 255, 0.1);
+  /* Dark mode golden colors - brighter for contrast */
+  --campaign-yellow: #FFD700;
+  --campaign-amber: #FFC107;
+  --campaign-cream: #2a2a1a;
+  --campaign-shadow: 0 24px 60px rgba(255, 215, 0, 0.15);
+  --campaign-gradient: linear-gradient(135deg, #FFC107 0%, #FFD700 35%, #FFED4E 100%);
 }
 
 html {
@@ -108,6 +114,11 @@ a {
   height: 58px;
   object-fit: contain;
   filter: drop-shadow(0 10px 18px rgba(229, 184, 11, 0.32));
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .brand-logo {
+  filter: drop-shadow(0 10px 18px rgba(255, 215, 0, 0.3));
 }
 
 .brand-text {
@@ -124,15 +135,26 @@ a {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #B8860B;
+  color: var(--campaign-amber);
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link:focus {
+  color: var(--campaign-yellow);
 }
 
 .btn-campaign,
 .btn-outline-campaign:hover {
-  background: linear-gradient(135deg, #E5B80B, #F4D03F);
+  background: var(--campaign-gradient);
   color: #1e1b16;
   border: 0;
   box-shadow: 0 18px 35px rgba(229, 184, 11, 0.38);
+}
+
+[data-theme="dark"] .btn-campaign,
+[data-theme="dark"] .btn-outline-campaign:hover {
+  box-shadow: 0 18px 35px rgba(255, 215, 0, 0.25);
 }
 
 .btn-campaign:hover,
@@ -144,8 +166,21 @@ a {
 
 .btn-outline-campaign {
   border: 1px solid rgba(229, 184, 11, 0.65);
-  color: #B8860B;
+  color: var(--campaign-amber);
   background: rgba(255, 255, 255, 0.75);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .btn-outline-campaign {
+  background: rgba(60, 60, 60, 0.4);
+  border-color: rgba(255, 215, 0, 0.6);
+  color: var(--campaign-yellow);
+}
+
+[data-theme="dark"] .btn-outline-campaign:hover,
+[data-theme="dark"] .btn-outline-campaign:focus {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.9);
 }
 
 .btn {
@@ -172,6 +207,11 @@ a {
 
 .subpage-hero-admin {
   background: linear-gradient(135deg, #FFE682 0%, #FFF4D6 45%, #ffffff 100%);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .subpage-hero-admin {
+  background: linear-gradient(135deg, rgba(60, 60, 60, 0.9) 0%, rgba(40, 40, 40, 0.95) 45%, rgba(26, 26, 26, 0.95) 100%);
 }
 
 .hero-orb {
@@ -186,6 +226,11 @@ a {
   background: rgba(244, 208, 63, 0.4);
   top: 4%;
   right: 4%;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .hero-orb-one {
+  background: rgba(255, 215, 0, 0.25);
 }
 
 .hero-orb-two {
@@ -194,6 +239,11 @@ a {
   background: rgba(229, 184, 11, 0.3);
   bottom: 10%;
   left: 8%;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .hero-orb-two {
+  background: rgba(255, 193, 7, 0.2);
 }
 
 .eyebrow {
@@ -201,8 +251,13 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.8rem;
-  color: #B8860B;
+  color: var(--campaign-amber);
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .eyebrow {
+  color: var(--campaign-yellow);
 }
 
 .small-eyebrow {
@@ -262,7 +317,14 @@ a {
   letter-spacing: 0.12em;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #B8860B;
+  color: var(--campaign-amber);
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .panel-kicker,
+[data-theme="dark"] .candidate-position,
+[data-theme="dark"] .footer-label {
+  color: var(--campaign-yellow);
 }
 
 .panel-title,
@@ -290,7 +352,12 @@ a {
 
 .hero-list i,
 .platform-icon {
-  color: #B8860B;
+  color: var(--campaign-amber);
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .hero-list i {
+  color: var(--campaign-yellow);
 }
 
 .hero-stats .stat-card {
@@ -299,17 +366,30 @@ a {
   padding: 1.1rem 1.2rem;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .hero-stats .stat-card {
+  background: rgba(60, 60, 60, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .hero-stats strong {
   display: block;
   font-size: 1.8rem;
   font-family: "Montserrat", sans-serif;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .hero-stats span {
   color: #5A5A5A;
   font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .hero-stats span {
+  color: var(--text-secondary);
 }
 
 .campaign-banner-section {
@@ -317,6 +397,11 @@ a {
   background: linear-gradient(135deg, #E5B80B 0%, #F4D03F 40%, #FFE682 100%);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .campaign-banner-section {
+  background: linear-gradient(135deg, #FFC107 0%, #FFD700 40%, #FFED4E 100%);
 }
 
 .campaign-banner {
@@ -328,9 +413,17 @@ a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+[data-theme="dark"] .campaign-banner {
+  box-shadow: 0 32px 72px rgba(255, 215, 0, 0.2), 0 8px 24px rgba(255, 215, 0, 0.12);
+}
+
 .campaign-banner:hover {
   transform: translateY(-4px);
   box-shadow: 0 36px 80px rgba(229, 184, 11, 0.32), 0 12px 32px rgba(229, 184, 11, 0.22);
+}
+
+[data-theme="dark"] .campaign-banner:hover {
+  box-shadow: 0 36px 80px rgba(255, 215, 0, 0.25), 0 12px 32px rgba(255, 215, 0, 0.15);
 }
 
 .campaign-banner-image {
@@ -348,6 +441,13 @@ a {
   background:
     radial-gradient(circle at top left, rgba(244, 208, 63, 0.32), transparent 34%),
     linear-gradient(180deg, #FFF9E5 0%, #FFF4D6 100%);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .section-accent {
+  background:
+    radial-gradient(circle at top left, rgba(255, 215, 0, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%);
 }
 
 .section-heading {
@@ -381,6 +481,11 @@ a {
   object-position: center top;
   border-radius: 22px;
   background: linear-gradient(180deg, #FFE682 0%, #FFF9E5 100%);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .candidate-photo {
+  background: linear-gradient(180deg, rgba(60, 60, 60, 0.8) 0%, rgba(40, 40, 40, 0.8) 100%);
 }
 
 .candidate-photo-modal {
@@ -414,6 +519,11 @@ a {
   color: #8B7355;
   font-size: 1rem;
   line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .candidate-tagline {
+  color: #D4A574;
 }
 
 .candidate-credentials-preview,
@@ -437,7 +547,7 @@ a {
   left: 0;
   right: 0;
   height: 2.5em;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.95));
+  background: linear-gradient(to bottom, transparent, var(--card-bg));
   pointer-events: none;
 }
 
@@ -468,17 +578,28 @@ a {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #B8860B;
+  color: var(--campaign-amber);
   background: linear-gradient(135deg, rgba(244, 208, 63, 0.18), rgba(229, 184, 11, 0.10));
   padding: 0.4rem 0.9rem;
   border-radius: 12px;
   margin-bottom: 0.8rem;
   border: 1px solid rgba(229, 184, 11, 0.25);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .credentials-header {
+  color: var(--campaign-yellow);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 193, 7, 0.08));
+  border-color: rgba(255, 215, 0, 0.3);
 }
 
 .credentials-header i {
   font-size: 0.9rem;
-  color: #F4D03F;
+  color: var(--campaign-yellow);
+}
+
+[data-theme="dark"] .credentials-header i {
+  color: #FFED4E;
 }
 
 .credentials-list {
@@ -495,6 +616,11 @@ a {
   color: #5A5A5A;
   line-height: 1.65;
   font-size: 0.96rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .credentials-item {
+  color: var(--text-secondary);
 }
 
 .credentials-item::before {
@@ -504,9 +630,14 @@ a {
   top: 0.65em;
   width: 6px;
   height: 6px;
-  background: linear-gradient(135deg, #F4D03F, #E5B80B);
+  background: linear-gradient(135deg, var(--campaign-yellow), var(--campaign-amber));
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(244, 208, 63, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .credentials-item::before {
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.35);
 }
 
 .candidate-modal {
@@ -514,6 +645,12 @@ a {
   border-radius: 28px;
   overflow: hidden;
   background: linear-gradient(180deg, #FFF9E5 0%, #ffffff 100%);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .candidate-modal {
+  background: linear-gradient(180deg, rgba(40, 40, 40, 0.95) 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .modal-subtitle {
@@ -521,8 +658,13 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 800;
-  color: #B8860B;
+  color: var(--campaign-amber);
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .modal-subtitle {
+  color: var(--campaign-yellow);
 }
 
 .platform-card {
@@ -530,8 +672,9 @@ a {
 }
 
 .gpoa-group {
-  border-top: 1px solid rgba(32, 33, 36, 0.08);
+  border-top: 1px solid var(--border-color);
   padding-top: 2.5rem;
+  transition: border-color 0.3s ease;
 }
 
 .gpoa-group-header {
@@ -544,7 +687,8 @@ a {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  color: var(--campaign-ink);
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .gpoa-item {
@@ -554,6 +698,13 @@ a {
   background: linear-gradient(180deg, #FFF9E5 0%, #ffffff 100%);
   border: 1px solid rgba(244, 208, 63, 0.35);
   box-shadow: 0 18px 40px rgba(229, 184, 11, 0.14);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .gpoa-item {
+  background: linear-gradient(180deg, rgba(50, 50, 50, 0.8) 0%, rgba(40, 40, 40, 0.95) 100%);
+  border-color: rgba(244, 208, 63, 0.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
 }
 
 .gpoa-item h3 {
@@ -569,6 +720,11 @@ a {
   margin-bottom: 0;
   color: #5A5A5A;
   line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .gpoa-item p {
+  color: var(--text-secondary);
 }
 
 .platform-icon {
@@ -581,6 +737,11 @@ a {
   background: linear-gradient(145deg, rgba(244, 208, 63, 0.48), rgba(255, 255, 255, 0.95));
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .platform-icon {
+  background: linear-gradient(145deg, rgba(255, 215, 0, 0.25), rgba(60, 60, 60, 0.8));
 }
 
 .highlight-list {
@@ -588,6 +749,11 @@ a {
   color: #5A5A5A;
   display: grid;
   gap: 0.65rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .highlight-list {
+  color: var(--text-secondary);
 }
 
 .contact-form,
@@ -596,17 +762,45 @@ a {
   border-radius: 28px;
   background: #ffffff;
   box-shadow: var(--campaign-shadow);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .admin-form {
+  background: rgba(40, 40, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-control {
   border-radius: 18px;
   border: 1px solid var(--campaign-border);
   padding: 0.95rem 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
 .form-control:focus {
   border-color: rgba(229, 184, 11, 0.65);
   box-shadow: 0 0 0 0.25rem rgba(244, 208, 63, 0.22);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control {
+  background-color: rgba(60, 60, 60, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: rgba(60, 60, 60, 0.8);
+  border-color: rgba(244, 208, 63, 0.6);
+  box-shadow: 0 0 0 0.25rem rgba(244, 208, 63, 0.15);
 }
 
 .support-links {
@@ -622,16 +816,49 @@ a {
   border-radius: 18px;
   background: rgba(255, 249, 222, 0.78);
   font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.support-links a:hover {
+  background: rgba(255, 249, 222, 0.95);
+}
+
+[data-theme="dark"] .support-links a {
+  background: rgba(60, 60, 60, 0.6);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .support-links a:hover {
+  background: rgba(60, 60, 60, 0.8);
+  border-color: rgba(244, 208, 63, 0.3);
 }
 
 .table {
   --bs-table-bg: transparent;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .table {
+  --bs-table-border-color: rgba(255, 255, 255, 0.1);
 }
 
 .admin-pill {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--campaign-amber);
   background: rgba(244, 208, 63, 0.28);
   border-radius: 999px;
   padding: 0.45rem 0.8rem;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .admin-pill {
+  color: var(--campaign-yellow);
+  background: rgba(255, 215, 0, 0.15);
 }
 
 .message-list {
@@ -645,13 +872,25 @@ a {
   padding: 1rem;
   border-radius: 18px;
   background: #FFF4D6;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .message-item {
+  background: rgba(60, 60, 60, 0.8);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .message-item a {
   display: block;
   font-size: 0.95rem;
-  color: #B8860B;
+  color: var(--campaign-amber);
   margin: 0.25rem 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .message-item a {
+  color: var(--campaign-yellow);
 }
 
 .site-footer {
@@ -671,11 +910,22 @@ a {
   height: 68px;
   object-fit: contain;
   filter: drop-shadow(0 12px 26px rgba(229, 184, 11, 0.28));
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .footer-logo {
+  filter: drop-shadow(0 12px 26px rgba(255, 215, 0, 0.25));
 }
 
 .site-footer a,
 .site-footer i {
   color: #FFE682;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .site-footer a,
+[data-theme="dark"] .site-footer i {
+  color: var(--campaign-yellow);
 }
 
 .footer-title {
@@ -793,12 +1043,12 @@ a {
 }
 
 [data-theme="dark"] .theme-toggle {
-  border-color: rgba(255, 230, 130, 0.4);
+  border-color: rgba(255, 215, 0, 0.5);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-  background: rgba(255, 230, 130, 0.15);
-  border-color: rgba(255, 230, 130, 0.8);
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.9);
 }
 
 /* Dark mode form styling */
