@@ -502,9 +502,9 @@ a {
 }
 
 .candidate-credentials-full {
-  line-height: 1.75;
+  line-height: 1.82;
   display: grid;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .candidate-credentials-full strong {
@@ -526,9 +526,9 @@ a {
   letter-spacing: 0.08em;
   color: #E5B80B;
   background: linear-gradient(135deg, rgba(244, 208, 63, 0.18), rgba(229, 184, 11, 0.10));
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 12px;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.7rem;
   border: 1px solid rgba(229, 184, 11, 0.25);
   transition: all 0.3s ease;
 }
@@ -541,31 +541,31 @@ a {
 .credentials-list {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.5rem;
   padding-left: 0;
   list-style: none;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
 }
 
 .credentials-item {
   position: relative;
-  padding: 0.42rem 0.6rem 0.42rem 1.38rem;
+  padding: 0.56rem 0.76rem 0.56rem 1.5rem;
   margin: 0;
   color: #5A5A5A;
-  line-height: 1.5;
-  font-size: 0.92rem;
+  line-height: 1.58;
+  font-size: 0.95rem;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(229, 184, 11, 0.18);
-  border-radius: 9px;
+  border-radius: 10px;
 }
 
 .credentials-item::before {
   content: '';
   position: absolute;
-  left: 0.62rem;
-  top: 0.9rem;
-  width: 5px;
-  height: 5px;
+  left: 0.7rem;
+  top: 1rem;
+  width: 6px;
+  height: 6px;
   background: linear-gradient(135deg, #F4D03F, #E5B80B);
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(244, 208, 63, 0.25);

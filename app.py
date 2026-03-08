@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 CANDIDATES_FILE = DATA_DIR / "candidates.json"
 MESSAGES_FILE = DATA_DIR / "messages.json"
+
+JSONCacheEntry = tuple[int, int, list[dict[str, Any]]]
+_JSON_CACHE: dict[Path, JSONCacheEntry] = {}
 
 
 COUNCILS: list[dict[str, Any]] = [
@@ -213,13 +217,39 @@ def ensure_storage() -> None:
 
 
 def read_json(file_path: Path) -> list[dict[str, Any]]:
-    with file_path.open("r", encoding="utf-8") as file:
-        return json.load(file)
+    try:
+        stat = file_path.stat()
+    except OSError:
+        return []
+
+    cache_entry = _JSON_CACHE.get(file_path)
+    cache_key = (stat.st_mtime_ns, stat.st_size)
+    if cache_entry and cache_entry[0] == cache_key[0] and cache_entry[1] == cache_key[1]:
+        return [dict(item) for item in cache_entry[2]]
+
+    try:
+        with file_path.open("r", encoding="utf-8") as file:
+            raw = json.load(file)
+    except json.JSONDecodeError:
+        # Fallback gracefully if data gets corrupted.
+        return []
+    except OSError:
+        return []
+
+    if not isinstance(raw, list):
+        return []
+
+    payload = [item for item in raw if isinstance(item, dict)]
+    _JSON_CACHE[file_path] = (cache_key[0], cache_key[1], payload)
+    return [dict(item) for item in payload]
 
 
 def write_json(file_path: Path, payload: list[dict[str, Any]]) -> None:
-    with file_path.open("w", encoding="utf-8") as file:
-        json.dump(payload, file, indent=2)
+    temp_path = file_path.with_suffix(f"{file_path.suffix}.tmp")
+    with temp_path.open("w", encoding="utf-8") as file:
+        json.dump(payload, file, indent=2, ensure_ascii=False)
+    temp_path.replace(file_path)
+    _JSON_CACHE.pop(file_path, None)
 
 
 def load_candidates() -> list[dict[str, Any]]:
@@ -240,17 +270,39 @@ def save_messages(messages: list[dict[str, Any]]) -> None:
 
 def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
     normalized: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
 
-    for item in candidates:
-        plan_of_action = item.get("plan_of_action") or item.get("plan") or ""
-        brief_introduction = item.get("brief_introduction") or item.get("bio") or plan_of_action
-        council_code = (item.get("council") or "COESC").upper()
+    for index, item in enumerate(candidates, start=1):
+        name = str(item.get("name") or "").strip()
+        position = str(item.get("position") or "").strip()
+        tagline = str(item.get("tagline") or "").strip()
+        credentials = str(item.get("credentials") or "").strip()
+        plan_of_action = str(item.get("plan_of_action") or item.get("plan") or "").strip()
+        brief_introduction = str(item.get("brief_introduction") or item.get("bio") or plan_of_action).strip()
+        council_code = str(item.get("council") or "COESC").upper().strip()
 
         if council_code not in COUNCIL_BY_CODE:
             council_code = "COESC"
 
+        base_id = str(item.get("id") or "").strip()
+        if not base_id:
+            slug_seed = f"{name}-{position}".lower().strip("-")
+            base_id = re.sub(r"[^a-z0-9]+", "-", slug_seed).strip("-") or f"candidate-{index}"
+
+        candidate_id = base_id
+        suffix = 2
+        while candidate_id in seen_ids:
+            candidate_id = f"{base_id}-{suffix}"
+            suffix += 1
+        seen_ids.add(candidate_id)
+
         normalized_item = {
             **item,
+            "id": candidate_id,
+            "name": name,
+            "position": position,
+            "tagline": tagline,
+            "credentials": credentials,
             "plan_of_action": plan_of_action,
             "brief_introduction": brief_introduction,
             "council": council_code,
