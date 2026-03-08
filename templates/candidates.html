@@ -7,10 +7,9 @@
     <div class="container py-5">
       <div class="col-lg-8 reveal-up">
         <span class="eyebrow">Candidate Slate</span>
-        <h1>Engineering Student Council Candidates</h1>
+        <h1>Multi-Council Candidate Directory</h1>
         <p>
-          Meet the candidates of the Nagkakaisang Tugon Party Alliance and explore the experience,
-          priorities, and leadership plans behind the campaign.
+          Search candidates by name or position and filter by council to explore credentials and GPOA.
         </p>
       </div>
     </div>
@@ -18,6 +17,27 @@
 
   <section class="section-space bg-white">
     <div class="container">
+      <form class="candidate-filter-form reveal-up" method="get" action="{{ url_for('candidates') }}">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-6">
+            <label class="form-label" for="candidateSearch">Search by name or position</label>
+            <input id="candidateSearch" name="q" class="form-control" type="text" value="{{ search_query }}" placeholder="e.g. President or Ann Nicole">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="councilFilter">Filter by council</label>
+            <select id="councilFilter" name="council" class="form-select form-control">
+              <option value="ALL" {% if selected_council == 'ALL' %}selected{% endif %}>All Councils</option>
+              {% for council in councils %}
+                <option value="{{ council.code }}" {% if selected_council == council.code %}selected{% endif %}>{{ council.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-2 d-grid">
+            <button class="btn btn-campaign" type="submit">Apply</button>
+          </div>
+        </div>
+      </form>
+
       <div class="row g-4">
         {% for candidate in candidates %}
           <div class="col-md-6 col-xl-3 reveal-up delay-{{ loop.index }}">
@@ -31,100 +51,22 @@
                 alt="{{ candidate.name }}"
               >
               <div class="candidate-body d-flex flex-column">
+                <span class="panel-kicker">{{ candidate.council }}</span>
                 <span class="candidate-position">{{ candidate.position }}</span>
                 <h2 class="candidate-name">{{ candidate.name }}</h2>
-                <button
-                  class="btn btn-campaign mt-auto"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#candidateModal{{ loop.index }}"
-                >
-                  View Profile
-                </button>
+                <p class="candidate-plan mb-3">{{ candidate.short_credentials }}</p>
+                <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>
           </div>
-
-          <div class="modal fade" id="candidateModal{{ loop.index }}" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content candidate-modal">
-                <div class="modal-header border-0 pb-0">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-0 p-4 p-lg-5">
-                  <div class="row g-4 align-items-start">
-                    <div class="col-md-4">
-                      <img
-                        class="candidate-photo candidate-photo-modal"
-                        loading="lazy"
-                        width="300"
-                        height="260"
-                        src="{{ url_for('static', filename=candidate.photo) }}"
-                        alt="{{ candidate.name }}"
-                      >
-                    </div>
-                    <div class="col-md-8">
-                      <span class="candidate-position">{{ candidate.position }}</span>
-                      <h3 class="mt-2">{{ candidate.name }}</h3>
-                      <p class="candidate-tagline">{{ candidate.tagline }}</p>
-                      
-                      <div class="credentials-section">
-                        <h4 class="modal-subtitle mb-3">Credentials</h4>
-                        {% set credentials_parts = candidate.credentials.split('\n\n') %}
-                        {% for section in credentials_parts %}
-                          {% if section.strip() %}
-                            {% set lines = section.strip().split('\n') %}
-                            {% if lines|length > 0 %}
-                              {%  if 'ACADEMIC EXCELLENCE' in lines[0] or 'EXTRA CURRICULARS' in lines[0] or 'INTERNATIONAL LEVEL' in lines[0] or 'NATIONAL LEVEL' in lines[0] or 'REGIONAL LEVEL' in lines[0] or 'CITY-WIDE LEVEL' in lines[0] or 'SCHOOL LEVEL' in lines[0] %}
-                                <div class="credentials-header">
-                                  {% if 'ACADEMIC' in lines[0] %}
-                                    <i class="bi bi-mortarboard-fill"></i>
-                                  {% elif 'INTERNATIONAL' in lines[0] %}
-                                    <i class="bi bi-globe"></i>
-                                  {% else %}
-                                    <i class="bi bi-star-fill"></i>
-                                  {% endif %}
-                                  {{ lines[0] }}
-                                </div>
-                                <ul class="credentials-list">
-                                  {% for item in lines[1:] %}
-                                    {% if item.strip() %}
-                                      <li class="credentials-item">{{ item.strip() }}</li>
-                                    {% endif %}
-                                  {% endfor %}
-                                </ul>
-                              {% else %}
-                                <ul class="credentials-list">
-                                  {% for item in lines %}
-                                    {% if item.strip() %}
-                                      <li class="credentials-item">{{ item.strip() }}</li>
-                                    {% endif %}
-                                  {% endfor %}
-                                </ul>
-                              {% endif %}
-                            {% endif %}
-                          {% endif %}
-                        {% endfor %}
-                      </div>
-                      
-                      <p><strong>Profile:</strong> {{ candidate.bio }}</p>
-                      <p><strong>General Plan of Action:</strong> {{ candidate.plan }}</p>
-                      <div class="mt-4">
-                        <h4 class="modal-subtitle">Priority Actions</h4>
-                        <ul class="highlight-list mb-0">
-                          {% for highlight in candidate.highlights %}
-                            <li>{{ highlight }}</li>
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         {% endfor %}
       </div>
+
+      {% if not candidates %}
+        <div class="text-center mt-5 reveal-up">
+          <p class="candidate-plan mb-0">No candidates match your current search/filter.</p>
+        </div>
+      {% endif %}
     </div>
   </section>
 {% endblock %}

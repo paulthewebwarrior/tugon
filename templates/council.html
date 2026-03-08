@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ council.name }} | Nagkakaisang Tugon{% endblock %}
+
+{% block content %}
+  <section class="subpage-hero">
+    <div class="container py-5">
+      <div class="col-lg-9 reveal-up">
+        <span class="eyebrow">{{ council.short_name }}</span>
+        <h1>{{ council.name }}</h1>
+        <p>{{ council.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-white">
+    <div class="container">
+      <div class="section-heading reveal-up">
+        <span class="eyebrow">Candidates</span>
+        <h2>{{ council.short_name }} Candidate Lineup</h2>
+        <p>Explore the candidates, credentials, and profile details for this council.</p>
+      </div>
+      <div class="row g-4 mt-1">
+        {% for candidate in candidates %}
+          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+            <article class="candidate-card h-100">
+              <img class="candidate-photo" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
+              <div class="candidate-body d-flex flex-column">
+                <span class="candidate-position">{{ candidate.position }}</span>
+                <h3>{{ candidate.name }}</h3>
+                <p class="candidate-plan">{{ candidate.short_credentials }}</p>
+                <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space section-accent">
+    <div class="container">
+      <div class="section-heading reveal-up">
+        <span class="eyebrow">General Plan of Action</span>
+        <h2>{{ council.short_name }} GPOA</h2>
+        <p>Key action tracks for council governance and student development.</p>
+      </div>
+      <div class="row g-4 mt-1">
+        {% for item in council.gpoa %}
+          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+            <article class="platform-card h-100">
+              <div class="platform-icon"><i class="bi {{ item.icon }}"></i></div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

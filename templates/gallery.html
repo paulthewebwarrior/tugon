@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery | Nagkakaisang Tugon{% endblock %}
+
+{% block content %}
+  <section class="subpage-hero">
+    <div class="container py-5">
+      <div class="col-lg-8 reveal-up">
+        <span class="eyebrow">Campaign Gallery</span>
+        <h1>Alliance Photo Gallery</h1>
+        <p>Snapshots from campaign engagements, council consultations, and alliance initiatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-white">
+    <div class="container">
+      <div class="row g-4">
+        {% for item in gallery_items %}
+          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+            <article class="gallery-card h-100">
+              <img class="gallery-image" loading="lazy" width="420" height="280" src="{{ url_for('static', filename=item.file) }}" alt="{{ item.caption }}">
+              <div class="candidate-body">
+                <p class="candidate-plan mb-0">{{ item.caption }}</p>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

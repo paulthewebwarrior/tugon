@@ -5,14 +5,16 @@
     "position": "President",
     "tagline": "Leading with accountability, unity, and action for every engineering student.",
     "credentials": "ACADEMIC EXCELLENCE\nConsistent Honor Student (2018-2022)\nBest Student of the Year Awardee (2018)\nFirst Place, International Humanitarian Law Quiz Bee (2019)\nAcademic Excellence Awardee (2022-2024)\nUniversity Representative, 28th Philippine Statistics Quiz Regional Championship (2024)\nExemplary Academic Performance Awardee (2024-2025)\nTan Yan Kee Scholar (2024-Present)\n\nEXTRA CURRICULARS\nPresident, Red Cross Youth Organization (2018-2019)\nYear Level Representative, Filipino Club (2018-2019)\nBoard of Trustees, Red Cross Youth Organization (2019-2020)\nYear Level Representative, Red Cross Youth Organization (2019-2020)\nSecretary, Batang Emergency Response Team (BERT) Club (2022-2023)\nChair of Early Warning Committee Staff, BERT Club (2023-2024)\nFire Drill Marshal, University of the East-Caloocan (2024)\nWays and Means Committee Staff, Computer Engineering Students' Society (COESS) (2024-2025)\nWays and Means Committee Staff, COESS (2025-2026)\nVolunteer, Heart For The Nation - Philippines (2025)\nSecretary, Engineering Student Council (2025-2026)",
-    "plan": "Ann Nicole will lead the council in advancing the full general plan of action, prioritizing student welfare, transparent governance, academic support, and meaningful engagement across the college.",
     "bio": "Ann Nicole Geronimo stands as the alliance candidate for President, carrying the platform of responsive leadership, organized action, and visible service for the engineering community.",
     "photo": "images/GERONIMO.jpg",
     "highlights": [
       "Transparent council leadership and regular updates",
       "Student-centered execution of the full GPOA",
       "Stronger coordination across year levels and organizations"
-    ]
+    ],
+    "plan_of_action": "Ann Nicole will lead the council in advancing the full general plan of action, prioritizing student welfare, transparent governance, academic support, and meaningful engagement across the college.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "franc-lenard-dela-cruz",
@@ -20,14 +22,16 @@
     "position": "Vice President",
     "tagline": "Turning plans into coordinated programs that students can actually feel.",
     "credentials": "ACADEMIC EXCELLENCE\nSenior High School - With Honors (2021-2022)\nSenior High School - With Honors (2022-2023)\n\nEXTRA CURRICULARS\n2nd Lieutenant - ICPS CAT\nCAT Flag Bearer - ICPS CAT\nSports and Event Writer, Copy Reader - THE CROWN\nSTEM Grade 12 Section Representative (2022-2023)\nBusiness Manager - Silangan Film Circle (2024-2025)\nVice President - Silangan Film Circle (2025-2026)",
-    "plan": "Franc Lenard will help oversee implementation of council programs, strengthen coordination with representatives and organizations, and support delivery of academic, outreach, and student services initiatives.",
     "bio": "Franc Lenard Dela Cruz is the alliance candidate for Vice President, focused on reliable execution, collaborative leadership, and consistent follow-through on council commitments.",
     "photo": "images/DELA CRUZ.jpg",
     "highlights": [
       "Operational support for council-wide programs",
       "Closer coordination with RSOs and student leaders",
       "Faster follow-up on student initiatives and concerns"
-    ]
+    ],
+    "plan_of_action": "Franc Lenard will help oversee implementation of council programs, strengthen coordination with representatives and organizations, and support delivery of academic, outreach, and student services initiatives.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "maebelle-saniano",
@@ -35,14 +39,16 @@
     "position": "Secretary",
     "tagline": "Clear communication, organized records, and dependable council coordination.",
     "credentials": "ACADEMIC EXCELLENCE\nConsistent Honor Student (2019-2024)\nSenior High School - With High Honors (2024-2025)\n\nEXTRA CURRICULARS\nVolunteer, Heart For The Nation - Philippines (2025)\nVolunteer, Laudato Si' Ecological Advocacy Screening - Don Bosco School of Theology (2025)\nYear Level Representative, League of Information Technology Students (LITS) (2025-2026)",
-    "plan": "Maebelle will support accessible documentation, clear announcements, and organized internal systems so students stay informed about council decisions, projects, and timelines.",
     "bio": "Maebelle Saniano is the alliance candidate for Secretary, committed to keeping council communication timely, understandable, and properly documented for the student body.",
     "photo": "images/SANIANO.jpg",
     "highlights": [
       "Timely release of student-facing updates",
       "Organized council records and documentation",
       "Improved communication flow for announcements"
-    ]
+    ],
+    "plan_of_action": "Maebelle will support accessible documentation, clear announcements, and organized internal systems so students stay informed about council decisions, projects, and timelines.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "phoeben-andress-obnial",
@@ -50,14 +56,16 @@
     "position": "Treasurer",
     "tagline": "Responsible budgeting in service of visible student outcomes.",
     "credentials": "ACADEMIC EXCELLENCE\nExemplary Academic Performance Awardee (2024-2025)\nConsistent Honor Student (Kinder 1-2)\nBest Math Club Member (Grade 6)\nPerfect in Attendance (Grade 6)\nWith Honors (Grade 8)\n1st Quarter Top Performing Student in General Biology 1 (Grade 11)\nCertificate of Participation: Building Applications with AI Agents: Modern Development Workflows in Practice (February 11, 2026)\n\nEXTRA CURRICULARS\n2nd Year Representative, Association of Computer Studies Students (ACSS) (2025)\nMember, The Assumptan's Vision (2023)\nContributed articles for the school's publication\nAssisted in editing, proofreading, and fact-checking content before publication\nCollaborated with peers to report on campus events and social issues\nAdaptability in covering various topics and writing formats\nPublished articles for the school newspaper\nClass Secretary (Grade 2)\nDance Troupe Member (Grade 5)",
-    "plan": "Phoeben Andress will support transparent budgeting, careful allocation of resources, and responsible funding of programs that directly benefit engineering students.",
     "bio": "Phoeben Andress Obnial is the alliance candidate for Treasurer, advocating disciplined financial management aligned with transparency and student needs.",
     "photo": "images/OBNIAL.jpg",
     "highlights": [
       "Clear financial accountability",
       "Student-focused budget prioritization",
       "Support for sustainable council programming"
-    ]
+    ],
+    "plan_of_action": "Phoeben Andress will support transparent budgeting, careful allocation of resources, and responsible funding of programs that directly benefit engineering students.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "mariane-eustaquio",
@@ -65,14 +73,16 @@
     "position": "Auditor",
     "tagline": "Oversight that protects trust and strengthens accountability.",
     "credentials": "ACADEMIC EXCELLENCE\nConsistent Honor Student in Junior High School (2018-2022)\nClassroom Officer (2018-2020)\nAcademic Excellence Awardee (2023-2024)\nIskolar ng Bayan (2023-present)\n\nEXTRA CURRICULARS\nParticipant, SciMath Camp (2019)\nEvent Organizer, Artisan Club (2023-2024)\nAttended a Leadership Camp (2024-2025)\nWebinar Host, The Four Corners of Emerging Technology (2025)\nWays and Means Committee Head, Computer Engineering Students (2025-2026)\nSponsorship Committee, Engineering Student Council (2025-2026)",
-    "plan": "Mariane will help uphold transparency, monitor accountability mechanisms, and support systems that keep students informed on how council commitments are carried out.",
     "bio": "Mariane Eustaquio is the alliance candidate for Auditor, supporting fair oversight, integrity in council processes, and strong accountability standards.",
     "photo": "images/EUSTAQIUO.jpg",
     "highlights": [
       "Stronger accountability monitoring",
       "Support for transparent reporting practices",
       "Integrity in council processes and records"
-    ]
+    ],
+    "plan_of_action": "Mariane will help uphold transparency, monitor accountability mechanisms, and support systems that keep students informed on how council commitments are carried out.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "paul-gabriel-camacho",
@@ -80,29 +90,33 @@
     "position": "Business Manager",
     "tagline": "Building partnerships and support systems that sustain student programs.",
     "credentials": "ACADEMIC EXCELLENCE\nSenior High School - With High Honors\nWork Immersion Awardee\nOutstanding Performance for Media Arts\nOutstanding Performance for Research\nBest in Research Presenter\nBest in Research\nBest in Research Poster\n\nEXTRA CURRICULARS\nINTERNATIONAL LEVEL\nMember - Association of Top Achiever Scouts (ATAS World)\nDelegate - 33rd Asia-Pacific Regional Scout Jamboree, Botolan, Zambales, Philippines\n\nNATIONAL LEVEL\nEagle Scout Awardee - Boy Scouts of the Philippines - Navotas City Council\nFinalist - Ten Outstanding Boy Scouts of the Philippines\nRecipient of Gerry Roxas Leadership Award\nDelegate - Learner's Convergence Philippines 2024\n2nd Place Project Pitching Competition - Learner's Convergence Philippines 2024 - Representing CAMANAVA - Contributor\nDelegate - DepEd National Career Expo 2024 - Luzon Cluster\n\nREGIONAL LEVEL\nRegional Outstanding Scout - National Capital Region\n2nd Place - Regional Climate Change Caravan 2024 - Project Pitching Competition - Representing SDO Navotas City\n2022 Regional Scout Youth Forum - Observer\n2023 Regional Scout Youth Forum - Observer\n2024 Regional Scout Youth Forum - Voting Delegate\n\nCITY-WIDE LEVEL\nRecipient, JRT Leadership Award - LGU Navotas City\nRecipient, Sangguniang Kabataan Leadership Award - Barangay San Roque\nGraduated - Student Leadership Development Program (SLDP) Batch 2024\nNavotas City Youth Official as District Representative / Congressman - Linggo ng Kabataan 2024\nProtocol Officer - Division Federation of SSLG 2024-2025\nFacilitator and Resource Speaker - SDO Navotas City Student Leaders Convergence 2024\nRepresenting San Roque NHS - Navotas City Educational Summit 2024 - Youth Sector\nNavoYouth Volunteer - Navotas City Council for Youth Development\nCouncil Scout Representative - BSP Navotas City Council (2022-2023, 2023-2024, 2024-2025)\nLocal Council Executive Board Member - BSP Navotas City Council (2024-2025)\n3rd Place - Division Festival of Talents 2025 - Sineliksik Competition\n2nd Place - Division School Press Conference 2024 - Radio Broadcasting - News Anchor\nMember - Social Communication Ministry - San Roque de Navotas Parish\n\nSCHOOL LEVEL - UNIVERSITY OF THE EAST\n1st Year Representative - Association of Computer Studies Students (2025-2026)\nMedia Committee Head - Engineering Student Council (2025-2026)\n\nSCHOOL LEVEL\nRecipient of School-Based Leadership Award\nPresident - Supreme Secondary Learners Government (2024-2025)\nVice President - Supreme Secondary Learner Government (2023-2024)\nVice President - Youth for Environment in School Organization (2022-2024)\nSenior Vice President - Kontempo Art Club - Media (2024-2025)\nLayout Artist, Radio Broadcaster, Photojournalist - SRNHS Campus Journalism - Ang Alon (2023-2025)",
-    "plan": "Paul Gabriel will support resource generation, project sustainability, and partnership-building to help strengthen the council's capacity to deliver impactful programs.",
     "bio": "Paul Gabriel Camacho is the alliance candidate for Business Manager, focused on practical support systems and resource development for council-led initiatives.",
     "photo": "images/CAMACHO.jpg",
     "highlights": [
       "Support for sustainable project resourcing",
       "Partnership-building for student activities",
       "Operational backing for major council programs"
-    ]
+    ],
+    "plan_of_action": "Paul Gabriel will support resource generation, project sustainability, and partnership-building to help strengthen the council's capacity to deliver impactful programs.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "ariana-mariel-penaranda",
-    "name": "Ariana Mariel Peñaranda",
+    "name": "Ariana Mariel Pe\u00f1aranda",
     "position": "Public Relations Officer",
     "tagline": "Campaign communication that is visible, clear, and student-centered.",
     "credentials": "ACADEMIC EXCELLENCE\nOWWA EDSP Scholar (2023-Present)\nSenior High School - With Honors\nBest in Research Capstone (2nd Place) in UE Basic Education Department - Grade 12 STEM\nJunior High School - With Honors\n\nEXTRA CURRICULARS\nUE Association of Civil Engineering Students Public Relations Officer (2025-2026)\nPR Associate Staff, University of the East - Caloocan Central Student Council (2024-2025)\nMultimedia Committee, UE Association of Civil Engineering Students (2024-2025)\nMedia Relations Committee, University of the East - Caloocan Engineering Student Council\nMultimedia Committee, University of the East - Caloocan Supreme Student Government",
-    "plan": "Ariana Mariel will strengthen public-facing communication, improve awareness of council initiatives, and help ensure students receive timely and engaging updates.",
-    "bio": "Ariana Mariel Peñaranda is the alliance candidate for Public Relations Officer, committed to clear messaging, active engagement, and stronger connection between the council and students.",
-    "photo": "images/PEÑARANDA.jpeg",
+    "bio": "Ariana Mariel Pe\u00f1aranda is the alliance candidate for Public Relations Officer, committed to clear messaging, active engagement, and stronger connection between the council and students.",
+    "photo": "images/PE\u00d1ARANDA.jpeg",
     "highlights": [
       "More visible campaign and council communication",
       "Consistent student engagement across platforms",
       "Clear promotion of programs and opportunities"
-    ]
+    ],
+    "plan_of_action": "Ariana Mariel will strengthen public-facing communication, improve awareness of council initiatives, and help ensure students receive timely and engaging updates.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
   },
   {
     "id": "frederick-tom-lucas",
@@ -110,13 +124,65 @@
     "position": "4th Year Representative",
     "tagline": "Representing senior engineering students with focus, voice, and follow-through.",
     "credentials": "ACADEMIC EXCELLENCE\nJunior High School - With Honors\nSenior High School - STEM With Honors\nOracle Academy - Award Course Completion in Java Fundamentals (2023-2024)\n\nEXTRA CURRICULARS\nUE-Caloocan Engineering Student Council Academic Head (2025-2025)\nUE-Caloocan Christian Communities Program President (2025-2026)\nUE-Caloocan College 'Y' Campus Academic Director (2025-2026)\nUE-Caloocan Central Student Council - Vice President Associate Staff (2025-2026)\nDiocesan Shrine and Parish of Immaculate Concepcion Malabon City - Altar Server (2021-2026)",
-    "plan": "Frederick Tom will represent fourth-year student concerns, strengthen communication between seniors and the council, and support programs relevant to thesis, career preparation, and year-level needs.",
     "bio": "Frederick Tom Lucas is the alliance candidate for 4th Year Representative, advocating responsive representation for graduating engineering students and their specific academic and professional concerns.",
     "photo": "images/LUCAS.jpg",
     "highlights": [
       "Focused representation for fourth-year students",
       "Support for thesis and career-related concerns",
       "Stronger year-level consultation and feedback"
-    ]
+    ],
+    "plan_of_action": "Frederick Tom will represent fourth-year student concerns, strengthen communication between seniors and the council, and support programs relevant to thesis, career preparation, and year-level needs.",
+    "council": "COESC",
+    "created_at": "2026-03-08"
+  },
+  {
+    "id": "csc-kate-de-villa",
+    "name": "Kate De Villa",
+    "position": "President",
+    "photo": "images/default-candidate.svg",
+    "credentials": "Student Leader Awardee\nFormer College Representative\nCampus Policy Forum Moderator",
+    "plan_of_action": "Lead campus-wide policy consultations, strengthen welfare systems, and publish regular governance reports.",
+    "council": "CSC",
+    "created_at": "2026-03-08"
+  },
+  {
+    "id": "csc-miguel-santos",
+    "name": "Miguel Santos",
+    "position": "Vice President",
+    "photo": "images/default-candidate.svg",
+    "credentials": "Leadership Congress Delegate\nUniversity Event Coordinator\nPeer Mentor",
+    "plan_of_action": "Coordinate inter-college programs and ensure project execution timelines are publicly tracked.",
+    "council": "CSC",
+    "created_at": "2026-03-08"
+  },
+  {
+    "id": "cassc-alyssa-rivera",
+    "name": "Alyssa Rivera",
+    "position": "President",
+    "photo": "images/default-candidate.svg",
+    "credentials": "Dean's Lister\nResearch Conference Presenter\nDepartment Organization Officer",
+    "plan_of_action": "Advance arts and science student services, research support systems, and transparent policy communication.",
+    "council": "CASSC",
+    "created_at": "2026-03-08"
+  },
+  {
+    "id": "cbasc-ian-delacruz",
+    "name": "Ian Dela Cruz",
+    "position": "President",
+    "photo": "images/default-candidate.svg",
+    "credentials": "Business Pitch Champion\nStudent Entrepreneur Network Officer\nInternship Ambassador",
+    "plan_of_action": "Expand internship pipelines, entrepreneurship support, and practical business development opportunities.",
+    "council": "CBASC",
+    "created_at": "2026-03-08"
+  },
+  {
+    "id": "cfadsc-luna-marquez",
+    "name": "Luna Marquez",
+    "position": "President",
+    "photo": "images/default-candidate.svg",
+    "credentials": "Design Competition Finalist\nStudio Organization Coordinator\nCreative Project Lead",
+    "plan_of_action": "Strengthen studio resource access, showcase student creatives, and protect student welfare in production-heavy programs.",
+    "council": "CFADSC",
+    "created_at": "2026-03-08"
   }
 ]

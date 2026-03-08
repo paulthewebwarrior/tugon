@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ candidate.name }} | Nagkakaisang Tugon{% endblock %}
+
+{% block content %}
+  <section class="subpage-hero">
+    <div class="container py-5">
+      <div class="col-lg-8 reveal-up">
+        <span class="eyebrow">Candidate Profile</span>
+        <h1>{{ candidate.name }}</h1>
+        <p>{{ candidate.position }} | {{ council.name }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-white">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4 reveal-up">
+          <article class="candidate-card h-100">
+            <img class="candidate-photo candidate-photo-modal" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
+            <div class="candidate-body">
+              <span class="panel-kicker">{{ candidate.council }}</span>
+              <span class="candidate-position">{{ candidate.position }}</span>
+              <h3>{{ candidate.name }}</h3>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-8 reveal-up delay-2">
+          <article class="card-glass p-4 p-lg-5">
+            <h2 class="panel-title">Credentials</h2>
+            <p class="candidate-credentials-full">{{ candidate.credentials|replace('\n', '<br>')|safe }}</p>
+
+            <h2 class="panel-title mt-4">General Plan of Action (GPOA)</h2>
+            <p>{{ candidate.plan_of_action }}</p>
+
+            <div class="row g-3 mt-2">
+              {% for item in council.gpoa %}
+                <div class="col-md-6">
+                  <div class="mini-feature h-100">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <a class="btn btn-outline-campaign mt-4" href="{{ url_for('council_page', slug=council.slug) }}">Back to {{ council.short_name }}</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

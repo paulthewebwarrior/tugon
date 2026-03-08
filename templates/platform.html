@@ -6,11 +6,11 @@
   <section class="subpage-hero">
     <div class="container py-5">
       <div class="col-lg-8 reveal-up">
-        <span class="eyebrow">Party Platform</span>
-        <h1>General Plan of Action</h1>
+        <span class="eyebrow">Alliance Platform</span>
+        <h1>Nagkakaisang Tugon General Platform</h1>
         <p>
-          The Engineering Student Council general plan of action combines seminars, student support systems,
-          competitions, outreach, year-long programs, and tangible campus improvements designed for engineering students.
+          A unified, multi-council roadmap built to strengthen student welfare, academic quality,
+          innovation, leadership, and community-centered governance across the university.
         </p>
       </div>
     </div>
@@ -18,210 +18,16 @@
 
   <section class="section-space bg-white">
     <div class="container">
-      <div class="section-heading reveal-up">
-        <span class="eyebrow">Platform Overview</span>
-        <h2>Programs built around student growth, welfare, and engagement</h2>
-        <p>
-          This GPOA is organized to support engineering students academically, socially, professionally,
-          and personally through concrete and visible initiatives across the academic year.
-        </p>
-      </div>
-
-      <div class="row g-4 mt-1">
-        <div class="col-md-6 col-xl-3 reveal-up delay-1">
-          <div class="platform-card h-100">
-            <div class="platform-icon"><i class="bi bi-mortarboard"></i></div>
-            <h3>Seminars</h3>
-            <p>Leadership, thesis support, AI literacy, calculator mastery, and academic enrichment programs.</p>
+      <div class="row g-4">
+        {% for section in sections %}
+          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+            <article class="platform-card h-100">
+              <div class="platform-icon"><i class="bi {{ section.icon }}"></i></div>
+              <h3>{{ section.title }}</h3>
+              <p>{{ section.description }}</p>
+            </article>
           </div>
-        </div>
-        <div class="col-md-6 col-xl-3 reveal-up delay-2">
-          <div class="platform-card h-100">
-            <div class="platform-icon"><i class="bi bi-trophy"></i></div>
-            <h3>Competitive Events</h3>
-            <p>Organization pageants, themed campus events, and sports and esports tournaments that build camaraderie.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3 reveal-up delay-3">
-          <div class="platform-card h-100">
-            <div class="platform-icon"><i class="bi bi-people"></i></div>
-            <h3>Outreach and Welfare</h3>
-            <p>Animal welfare, holiday giving, student concerns channels, and mental health support systems.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3 reveal-up delay-4">
-          <div class="platform-card h-100">
-            <div class="platform-icon"><i class="bi bi-building-check"></i></div>
-            <h3>Tangible Improvements</h3>
-            <p>Facility inspections, lockers, seating spaces, parking policy improvements, and hygiene access projects.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Seminars</span>
-          <h2>Professional, academic, and leadership development</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>WomENgineers: Breaking Stigmas</h3>
-              <p>A leadership and professional development seminar centered on women inclusivity, diversity, and empowerment in engineering, with guest speakers and a panel discussion.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>ACADEMSic ENlightenment</h3>
-              <p>Voluntary online study sessions and study groups for minor subjects across all year levels, hosted through Google Meet by year representatives or student volunteers, with recordings available for review and reinforcement.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>AIgnite: The Future of Artificial Intelligence</h3>
-              <p>A seminar on the responsible and effective use of Artificial Intelligence in learning and engineering work, emphasizing productivity, ethical limits, and the lasting role of human creativity and critical thinking.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>LikhaEN: Mastering Your Thesis Journey</h3>
-              <p>A hands-on seminar guiding students through topic selection, research methodology, data analysis, and presentation techniques so they can approach thesis writing with clarity and academic rigor.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>COEmpute with Ease: Calculator Techniques Seminar</h3>
-              <p>A practical seminar on advanced calculator techniques for engineering and scientific applications, helping students improve speed, accuracy, and confidence in solving academic problems.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item">
-              <h3>ENSC General Assembly</h3>
-              <p>A welcoming and community-building event, especially for freshmen, featuring games, prizes, introductions to college administrators, and exposure to RSOs within the engineering community.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-1">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Competitive Events</span>
-          <h2>Campus energy, talent, and friendly competition</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="gpoa-item h-100">
-              <h3>ENKabogable: Built Different</h3>
-              <p>A competition among RSOs with recognition categories such as formal attire, organization shirt, themed presentation, popularity award, runners-up, and Mr. and Ms. ENKabogable, with promotional videos and Pageant Vote PH-based public voting.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="gpoa-item h-100">
-              <h3>ENScares</h3>
-              <p>A Halloween-themed escape room where registered groups face puzzles, problem-solving challenges, and jump scares, with advance scheduling and walk-in slots when reserved teams do not arrive on time.</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="gpoa-item h-100">
-              <h3>ENtramurals: Sports and Esports Tournament</h3>
-              <p>A tournament that brings together RSOs through esports such as Mobile Legends, Valorant, Tekken 8, and Call of Duty: Mobile, alongside sports including basketball, volleyball, badminton, chess, dama, darts, and scrabble, subject to alignment with UElympics 2027.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-2">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Outreach</span>
-          <h2>Compassion and community-centered service</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="gpoa-item h-100">
-              <h3>ENPaws: Feed and Care</h3>
-              <p>In partnership with Youth for Animals, this outreach supports the feeding and care of resident cats at the University of the East while promoting humane treatment and organized campus compassion.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="gpoa-item h-100">
-              <h3>ENReach</h3>
-              <p>A holiday outreach program focused on providing children with gifts, toys, and other goods, continuing a tradition of care for underprivileged communities.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-3">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Initiatives</span>
-          <h2>Daily systems that improve the student experience</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>CENGkonek</h3><p>A semester-end interactive booth featuring kamustahan sessions where students can openly share experiences, concerns, feedback, and suggestions.</p></div></div>
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>OpEN Line</h3><p>An anonymous drop box for concerns, feedback, and suggestions about the council, college, and university, with monthly monitoring to ensure matters are addressed.</p></div></div>
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>ENlocked</h3><p>A council-led project that provides additional secure and accessible lockers to reduce student concerns about safeguarding personal belongings.</p></div></div>
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>ENsights Corner</h3><p>A start-of-year welcome booth that helps engineering students ask questions, seek assistance, and understand council programs and services from the beginning of the year.</p></div></div>
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>CENGspection</h3><p>End-of-semester checklist-based inspections of engineering facilities, coordinated with maintenance teams and paired with student reports and progress updates.</p></div></div>
-          <div class="col-lg-6 col-xl-4"><div class="gpoa-item h-100"><h3>ENPARK</h3><p>An initiative to improve the parking system through a clearer sticker policy, lower rates for motorcycles, higher allocation for motorcycle users, and transparent first-come, first-served distribution.</p></div></div>
-          <div class="col-12"><div class="gpoa-item"><h3>CENGtuary</h3><p>An initiative to improve comfort and productivity by placing benches, chairs, and tables across the Engineering building and open spaces so students have accessible areas to study, work, collaborate, and rest during free periods.</p></div></div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-4">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Year-Long Events</span>
-          <h2>Programs sustained across the academic year</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>ENrinig Ka</h3><p>A monthly online form that lets students submit concerns, suggestions, and feedback to the council, administration, or facilities, followed by endorsements, action tracking, and transparency updates.</p></div></div>
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>ENsync</h3><p>A semester-based committee member rotation system with open applications for new and returning students, bringing fresh ideas while allowing flexibility around personal commitments.</p></div></div>
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>CENGspiration</h3><p>A recognition initiative that features exemplary engineering students, competition winners, and student leaders on the official Facebook page as role models for the college community.</p></div></div>
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>ENSCareer Uplifters</h3><p>A cross-disciplinary series of technical events in partnership with RSOs that helps students produce portfolio-grade outputs aligned with industry hiring standards across BSIT, BSCS, BSCpE, BSECE, BSEE, BSME, and BSCE.</p></div></div>
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>NaENtindihan Ka</h3><p>A year-long safe-space initiative with designated boxes where students can share feelings anonymously or request support connections with the Guidance Office or Student Affairs Office, supported by mental health infographics and hotline numbers.</p></div></div>
-          <div class="col-lg-6"><div class="gpoa-item h-100"><h3>ACADEMS</h3><p>Academic Assistance through Distribution of Course Transcriptions is a student-led review support program that distributes organized transcriptions for Engineering, Mathematics, and Science courses every prelim, midterm, and final period.</p></div></div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Advocacies</span>
-          <h2>Transparency, wellness, and job-readiness</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4"><div class="gpoa-item h-100"><h3>ENvision Wellness Week</h3><p>A week-long October Mental Health Awareness Month program with seminars, workshops, film showings, and wellness activities that encourage self-care, reflection, and stigma reduction.</p></div></div>
-          <div class="col-lg-4"><div class="gpoa-item h-100"><h3>TransparENcy</h3><p>An online financial transparency initiative that shows budget allocation, expenses, savings or remaining balance, and sponsorship details so engineering students can clearly understand how funds are used.</p></div></div>
-          <div class="col-lg-4"><div class="gpoa-item h-100"><h3>EN-Gauge: Competency Mapping</h3><p>A yearly skills roadmap and self-diagnostic system that helps students compare their actual skills with industry expectations and identify which technical and soft skills they should strengthen.</p></div></div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-1">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Extra-Curricular</span>
-          <h2>Stronger bonds across courses and year levels</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-12">
-            <div class="gpoa-item">
-              <h3>ENgageering</h3>
-              <p>A team-building event that groups engineering students from different courses and year levels into mixed teams for collaborative challenges, helping strengthen unity, teamwork, and new connections.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gpoa-group reveal-up mt-5 delay-2">
-        <div class="gpoa-group-header">
-          <span class="eyebrow">Tangible Project</span>
-          <h2>Direct, physical improvements for student convenience</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-12">
-            <div class="gpoa-item">
-              <h3>PROJECT VENdoExtend</h3>
-              <p>A project that improves access to essential hygiene products by adding vending machines on both sides of the third floor stocked with sanitary napkins, wipes, and tissues.</p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
