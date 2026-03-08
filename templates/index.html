@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Nagkakaisang Tugon{% endblock %}
+
+{% block content %}
+  <section class="hero-section overflow-hidden">
+    <div class="hero-orb hero-orb-one"></div>
+    <div class="hero-orb hero-orb-two"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center min-vh-100 pt-5">
+        <div class="col-lg-7 py-5 reveal-up">
+          <span class="eyebrow">Engineering Student Council 2026</span>
+          <h1 class="hero-title">Nagkakaisang Tugon Party Alliance</h1>
+          <p class="hero-copy">
+            A youth-driven alliance committed to responsive leadership, measurable action, and a stronger
+            engineering community that works for every student.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a class="btn btn-campaign btn-lg" href="{{ url_for('candidates') }}">Meet the Candidates</a>
+            <a class="btn btn-outline-campaign btn-lg" href="{{ url_for('platform') }}">Explore the Platform</a>
+          </div>
+          <div class="hero-stats row g-3 mt-4">
+            <div class="col-sm-4">
+              <div class="stat-card">
+                <strong>4</strong>
+                <span>Core platform pillars</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="stat-card">
+                <strong>100%</strong>
+                <span>Student-centered agenda</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="stat-card">
+                <strong>1</strong>
+                <span>Unified alliance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 reveal-up delay-2">
+          <div class="hero-panel card-glass p-4 p-lg-5">
+            <p class="panel-kicker">Mission Statement</p>
+            <h2 class="panel-title">Leadership that listens, plans, and delivers.</h2>
+            <p class="mb-4">
+              We advocate transparent representation, accessible academic support, and projects that equip
+              engineering students to lead with competence and purpose.
+            </p>
+            <div class="hero-list">
+              <div><i class="bi bi-check2-circle"></i> Transparent governance</div>
+              <div><i class="bi bi-check2-circle"></i> Academic and welfare support</div>
+              <div><i class="bi bi-check2-circle"></i> Engineering innovation and service</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="campaign-banner-section">
+    <div class="container">
+      <div class="campaign-banner reveal-up">
+        <img 
+          src="{{ url_for('static', filename='images/true-through-banner.jpg') }}" 
+          alt="True & Through - Parati't Palagi"
+          class="campaign-banner-image"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-white">
+    <div class="container">
+      <div class="section-heading reveal-up">
+        <span class="eyebrow">Featured Candidates</span>
+        <h2>Meet the leaders behind the alliance</h2>
+        <p>Focused, capable, and prepared to represent the Engineering Student Council with discipline and vision.</p>
+      </div>
+      <div class="row g-4 mt-1">
+        {% for candidate in featured_candidates %}
+          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+            <article class="candidate-card h-100">
+              <img
+                class="candidate-photo"
+                src="{{ url_for('static', filename=candidate.photo) }}"
+                alt="{{ candidate.name }}"
+              >
+              <div class="candidate-body">
+                <span class="candidate-position">{{ candidate.position }}</span>
+                <h3>{{ candidate.name }}</h3>
+                <p class="candidate-tagline">{{ candidate.tagline }}</p>
+                <p class="candidate-plan">{{ candidate.plan }}</p>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="text-center mt-5 reveal-up">
+        <a class="btn btn-outline-campaign btn-lg" href="{{ url_for('candidates') }}">View Full Slate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space section-accent">
+    <div class="container">
+      <div class="section-heading reveal-up">
+        <span class="eyebrow">Party Platform</span>
+        <h2>A practical roadmap for engineering students</h2>
+        <p>The alliance platform is designed around student welfare, academic excellence, innovation, and meaningful engagement.</p>
+      </div>
+      <div class="row g-4 mt-1">
+        {% for item in platform_sections %}
+          <div class="col-md-6 col-xl-3 reveal-up delay-{{ loop.index }}">
+            <div class="platform-card h-100">
+              <div class="platform-icon"><i class="bi {{ item.icon }}"></i></div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-white">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 reveal-up">
+          <div class="about-panel card-glass p-4 p-lg-5">
+            <span class="eyebrow">About the Party</span>
+            <h2>United response, shared purpose</h2>
+            <p>
+              Nagkakaisang Tugon is a student alliance formed to answer present needs with concrete, organized,
+              and student-first leadership. We believe representation must be accessible, accountable, and rooted in service.
+            </p>
+            <a class="btn btn-campaign mt-3" href="{{ url_for('about') }}">Learn More</a>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal-up delay-2">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="mini-feature">
+                <h3>Vision</h3>
+                <p>An engineering student body empowered by credible leadership and inclusive opportunity.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mini-feature">
+                <h3>Mission</h3>
+                <p>Deliver responsive programs, transparent governance, and meaningful collaboration.</p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mini-feature">
+                <h3>Campaign Commitment</h3>
+                <p>Every promise on this platform is tied to visible action, student consultation, and regular accountability updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
