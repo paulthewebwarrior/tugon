@@ -6,11 +6,10 @@
   <section class="subpage-hero">
     <div class="container py-5">
       <div class="col-lg-8 reveal-up">
-        <span class="eyebrow">Alliance Platform</span>
-        <h1>Nagkakaisang Tugon General Platform</h1>
+        <span class="eyebrow">Council Platform</span>
+        <h1>General Plan of Action of Each Council</h1>
         <p>
-          A unified, multi-council roadmap built to strengthen student welfare, academic quality,
-          innovation, leadership, and community-centered governance across the university.
+          Explore the council-specific General Plan of Action (GPOA) across all student councils under the alliance.
         </p>
       </div>
     </div>
@@ -18,17 +17,32 @@
 
   <section class="section-space bg-white">
     <div class="container">
-      <div class="row g-4">
-        {% for section in sections %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
-            <article class="platform-card h-100">
-              <div class="platform-icon"><i class="bi {{ section.icon }}"></i></div>
-              <h3>{{ section.title }}</h3>
-              <p>{{ section.description }}</p>
-            </article>
+      {% for council in councils %}
+        <div class="gpoa-group reveal-up {% if not loop.first %}mt-5{% endif %}">
+          <div class="gpoa-group-header">
+            <span class="eyebrow">{{ council.short_name }}</span>
+            <h2>{{ council.name }}</h2>
           </div>
-        {% endfor %}
-      </div>
+          <div class="row g-4">
+            {% for section in council.gpoa %}
+              <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+                <article class="platform-card h-100">
+                  <div class="platform-icon"><i class="bi {{ section.icon }}"></i></div>
+                  <h3>{{ section.title }}</h3>
+                  <p>{{ section.description }}</p>
+                  {% if section.items %}
+                    <div class="mt-2 mb-0">
+                      {% for detail in section.items %}
+                        <p class="mb-1">- {{ detail }}</p>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </article>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </section>
 {% endblock %}

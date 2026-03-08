@@ -32,8 +32,8 @@
             <h2 class="panel-title">Credentials</h2>
             <p class="candidate-credentials-full">{{ candidate.credentials|replace('\n', '<br>')|safe }}</p>
 
-            <h2 class="panel-title mt-4">General Plan of Action (GPOA)</h2>
-            <p>{{ candidate.plan_of_action }}</p>
+            <h2 class="panel-title mt-4">Brief Introduction</h2>
+            <p>{{ candidate.brief_introduction }}</p>
 
             <div class="row g-3 mt-2">
               {% for item in council.gpoa %}

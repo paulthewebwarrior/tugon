@@ -39,11 +39,99 @@ COUNCILS: list[dict[str, Any]] = [
         "description": "Engineering-focused council promoting technical growth, welfare, and transparent governance.",
         "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
         "gpoa": [
-            {"title": "Academic Programs", "icon": "bi-journal-check", "description": "Review sessions, peer mentoring, and skills-oriented learning support."},
-            {"title": "Student Welfare", "icon": "bi-heart-pulse", "description": "Accessible welfare concerns channels and responsive support coordination."},
-            {"title": "Facilities Improvement", "icon": "bi-building-check", "description": "Laboratory, classroom, and student-space enhancement initiatives."},
-            {"title": "Student Representation", "icon": "bi-people", "description": "Year-level feedback integration for policy and project planning."},
-            {"title": "Innovation and Development", "icon": "bi-cpu", "description": "Engineering innovation showcases and industry-aligned activities."},
+            {
+                "title": "ENSC Seminars",
+                "icon": "bi-mic",
+                "description": "Leadership and professional development seminars for engineering students.",
+                "items": [
+                    "WomENgineers: Breaking Stigmas - a leadership and professional development seminar on inclusivity, diversity, and empowerment, featuring guest speakers and a panel discussion.",
+                    "AIgnite: The Future of Artificial Intelligence - responsible and effective AI use for productivity, engineering tasks, and learning, with emphasis on ethics, limits, and human critical thinking.",
+                    "LikhaEN: Mastering Your Thesis Journey - hands-on guidance on topic selection, research methodology, data analysis, and thesis presentation.",
+                    "COEmpute with Ease: Calculator Techniques Seminar - practical calculator methods for engineering and scientific problem-solving, computation, and data analysis.",
+                    "ENSC General Assembly - a community-building event for freshmen with games, prizes, and introductions to administrators and RSOs.",
+                ],
+            },
+            {
+                "title": "Competitive Events",
+                "icon": "bi-trophy",
+                "description": "Inter-organization competitions that build school spirit and camaraderie.",
+                "items": [
+                    "ENKabogable: Built Different - RSO competition with formal attire, organization representation, and themed showcases including promotional videos.",
+                    "ENScares - Halloween-themed escape room with scheduled group slots, puzzle challenges, and walk-in replacement if groups are late.",
+                    "ENtramurals: Sports and Esports Tournament - competitions in Mobile Legends, Valorant, Tekken 8 or Call of Duty: Mobile, basketball, volleyball, badminton, chess, dama, darts, and scrabble (subject to UElympics 2027 alignment).",
+                ],
+            },
+            {
+                "title": "Outreach Programs",
+                "icon": "bi-heart",
+                "description": "Community support initiatives focused on compassion and service.",
+                "items": [
+                    "ENPaws: Feed and Care - in partnership with Youth for Animals to support humane treatment and organized feeding for resident campus cats.",
+                    "ENReach - holiday outreach program for children through gifts, toys, and essential goods for underprivileged communities.",
+                ],
+            },
+            {
+                "title": "Student Initiatives",
+                "icon": "bi-megaphone",
+                "description": "Council-led projects to improve communication, facilities, and daily student experience.",
+                "items": [
+                    "CENGkonek - semester-end interactive booth with kamustahan sessions for feedback, concerns, and suggestions.",
+                    "OpEN Line - anonymous drop box channel for student concerns and suggestions, reviewed monthly.",
+                    "ENlocked - additional secure and accessible student lockers.",
+                    "ENsights Corner - start-of-year welcome booth for guidance, questions, and council information.",
+                    "CENGspection - end-of-semester facility inspections and maintenance coordination with updates.",
+                    "ENPARK - clearer parking sticker policy with motorcycle-priority allocation and first-come distribution.",
+                    "CENGtuary (SeatEN) - additional benches, chairs, and tables for studying, collaboration, and rest.",
+                ],
+            },
+            {
+                "title": "Year-Long Events",
+                "icon": "bi-calendar3",
+                "description": "Continuous programs that run throughout the academic year.",
+                "items": [
+                    "ENrinig Ka - monthly online concern and suggestion form with transparency updates on actions taken.",
+                    "ENsync - semester-based committee member rotation with open applications for new and returning members.",
+                    "CENGspiration - year-long recognition of exemplary engineering students on official social pages.",
+                    "ENSCareer Uplifters - cross-disciplinary technical events that generate portfolio-grade outputs for resumes.",
+                    "NaENtindihan ka - anonymous expression boxes with optional referral support to Guidance or Student Affairs.",
+                ],
+            },
+            {
+                "title": "ACADEMS",
+                "icon": "bi-journal-text",
+                "description": "Academic Assistance through Distribution of Course Transcriptions.",
+                "items": [
+                    "Provides organized engineering, mathematics, and science transcriptions for prelims, midterms, and finals.",
+                    "Includes voluntary online study sessions and study groups led by year representatives or student volunteers.",
+                    "Sessions are recorded to help students review lessons and improve performance.",
+                ],
+            },
+            {
+                "title": "Advocacies",
+                "icon": "bi-shield-check",
+                "description": "Priority advocacy programs for wellness, transparency, and competency growth.",
+                "items": [
+                    "ENvision Wellness Week - Mental Health Awareness Month activities including seminars, workshops, film showings, and wellness sessions.",
+                    "TransparENcy - regular online financial disclosures covering budget allocation, expenses, savings, and sponsors.",
+                    "EN-Gauge Competency Mapping - yearly skills roadmap and self-diagnostic reality check aligned with industry expectations.",
+                ],
+            },
+            {
+                "title": "Extra Curricular",
+                "icon": "bi-people-fill",
+                "description": "Programs that strengthen community beyond the classroom.",
+                "items": [
+                    "ENgageering - team-building event that randomly groups students across courses and year levels for collaborative challenge activities.",
+                ],
+            },
+            {
+                "title": "Tangible Projects",
+                "icon": "bi-box-seam",
+                "description": "Infrastructure and resource projects with visible campus impact.",
+                "items": [
+                    "Project VENdoExtend - adds vending machines on both sides of the third floor with sanitary napkins, wipes, and tissues.",
+                ],
+            },
         ],
     },
     {
@@ -155,6 +243,7 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
 
     for item in candidates:
         plan_of_action = item.get("plan_of_action") or item.get("plan") or ""
+        brief_introduction = item.get("brief_introduction") or item.get("bio") or plan_of_action
         council_code = (item.get("council") or "COESC").upper()
 
         if council_code not in COUNCIL_BY_CODE:
@@ -163,6 +252,7 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
         normalized_item = {
             **item,
             "plan_of_action": plan_of_action,
+            "brief_introduction": brief_introduction,
             "council": council_code,
             "created_at": item.get("created_at") or "2026-03-08",
             "photo": item.get("photo") or "images/default-candidate.svg",
@@ -332,35 +422,7 @@ def council_page(slug: str) -> str:
 
 @app.route("/platform")
 def platform() -> str:
-    sections = [
-        {
-            "title": "Student Welfare",
-            "icon": "bi-heart-pulse",
-            "description": "Accessible support systems, responsive case handling, and welfare-first student governance.",
-        },
-        {
-            "title": "Academic Excellence",
-            "icon": "bi-journal-check",
-            "description": "Peer-led academic support, mentoring networks, and policy advocacy for learning quality.",
-        },
-        {
-            "title": "Innovation and Technology",
-            "icon": "bi-cpu",
-            "description": "Digitalization projects and innovation initiatives connecting students to modern tools.",
-        },
-        {
-            "title": "Leadership Development",
-            "icon": "bi-person-badge",
-            "description": "Leadership training and student capacity-building programs across all councils.",
-        },
-        {
-            "title": "Community Engagement",
-            "icon": "bi-people",
-            "description": "Service programs and participatory governance anchored in student consultation.",
-        },
-    ]
-
-    return render_template("platform.html", sections=sections)
+    return render_template("platform.html", councils=COUNCILS)
 
 
 @app.route("/about")
