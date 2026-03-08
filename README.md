@@ -69,4 +69,3 @@ python app.py
 - `/council/fine_arts` College of Fine Arts, Architecture and Design Student Council page
 - `/platform` Alliance platform page
 - `/gallery` Campaign gallery
-
