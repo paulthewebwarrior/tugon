@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Any
 
 from flask import Flask, flash, redirect, render_template, request, url_for
-from werkzeug.security import safe_str_cmp
 
 
 BASE_DIR = Path(__file__).resolve().parent
