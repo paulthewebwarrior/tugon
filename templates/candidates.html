@@ -55,7 +55,6 @@
                 <span class="panel-kicker">{{ candidate.council }}</span>
                 <span class="candidate-position">{{ candidate.position }}</span>
                 <h2 class="candidate-name">{{ candidate.name }}</h2>
-                <p class="candidate-plan mb-3">{{ candidate.short_credentials }}</p>
                 <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>

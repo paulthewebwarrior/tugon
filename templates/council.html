@@ -28,7 +28,6 @@
               <div class="candidate-body d-flex flex-column">
                 <span class="candidate-position">{{ candidate.position }}</span>
                 <h3>{{ candidate.name }}</h3>
-                <p class="candidate-plan">{{ candidate.short_credentials }}</p>
                 <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>

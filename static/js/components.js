@@ -41,7 +41,6 @@ const Components = {
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
             <h2 class="candidate-name">${this.escapeHtml(candidate.name)}</h2>
-            <p class="candidate-plan mb-3">${this.escapeHtml(candidate.short_credentials)}</p>
             <a class="btn btn-campaign mt-auto" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>
