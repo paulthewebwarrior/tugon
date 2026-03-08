@@ -8,12 +8,21 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
+  scroll-padding-top: 88px;
+  overscroll-behavior: smooth;
+}
+
+@supports (scroll-timeline: auto) {
+  html {
+    scroll-timeline: --page-scroll y;
+  }
 }
 
 body {
   font-family: "Poppins", sans-serif;
   color: #2C2C2C;
   background: #FFF9E5;
+  overscroll-behavior-y: contain;
 }
 
 h1,
@@ -151,6 +160,7 @@ a {
   position: relative;
   background: linear-gradient(135deg, #E5B80B 0%, #F4D03F 35%, #FFE682 100%);
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .hero-section {
@@ -398,6 +408,7 @@ a {
 .section-space {
   padding: 5.5rem 0;
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .section-accent {
@@ -828,6 +839,7 @@ a {
   background: linear-gradient(180deg, #1f1f1f 0%, #151515 100%);
   color: rgba(255, 255, 255, 0.86);
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .footer-brand {
