@@ -35,6 +35,8 @@
                       {% for detail in section.get('items') %}
                         {% if ':' in detail %}
                           <p class="gpoa-detail-item mb-2"><strong>{{ detail.split(':')[0] }}:</strong>{{ detail.split(':')[1:] | join(':') }}</p>
+                        {% elif ' - ' in detail %}
+                          <p class="gpoa-detail-item mb-2"><strong>{{ detail.split(' - ')[0] }}</strong> - {{ detail.split(' - ')[1:] | join(' - ') }}</p>
                         {% else %}
                           <p class="gpoa-detail-item mb-2">{{ detail }}</p>
                         {% endif %}

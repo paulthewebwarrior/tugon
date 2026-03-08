@@ -73,7 +73,7 @@ def init_db() -> None:
                 photo TEXT DEFAULT 'images/default-candidate.svg',
                 highlights TEXT DEFAULT '[]',
                 plan_of_action TEXT DEFAULT '',
-                council TEXT NOT NULL DEFAULT 'COESC',
+                council TEXT NOT NULL DEFAULT 'ENSC',
                 created_at TEXT DEFAULT '2026-03-08'
             )
         """)
@@ -163,7 +163,7 @@ def save_candidate(candidate: dict[str, Any]) -> None:
             candidate.get('photo', 'images/default-candidate.svg'),
             highlights,
             candidate.get('plan_of_action', ''),
-            candidate.get('council', 'COESC').upper(),
+            candidate.get('council', 'ENSC').upper(),
             candidate.get('created_at', '2026-03-08')
         ))
 
@@ -193,7 +193,7 @@ def save_candidates(candidates: list[dict[str, Any]]) -> None:
                 candidate.get('photo', 'images/default-candidate.svg'),
                 highlights,
                 candidate.get('plan_of_action', ''),
-                candidate.get('council', 'COESC').upper(),
+                candidate.get('council', 'ENSC').upper(),
                 candidate.get('created_at', '2026-03-08')
             ))
 

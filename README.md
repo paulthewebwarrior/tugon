@@ -5,7 +5,7 @@ Modern Flask campaign website for the Nagkakaisang Tugon Party Alliance, now bui
 ## Features
 
 - Responsive Bootstrap 5 frontend with custom yellow-to-white campaign styling
-- Multi-council candidate management (CSC, COESC, CASSC, CBASC, CFADSC)
+- Multi-council candidate management (CSC, ENSC, CASSC, CBASC, CFADSC)
 - Council-specific pages with candidates and General Plan of Action (GPOA)
 - Candidate profile pages with credentials and council-linked GPOA
 - Candidate search by name/position and council filter

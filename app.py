@@ -32,10 +32,10 @@ COUNCILS: list[dict[str, Any]] = [
         ],
     },
     {
-        "code": "COESC",
+        "code": "ENSC",
         "slug": "engineering",
         "name": "College of Engineering Student Council",
-        "short_name": "COESC",
+        "short_name": "ENSC",
         "description": "Engineering-focused council promoting technical growth, welfare, and transparent governance.",
         "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
         "gpoa": [
@@ -239,10 +239,10 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
         credentials = str(item.get("credentials") or "").strip()
         plan_of_action = str(item.get("plan_of_action") or item.get("plan") or "").strip()
         brief_introduction = str(item.get("brief_introduction") or item.get("bio") or plan_of_action).strip()
-        council_code = str(item.get("council") or "COESC").upper().strip()
+        council_code = str(item.get("council") or "ENSC").upper().strip()
 
         if council_code not in COUNCIL_BY_CODE:
-            council_code = "COESC"
+            council_code = "ENSC"
 
         base_id = str(item.get("id") or "").strip()
         if not base_id:
