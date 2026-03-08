@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Nagkakaisang Tugon Party Alliance{% endblock %}</title>
     <meta
       name="description"
       content="Official campaign website of the Nagkakaisang Tugon Party Alliance for the Engineering Student Council."
     >
+    <meta name="theme-color" content="#F4D03F">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -34,6 +38,8 @@
         <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('home') }}">
           <img
             class="brand-logo"
+            width="58"
+            height="58"
             src="{{ url_for('static', filename='images/TUGON PNGS.png') }}"
             alt="Nagkakaisang Tugon logo"
           >
@@ -86,6 +92,8 @@
             <div class="footer-brand">
               <img
                 class="footer-logo"
+                width="68"
+                height="68"
                 src="{{ url_for('static', filename='images/TUGON PNGS.png') }}"
                 alt="Nagkakaisang Tugon logo"
               >

@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from flask import Flask, flash, redirect, render_template, request, url_for
+from werkzeug.security import safe_str_cmp
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -16,6 +17,19 @@ MESSAGES_FILE = DATA_DIR / "messages.json"
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "nagkakaisang-tugon-dev-secret")
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000  # 1 year for static files
+
+
+@app.after_request
+def set_cache_headers(response: Any) -> Any:
+    """Set cache headers for static and dynamic content."""
+    if request.path.startswith("/static/"):
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    else:
+        response.headers["Cache-Control"] = "public, max-age=3600"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    return response
 
 
 def ensure_storage() -> None:

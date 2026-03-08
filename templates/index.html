@@ -63,6 +63,9 @@
     <div class="container">
       <div class="campaign-banner reveal-up">
         <img 
+          loading="lazy"
+          width="1200"
+          height="400"
           src="{{ url_for('static', filename='images/true-through-banner.jpg') }}" 
           alt="True & Through - Parati't Palagi"
           class="campaign-banner-image"
@@ -84,6 +87,9 @@
             <article class="candidate-card h-100">
               <img
                 class="candidate-photo"
+                loading="lazy"
+                width="300"
+                height="260"
                 src="{{ url_for('static', filename=candidate.photo) }}"
                 alt="{{ candidate.name }}"
               >

@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal-up");
 
-  if (!revealElements.length) {
-    return;
-  }
+  if (!revealElements.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
