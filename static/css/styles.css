@@ -698,7 +698,7 @@ a {
   transform: translateY(0);
 }
 
-.music-fallback-btn {
+.music-control-btn {
   position: fixed;
   left: 1rem;
   bottom: 1rem;
@@ -718,13 +718,13 @@ a {
   box-shadow: 0 12px 28px rgba(229, 184, 11, 0.32);
 }
 
-.music-fallback-btn:hover,
-.music-fallback-btn:focus-visible {
+.music-control-btn:hover,
+.music-control-btn:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(229, 184, 11, 0.38);
 }
 
-.music-fallback-btn i {
+.music-control-btn i {
   font-size: 0.95rem;
   line-height: 1;
 }
@@ -787,7 +787,7 @@ a {
     height: 220px;
   }
 
-  .music-fallback-btn {
+  .music-control-btn {
     left: 0.75rem;
     bottom: 0.75rem;
     font-size: 0.74rem;

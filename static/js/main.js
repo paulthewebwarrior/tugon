@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const homeSong = document.getElementById("homeSong");
-  const musicFallbackBtn = document.getElementById("musicFallbackBtn");
+  const musicControlBtn = document.getElementById("musicControlBtn");
 
   if (homeSong) {
     const targetVolume = 0.2;
@@ -11,16 +11,38 @@ document.addEventListener("DOMContentLoaded", () => {
     homeSong.autoplay = true;
     homeSong.volume = 0;
 
-    const setFallbackVisibility = (isVisible) => {
-      if (!musicFallbackBtn) return;
-      musicFallbackBtn.hidden = !isVisible;
-      musicFallbackBtn.setAttribute("aria-hidden", String(!isVisible));
+    const setControlVisibility = (isVisible) => {
+      if (!musicControlBtn) return;
+      musicControlBtn.hidden = !isVisible;
+      musicControlBtn.setAttribute("aria-hidden", String(!isVisible));
+    };
+
+    const setControlState = (isPlaying) => {
+      if (!musicControlBtn) return;
+
+      const controlIcon = musicControlBtn.querySelector("i");
+      const controlLabel = musicControlBtn.querySelector("span");
+
+      musicControlBtn.setAttribute("aria-pressed", String(isPlaying));
+
+      if (controlIcon) {
+        controlIcon.classList.remove("bi-play-fill", "bi-pause-fill");
+        controlIcon.classList.add(isPlaying ? "bi-pause-fill" : "bi-play-fill");
+      }
+
+      if (controlLabel) {
+        controlLabel.textContent = isPlaying ? "Pause Music" : "Play Music";
+      }
+    };
+
+    const stopFade = () => {
+      if (!fadeIntervalId) return;
+      clearInterval(fadeIntervalId);
+      fadeIntervalId = null;
     };
 
     const fadeInHomeSong = () => {
-      if (fadeIntervalId) {
-        clearInterval(fadeIntervalId);
-      }
+      stopFade();
 
       homeSong.volume = 0;
       fadeIntervalId = setInterval(() => {
@@ -28,15 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
         homeSong.volume = nextVolume;
 
         if (nextVolume >= targetVolume) {
-          clearInterval(fadeIntervalId);
-          fadeIntervalId = null;
+          stopFade();
         }
       }, fadeIntervalMs);
     };
 
     const playHomeSong = () => {
       if (!homeSong.paused) {
-        setFallbackVisibility(false);
+        setControlVisibility(true);
+        setControlState(true);
         if (homeSong.volume < targetVolume) {
           fadeInHomeSong();
         }
@@ -47,28 +69,57 @@ document.addEventListener("DOMContentLoaded", () => {
       homeSong
         .play()
         .then(() => {
-          setFallbackVisibility(false);
+          setControlVisibility(true);
+          setControlState(true);
           fadeInHomeSong();
         })
         .catch((error) => {
           if (error && error.name === "NotAllowedError") {
-            setFallbackVisibility(true);
+            setControlVisibility(true);
+            setControlState(false);
           }
         });
     };
+
+    const pauseHomeSong = () => {
+      if (homeSong.paused) {
+        setControlState(false);
+        return;
+      }
+
+      stopFade();
+      homeSong.pause();
+      setControlState(false);
+    };
+
+    const toggleHomeSong = () => {
+      if (homeSong.paused) {
+        playHomeSong();
+      } else {
+        pauseHomeSong();
+      }
+    };
+
+    setControlVisibility(true);
+    setControlState(false);
 
     playHomeSong();
     window.addEventListener("load", playHomeSong, { once: true });
 
     homeSong.addEventListener("playing", () => {
-      setFallbackVisibility(false);
+      setControlVisibility(true);
+      setControlState(true);
       if (homeSong.volume < targetVolume) {
         fadeInHomeSong();
       }
     });
 
-    if (musicFallbackBtn) {
-      musicFallbackBtn.addEventListener("click", playHomeSong);
+    homeSong.addEventListener("pause", () => {
+      setControlState(false);
+    });
+
+    if (musicControlBtn) {
+      musicControlBtn.addEventListener("click", toggleHomeSong);
     }
   }
 
