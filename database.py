@@ -12,6 +12,26 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATABASE_FILE = DATA_DIR / "tugon.db"
 
+# Position order for proper hierarchy sorting
+POSITION_ORDER = {
+    "President": 1,
+    "Vice President": 2,
+    "Secretary": 3,
+    "Treasurer": 4,
+    "Auditor": 5,
+    "Business Manager": 6,
+    "Public Relations Officer": 7,
+    "2nd Year Representative": 8,
+    "3rd Year Representative": 9,
+    "4th Year Representative": 10,
+    "5th Year Representative": 11,
+}
+
+
+def get_position_order(position: str) -> int:
+    """Return sort order for a position (lower = higher rank)."""
+    return POSITION_ORDER.get(position, 99)
+
 
 def get_db_connection() -> sqlite3.Connection:
     """Create a database connection with row factory."""
@@ -90,22 +110,26 @@ def row_to_dict(row: sqlite3.Row) -> dict[str, Any]:
 # ============== Candidate Operations ==============
 
 def load_candidates() -> list[dict[str, Any]]:
-    """Load all candidates from the database."""
+    """Load all candidates from the database, sorted by council and position hierarchy."""
     with db_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM candidates ORDER BY council, position, name")
-        return [row_to_dict(row) for row in cursor.fetchall()]
+        cursor.execute("SELECT * FROM candidates")
+        candidates = [row_to_dict(row) for row in cursor.fetchall()]
+    # Sort by council, then position order, then name
+    return sorted(candidates, key=lambda c: (c['council'], get_position_order(c['position']), c['name']))
 
 
 def load_candidates_by_council(council_code: str) -> list[dict[str, Any]]:
-    """Load candidates for a specific council."""
+    """Load candidates for a specific council, sorted by position hierarchy."""
     with db_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(
-            "SELECT * FROM candidates WHERE council = ? ORDER BY position, name",
+            "SELECT * FROM candidates WHERE council = ?",
             (council_code.upper(),)
         )
-        return [row_to_dict(row) for row in cursor.fetchall()]
+        candidates = [row_to_dict(row) for row in cursor.fetchall()]
+    # Sort by position order, then name
+    return sorted(candidates, key=lambda c: (get_position_order(c['position']), c['name']))
 
 
 def get_candidate(candidate_id: str) -> dict[str, Any] | None:
