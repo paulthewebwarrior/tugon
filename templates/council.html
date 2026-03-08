@@ -55,7 +55,11 @@
               {% if item.get('items') %}
                 <div class="gpoa-details mt-3 mb-0">
                   {% for detail in item.get('items') %}
-                    <p class="gpoa-detail-item mb-2">{{ detail }}</p>
+                    {% if ':' in detail %}
+                      <p class="gpoa-detail-item mb-2"><strong>{{ detail.split(':')[0] }}:</strong>{{ detail.split(':')[1:] | join(':') }}</p>
+                    {% else %}
+                      <p class="gpoa-detail-item mb-2">{{ detail }}</p>
+                    {% endif %}
                   {% endfor %}
                 </div>
               {% endif %}
