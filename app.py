@@ -6,7 +6,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import Flask, flash, jsonify, redirect, render_template, request, url_for
 
 import database
 
@@ -450,6 +450,118 @@ def contact() -> str:
 @app.route("/gallery")
 def gallery() -> str:
     return render_template("gallery.html", gallery_items=get_gallery_items())
+
+
+# ============== API Endpoints ==============
+
+@app.route("/api/candidates")
+def api_candidates() -> Any:
+    """API endpoint to get all candidates with optional filtering."""
+    query = request.args.get("q", "").strip().lower()
+    council_filter = request.args.get("council", "ALL").upper()
+
+    all_candidates = load_candidates()
+    filtered = all_candidates
+
+    if council_filter != "ALL" and council_filter in COUNCIL_BY_CODE:
+        filtered = [c for c in filtered if c["council"] == council_filter]
+
+    if query:
+        filtered = [
+            c for c in filtered
+            if query in c.get("name", "").lower() or query in c.get("position", "").lower()
+        ]
+
+    # Add short_credentials to each candidate
+    for candidate in filtered:
+        candidate["short_credentials"] = candidate_short_credentials(candidate)
+
+    return jsonify({"candidates": filtered, "total": len(filtered)})
+
+
+@app.route("/api/candidate/<candidate_id>")
+def api_candidate(candidate_id: str) -> Any:
+    """API endpoint to get a single candidate by ID."""
+    all_candidates = load_candidates()
+    candidate = next((c for c in all_candidates if c.get("id") == candidate_id), None)
+
+    if not candidate:
+        return jsonify({"error": "Candidate not found"}), 404
+
+    candidate["short_credentials"] = candidate_short_credentials(candidate)
+    council = COUNCIL_BY_CODE.get(candidate["council"])
+
+    return jsonify({"candidate": candidate, "council": council})
+
+
+@app.route("/api/councils")
+def api_councils() -> Any:
+    """API endpoint to get all councils."""
+    return jsonify({"councils": COUNCILS})
+
+
+@app.route("/api/council/<slug>")
+def api_council(slug: str) -> Any:
+    """API endpoint to get a single council and its candidates."""
+    council = COUNCIL_BY_SLUG.get(slug)
+    if not council:
+        return jsonify({"error": "Council not found"}), 404
+
+    all_candidates = load_candidates()
+    council_candidates = [c for c in all_candidates if c["council"] == council["code"]]
+
+    for candidate in council_candidates:
+        candidate["short_credentials"] = candidate_short_credentials(candidate)
+
+    return jsonify({"council": council, "candidates": council_candidates})
+
+
+@app.route("/api/gallery")
+def api_gallery() -> Any:
+    """API endpoint to get gallery items."""
+    return jsonify({"items": get_gallery_items()})
+
+
+@app.route("/api/home")
+def api_home() -> Any:
+    """API endpoint to get home page data."""
+    candidates = load_candidates()
+    grouped_candidates = candidates_by_council(candidates)
+    spotlight_candidates: list[dict[str, Any]] = []
+
+    for council in COUNCILS:
+        council_candidates = grouped_candidates.get(council["code"], [])
+        if council_candidates:
+            candidate = council_candidates[0].copy()
+            candidate["short_credentials"] = candidate_short_credentials(candidate)
+            spotlight_candidates.append(candidate)
+
+    council_cards = [
+        {
+            "name": council["name"],
+            "short_name": council["short_name"],
+            "description": council["description"],
+            "slug": council["slug"],
+            "count": len(grouped_candidates.get(council["code"], [])),
+        }
+        for council in COUNCILS
+    ]
+
+    platform_sections = [
+        {"title": "Student Welfare", "description": "Accessible support systems, transparent student funds, and responsive representation for day-to-day concerns.", "icon": "bi-heart-pulse"},
+        {"title": "Academic Excellence", "description": "Peer mentoring, review circles, and evidence-based policies for equitable learning outcomes.", "icon": "bi-journal-check"},
+        {"title": "Innovation and Technology", "description": "Hands-on innovation projects, digital services, and university-linked technology opportunities.", "icon": "bi-cpu"},
+        {"title": "Leadership Development", "description": "Leadership tracks, student training, and capacity building across all councils.", "icon": "bi-person-badge"},
+        {"title": "Community Engagement", "description": "Programs connecting student councils with service initiatives and campus partnerships.", "icon": "bi-people"},
+    ]
+
+    return jsonify({
+        "spotlight_candidates": spotlight_candidates,
+        "council_cards": council_cards,
+        "platform_sections": platform_sections,
+        "election_day": str(date(2026, 3, 25)),
+        "gallery_items": get_gallery_items()[:3],
+    })
 
 
 if __name__ == "__main__":

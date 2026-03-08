@@ -1,4 +1,9 @@
+/**
+ * Tugon Main Application Entry Point
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Election countdown
   const countdownElement = document.getElementById("electionCountdown");
 
   if (countdownElement) {
@@ -36,24 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Initial reveal animations for static content
   const revealElements = document.querySelectorAll(".reveal-up");
 
-  if (!revealElements.length) return;
+  if (revealElements.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: "0px 0px -40px 0px",
-    }
-  );
+    revealElements.forEach((element) => observer.observe(element));
+  }
 
-  revealElements.forEach((element) => observer.observe(element));
+  // Initialize page-specific JavaScript
+  if (typeof Pages !== 'undefined') {
+    Pages.init();
+  }
 });

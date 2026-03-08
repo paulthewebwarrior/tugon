@@ -38,7 +38,8 @@
         </div>
       </form>
 
-      <div class="row g-4">
+      <div id="candidates-container" class="row g-4">
+        {# Initial server-side render, JavaScript will take over for filtering #}
         {% for candidate in candidates %}
           <div class="col-md-6 col-xl-3 reveal-up delay-{{ loop.index }}">
             <article class="candidate-card candidate-card-full h-100">
@@ -60,13 +61,14 @@
             </article>
           </div>
         {% endfor %}
+        {% if not candidates %}
+          <div class="col-12">
+            <div class="text-center mt-5 reveal-up">
+              <p class="candidate-plan mb-0">No candidates match your current search/filter.</p>
+            </div>
+          </div>
+        {% endif %}
       </div>
-
-      {% if not candidates %}
-        <div class="text-center mt-5 reveal-up">
-          <p class="candidate-plan mb-0">No candidates match your current search/filter.</p>
-        </div>
-      {% endif %}
     </div>
   </section>
 {% endblock %}

@@ -20,7 +20,7 @@
         <h2>{{ council.short_name }} Candidate Lineup</h2>
         <p>Explore the candidates, credentials, and profile details for this council.</p>
       </div>
-      <div class="row g-4 mt-1">
+      <div id="council-candidates-container" class="row g-4 mt-1">
         {% for candidate in candidates %}
           <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
             <article class="candidate-card h-100">
