@@ -312,6 +312,13 @@ a {
   color: #E5B80B;
 }
 
+.council-heart {
+  width: 16px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
 .panel-title,
 .section-heading h2,
 .platform-story h2,
