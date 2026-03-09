@@ -93,13 +93,28 @@ a {
 }
 
 .brand-text {
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.2;
+  color: #2C2C2C;
+}
+
+.brand-text-light {
+  font-weight: 400;
+}
+
+.brand-logo-shadow {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.brand-text-logo {
+  max-height: 55px;
+  width: auto;
 }
 
 .brand-motto {
-  font-size: 0.55rem;
+  font-size: 0.30rem;
   font-weight: 500;
   color: #8B7355;
   letter-spacing: 0.02em;
