@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+  {% extends 'base.html' %}
 
 {% block title %}{{ candidate.name }} | Nagkakaisang Tugon{% endblock %}
 
@@ -17,18 +17,20 @@
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-lg-4 reveal-up">
-          <article class="candidate-card h-100">
-            <img class="candidate-photo candidate-photo-modal" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
-            <div class="candidate-body">
-              <span class="panel-kicker">{{ candidate.council }}</span>
-              <span class="candidate-position">{{ candidate.position }}</span>
-              <h3>{{ candidate.name }}</h3>
-            </div>
-          </article>
+          <div class="candidate-sticky">
+            <article class="candidate-card h-100">
+              <img class="candidate-photo candidate-photo-modal" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
+              <div class="candidate-body">
+                <span class="panel-kicker">{{ candidate.council }}</span>
+                <span class="candidate-position">{{ candidate.position }}</span>
+                <h3>{{ candidate.name }}</h3>
+              </div>
+            </article>
+          </div>
         </div>
 
         <div class="col-lg-8 reveal-up delay-2">
-          <article class="card-glass p-4 p-lg-5">
+          <article class="card-glass p-4 p-lg-5 credentials-scroll">
             <h2 class="panel-title">Brief Introduction</h2>
             <p>{{ candidate.brief_introduction }}</p>
 

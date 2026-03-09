@@ -93,7 +93,7 @@ a {
 }
 
 .brand-text {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -101,7 +101,7 @@ a {
 }
 
 .brand-text-light {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .brand-logo-shadow {
@@ -114,7 +114,7 @@ a {
 }
 
 .brand-motto {
-  font-size: 0.30rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: #8B7355;
   letter-spacing: 0.02em;
@@ -292,6 +292,13 @@ a {
 
 .card-glass {
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, outline 0.2s ease;
+  outline: 3px solid transparent;
+}
+
+.card-glass:hover {
+  outline: 3px solid #E5B80B;
+  box-shadow: 0 12px 30px rgba(229, 184, 11, 0.35);
 }
 
 .panel-kicker,
@@ -469,17 +476,22 @@ a {
 .contact-form,
 .about-panel {
   padding: 1.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, outline 0.2s ease;
   will-change: auto;
+  outline: 3px solid transparent;
 }
 
 .candidate-card:hover,
 .platform-card:hover,
 .mini-feature:hover,
 .support-panel:hover,
-.about-panel:hover {
+.about-panel:hover,
+.contact-form:hover,
+.admin-card:hover {
   transform: translateY(-8px);
   will-change: transform;
+  outline: 3px solid #E5B80B;
+  box-shadow: 0 12px 30px rgba(229, 184, 11, 0.35);
 }
 
 .candidate-photo {
@@ -489,6 +501,16 @@ a {
   object-position: center 15%;
   border-radius: 22px;
   background: linear-gradient(180deg, #FFE682 0%, #FFF9E5 100%);
+}
+
+.candidate-sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.credentials-scroll {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }
 
 .candidate-photo-modal {
