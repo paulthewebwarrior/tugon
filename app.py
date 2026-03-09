@@ -291,16 +291,6 @@ def candidate_short_credentials(candidate: dict[str, Any]) -> str:
     return " | ".join(lines[:2]) if lines else "No credentials listed yet."
 
 
-def get_gallery_items() -> list[dict[str, str]]:
-    return [
-        {"file": "images/true-through-banner.jpg", "caption": "Alliance campaign banner"},
-        {"file": "images/GERONIMO.jpg", "caption": "Campaign trail: candidate engagement"},
-        {"file": "images/DELA CRUZ.jpg", "caption": "Council consultation session"},
-        {"file": "images/SANIANO.jpg", "caption": "Student outreach and listening forum"},
-        {"file": "images/CAMACHO.jpg", "caption": "Alliance leadership and media briefing"},
-    ]
-
-
 @app.context_processor
 def inject_navigation_context() -> dict[str, Any]:
     return {
@@ -365,7 +355,6 @@ def home() -> str:
         council_cards=council_cards,
         platform_sections=platform_sections,
         election_day=str(date(2026, 3, 25)),
-        gallery_items=get_gallery_items()[:3],
     )
 
 
@@ -447,11 +436,6 @@ def contact() -> str:
     return render_template("contact.html")
 
 
-@app.route("/gallery")
-def gallery() -> str:
-    return render_template("gallery.html", gallery_items=get_gallery_items())
-
-
 # ============== API Endpoints ==============
 
 @app.route("/api/candidates")
@@ -516,12 +500,6 @@ def api_council(slug: str) -> Any:
     return jsonify({"council": council, "candidates": council_candidates})
 
 
-@app.route("/api/gallery")
-def api_gallery() -> Any:
-    """API endpoint to get gallery items."""
-    return jsonify({"items": get_gallery_items()})
-
-
 @app.route("/api/home")
 def api_home() -> Any:
     """API endpoint to get home page data."""
@@ -560,7 +538,6 @@ def api_home() -> Any:
         "council_cards": council_cards,
         "platform_sections": platform_sections,
         "election_day": str(date(2026, 3, 25)),
-        "gallery_items": get_gallery_items()[:3],
     })
 
 

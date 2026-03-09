@@ -98,6 +98,14 @@ a {
   line-height: 1;
 }
 
+.brand-motto {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #8B7355;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
 .nav-link {
   font-weight: 600;
   color: #2C2C2C;
@@ -476,6 +484,14 @@ a {
   letter-spacing: -0.03em;
   line-height: 1.2;
   color: #2C2C2C;
+}
+
+.footer-motto {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #E5B80B;
+  letter-spacing: 0.02em;
+  margin-top: 0.25rem;
 }
 
 .candidate-tagline {

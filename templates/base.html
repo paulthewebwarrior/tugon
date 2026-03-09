@@ -42,7 +42,10 @@
             src="{{ url_for('static', filename='images/TNT for white bg ver.png') }}"
             alt="Nagkakaisang Tugon logo"
           >
-          <span class="brand-text">True & Through</span>
+          <div class="d-flex flex-column">
+            <span class="brand-text">True & Through</span>
+            <span class="brand-motto">Nagbabago. Nagwawasto. <strong>Lumalaban.</strong></span>
+          </div>
         </a>
         <button
           class="navbar-toggler border-0 shadow-none"
@@ -64,7 +67,6 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('candidates') }}">Candidates</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('platform') }}">Platform</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
           </ul>
@@ -98,26 +100,23 @@
                 class="footer-logo"
                 width="68"
                 height="68"
-                src="{{ url_for('static', filename='images/TUGON PNGS.png') }}"
+                src="{{ url_for('static', filename='images/TNT for white bg ver.png') }}"
                 alt="Nagkakaisang Tugon logo"
               >
               <h3 class="footer-title mb-0">Nagkakaisang Tugon Party Alliance</h3>
+              <p class="footer-motto mb-0">Nagbabago. Nagwawasto. <strong>Lumalaban.</strong></p>
             </div>
             <p class="footer-copy mb-0">
               University-wide multi-council campaign built on transparent leadership, practical action,
               and student-centered progress.
             </p>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-6 text-lg-end">
             <p class="footer-label">Follow the campaign</p>
-            <div class="d-flex gap-3 fs-5">
+            <div class="d-flex gap-3 fs-3 justify-content-lg-end">
               <a href="https://www.facebook.com/share/18qFZWbJqB/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
               <a href="https://www.instagram.com/TugonUE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
             </div>
-          </div>
-          <div class="col-lg-3 text-lg-end">
-            <p class="footer-label mb-1">Campaign Office</p>
-            <p class="footer-copy mb-0">University Student Council Elections {{ year }}</p>
           </div>
         </div>
       </div>
