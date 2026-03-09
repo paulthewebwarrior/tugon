@@ -15,7 +15,7 @@ const Components = {
       'CBASC': 'heart-cba.png',
       'CFADSC': 'heart-cfad.png',
       'CSC': 'heart-csc.png',
-      'COESC': 'heart-coesc.png'
+      'ENSC': 'heart-ensc.png'
     };
     return heartMap[council] || 'heart-cas.png';
   },
