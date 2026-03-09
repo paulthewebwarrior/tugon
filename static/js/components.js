@@ -57,7 +57,13 @@ const Components = {
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
             <h2 class="candidate-name"><img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt=""> ${this.escapeHtml(candidate.name)}</h2>
-            <a class="btn btn-campaign mt-auto" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
+            <div class="candidate-credentials-list mt-3">
+              <h4 class="panel-title mb-2">Credentials</h4>
+              <div class="candidate-credentials-full">
+                ${this.credentials(candidate.credentials)}
+              </div>
+            </div>
+            <a class="btn btn-campaign mt-3" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>
       </div>
