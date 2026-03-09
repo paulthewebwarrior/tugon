@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Gantari", sans-serif;
   color: #2C2C2C;
   background: #FFF9E5;
   overscroll-behavior-y: contain;
@@ -32,7 +32,7 @@ h4,
 .navbar-brand,
 .btn,
 .eyebrow {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gantari", sans-serif;
 }
 
 h1 {
@@ -357,7 +357,7 @@ a {
 
 .countdown-item strong {
   display: block;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gantari", sans-serif;
   font-size: 1.2rem;
 }
 
@@ -380,7 +380,7 @@ a {
 .hero-stats strong {
   display: block;
   font-size: 1.8rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gantari", sans-serif;
   color: #2C2C2C;
   transition: color 0.3s ease;
 }

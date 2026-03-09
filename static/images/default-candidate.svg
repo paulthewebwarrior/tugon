@@ -2,7 +2,7 @@
   <rect width="600" height="600" rx="48" fill="url(#paint0_linear)"/>
   <circle cx="300" cy="210" r="104" fill="#FFF9DD"/>
   <path d="M164 478C164 401.232 226.232 339 303 339H305C381.768 339 444 401.232 444 478V504H164V478Z" fill="#FFF1B8"/>
-  <text x="50%" y="86%" dominant-baseline="middle" text-anchor="middle" fill="#8A6600" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700">Candidate Photo</text>
+  <text x="50%" y="86%" dominant-baseline="middle" text-anchor="middle" fill="#8A6600" font-family="Gantari, Arial, sans-serif" font-size="34" font-weight="700">Candidate Photo</text>
   <defs>
     <linearGradient id="paint0_linear" x1="58" y1="52" x2="532" y2="548" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFD54F"/>
