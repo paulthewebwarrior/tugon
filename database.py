@@ -74,7 +74,8 @@ def init_db() -> None:
                 highlights TEXT DEFAULT '[]',
                 plan_of_action TEXT DEFAULT '',
                 council TEXT NOT NULL DEFAULT 'ENSC',
-                created_at TEXT DEFAULT '2026-03-08'
+                created_at TEXT DEFAULT '2026-03-08',
+                facebook TEXT DEFAULT ''
             )
         """)
         
@@ -151,8 +152,8 @@ def save_candidate(candidate: dict[str, Any]) -> None:
         cursor = conn.cursor()
         cursor.execute("""
             INSERT OR REPLACE INTO candidates 
-            (id, name, position, tagline, credentials, bio, photo, highlights, plan_of_action, council, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (id, name, position, tagline, credentials, bio, photo, highlights, plan_of_action, council, created_at, facebook)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             candidate.get('id', ''),
             candidate.get('name', ''),
@@ -164,7 +165,8 @@ def save_candidate(candidate: dict[str, Any]) -> None:
             highlights,
             candidate.get('plan_of_action', ''),
             candidate.get('council', 'ENSC').upper(),
-            candidate.get('created_at', '2026-03-08')
+            candidate.get('created_at', '2026-03-08'),
+            candidate.get('facebook', '')
         ))
 
 
@@ -181,8 +183,8 @@ def save_candidates(candidates: list[dict[str, Any]]) -> None:
             
             cursor.execute("""
                 INSERT INTO candidates 
-                (id, name, position, tagline, credentials, bio, photo, highlights, plan_of_action, council, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (id, name, position, tagline, credentials, bio, photo, highlights, plan_of_action, council, created_at, facebook)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 candidate.get('id', ''),
                 candidate.get('name', ''),
@@ -194,7 +196,8 @@ def save_candidates(candidates: list[dict[str, Any]]) -> None:
                 highlights,
                 candidate.get('plan_of_action', ''),
                 candidate.get('council', 'ENSC').upper(),
-                candidate.get('created_at', '2026-03-08')
+                candidate.get('created_at', '2026-03-08'),
+                candidate.get('facebook', '')
             ))
 
 
