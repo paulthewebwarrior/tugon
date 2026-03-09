@@ -22,12 +22,9 @@
               <img class="candidate-photo candidate-photo-modal" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
               <div class="candidate-body">
                 <span class="panel-kicker">{{ candidate.council }}</span>
-                <span class="candidate-position">
-                  {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'COESC': 'heart-coesc.png'} %}
-                  <img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">
-                  {{ candidate.position }}
-                </span>
-                <h3>{{ candidate.name }}</h3>
+                <span class="candidate-position">{{ candidate.position }}</span>
+                {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'COESC': 'heart-coesc.png'} %}
+                <h3><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt=""> {{ candidate.name }}</h3>
               </div>
             </article>
           </div>

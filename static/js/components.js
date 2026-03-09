@@ -55,11 +55,8 @@ const Components = {
           >
           <div class="candidate-body d-flex flex-column">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
-            <span class="candidate-position">
-              <img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt="">
-              ${this.escapeHtml(candidate.position)}
-            </span>
-            <h2 class="candidate-name">${this.escapeHtml(candidate.name)}</h2>
+            <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
+            <h2 class="candidate-name"><img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt=""> ${this.escapeHtml(candidate.name)}</h2>
             <a class="btn btn-campaign mt-auto" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>
@@ -136,11 +133,8 @@ const Components = {
           >
           <div class="candidate-body">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
-            <span class="candidate-position">
-              <img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt="">
-              ${this.escapeHtml(candidate.position)}
-            </span>
-            <h3 class="candidate-name">${this.escapeHtml(candidate.name)}</h3>
+            <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
+            <h3 class="candidate-name"><img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt=""> ${this.escapeHtml(candidate.name)}</h3>
             <a class="btn btn-campaign-outline btn-sm mt-2" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>
