@@ -88,6 +88,7 @@ const Pages = {
 
     // Initial load
     await this.loadCandidates();
+
   },
 
   /**
@@ -177,7 +178,7 @@ const Pages = {
           setTimeout(() => { explosion.remove(); }, 2400);
         }
 
-        // Initial explosion at heart icon
+        // Heart explosion on initial load at heart icon
         setTimeout(() => {
           const heart = document.getElementById('main-council-heart');
           if (heart) {
@@ -187,13 +188,6 @@ const Pages = {
             spawnHeartExplosion(x, y, heart.getAttribute('src'));
           }
         }, 400);
-
-        // Click anywhere to spawn more hearts
-        document.addEventListener('click', function heartClickHandler(e) {
-          const heart = document.getElementById('main-council-heart');
-          if (!heart) return;
-          spawnHeartExplosion(e.clientX, e.clientY, heart.getAttribute('src'));
-        });
       }
     } catch (error) {
       credentialsContainer.innerHTML = Components.error('Failed to load candidate details.');
@@ -204,6 +198,16 @@ const Pages = {
    * Initialize council page
    */
   async initCouncilPage() {
+          // Heart explosion on initial load at council heart icon
+          setTimeout(() => {
+            const heart = document.getElementById('main-council-heart-council');
+            if (heart) {
+              const rect = heart.getBoundingClientRect();
+              const x = rect.left + rect.width / 2;
+              const y = rect.top + rect.height / 2;
+              spawnHeartExplosion(x, y, heart.getAttribute('src'));
+            }
+          }, 400);
     const slug = window.location.pathname.split('/').pop();
     const candidatesContainer = document.getElementById('council-candidates-container');
     if (!candidatesContainer) return;
@@ -241,7 +245,7 @@ const Pages = {
         setTimeout(() => { explosion.remove(); }, 2400);
       }
 
-      // Initial explosion at council heart icon
+      // Initial explosion at council heart icon (many small hearts, only on load)
       setTimeout(() => {
         const heart = document.getElementById('main-council-heart-council');
         if (heart) {
@@ -251,13 +255,6 @@ const Pages = {
           spawnHeartExplosion(x, y, heart.getAttribute('src'));
         }
       }, 400);
-
-      // Click anywhere to spawn more hearts
-      document.addEventListener('click', function councilHeartClickHandler(e) {
-        const heart = document.getElementById('main-council-heart-council');
-        if (!heart) return;
-        spawnHeartExplosion(e.clientX, e.clientY, heart.getAttribute('src'));
-      });
     } catch (error) {
       candidatesContainer.innerHTML = Components.error('Failed to load council candidates.');
     }
