@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 100,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:tugon}/data/tugon.db",
+            "name": "TUGON"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
