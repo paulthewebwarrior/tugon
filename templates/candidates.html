@@ -56,30 +56,7 @@
                 <span class="candidate-position">{{ candidate.position }}</span>
                 {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png'} %}
                 <h2 class="candidate-name"><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt=""> {{ candidate.name }}</h2>
-                <div class="candidate-credentials-list mt-3">
-                  <h4 class="panel-title mb-2">Credentials</h4>
-                  <div class="candidate-credentials-full">
-                    {% for raw_line in candidate.credentials.split('\n') %}
-                      {% set line = raw_line.strip() %}
-                      {% if line %}
-                        {% if 'ACADEMIC EXCELLENCE' in line or 'EXTRA CURRICULARS' in line or 'INTERNATIONAL LEVEL' in line or 'NATIONAL LEVEL' in line or 'REGIONAL LEVEL' in line or 'CITY-WIDE LEVEL' in line or 'SCHOOL LEVEL' in line %}
-                          <div class="credentials-header mt-2">
-                            {% if 'ACADEMIC' in line %}
-                              <i class="bi bi-mortarboard-fill"></i>
-                            {% elif 'INTERNATIONAL' in line %}
-                              <i class="bi bi-globe"></i>
-                            {% else %}
-                              <i class="bi bi-star-fill"></i>
-                            {% endif %}
-                            {{ line }}
-                          </div>
-                        {% else %}
-                          <p class="credentials-item mb-1">{{ line }}</p>
-                        {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                </div>
+                {# Credentials section removed from preview card #}
                 <a class="btn btn-campaign mt-3" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>
