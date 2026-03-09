@@ -7,7 +7,11 @@
     <div class="container py-5">
       <div class="col-lg-9 reveal-up">
         <span class="eyebrow">{{ council.short_name }}</span>
-        <h1>{{ council.name }}</h1>
+        <h1 style="position:relative;display:inline-block;">
+          <img class="council-heart" id="main-council-heart-council" src="{{ url_for('static', filename='images/' + heart_map.get(council.code, 'heart-cas.png')) }}" alt="">
+          <span class="heart-explosion" id="heart-explosion-council"></span>
+          {{ council.name }}
+        </h1>
         <p>{{ council.description }}</p>
       </div>
     </div>
