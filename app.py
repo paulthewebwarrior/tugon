@@ -398,29 +398,104 @@ COUNCILS: list[dict[str, Any]] = [
         ],
         "gpoa": [
             {
-                "title": "Academic Programs",
-                "icon": "bi-briefcase",
-                "description": "Certification support, case competitions, and internship readiness.",
-            },
-            {
-                "title": "Student Welfare",
-                "icon": "bi-heart-pulse",
-                "description": "Accessible welfare systems tailored to business student concerns.",
-            },
-            {
-                "title": "Facilities Improvement",
-                "icon": "bi-building-check",
-                "description": "Learning hub upgrades and resource center improvements.",
-            },
-            {
-                "title": "Student Representation",
+                "title": "Beacons Serving BAcon",
                 "icon": "bi-people",
-                "description": "Open consultation mechanisms for policy and event planning.",
+                "description": "An interactive seminar featuring alumni and graduating students who will share their experiences regarding coursework, examinations, internships, time management, and college life. The event will conclude with an open forum where students can ask questions and gain practical advice that will guide them throughout their academic and professional journeys."
             },
             {
-                "title": "Innovation and Development",
-                "icon": "bi-graph-up-arrow",
-                "description": "Entrepreneurship labs and startup-oriented learning initiatives.",
+                "title": "BAlanseng Budget: Financial Literacy Bootcamp",
+                "icon": "bi-cash-coin",
+                "description": "A financial literacy seminar led by qualified speakers that will discuss practical financial skills such as budgeting, saving, investing, managing allowances or income, understanding debt, and making responsible financial decisions to help students build financial independence."
+            },
+            {
+                "title": "BAsta Prepared sa BA!: A Finals Review Session",
+                "icon": "bi-journal-check",
+                "description": "An academic support program conducted every finals week that provides students with guided review sessions on key subjects, helping them prepare effectively for examinations through discussions, shared study resources, and collaboration with Recognized Student Organizations."
+            },
+            {
+                "title": "BAgong BArkada sa BA",
+                "icon": "bi-emoji-smile",
+                "description": "A welcoming general assembly and freshman orientation event that aims to introduce new students to the CBA community, allowing them to meet fellow students, faculty members, and student leaders through games, performances, and organization presentations."
+            },
+            {
+                "title": "BA Market",
+                "icon": "bi-shop",
+                "description": "A week-long entrepreneurial pop-up fair where student entrepreneurs can promote and sell their products such as handmade goods, apparel, and novelty items, providing them with hands-on experience in marketing, selling, and business operations."
+            },
+            {
+                "title": "Pasko sa Kahon: Gift-Giving Program",
+                "icon": "bi-gift",
+                "description": "A Christmas outreach initiative where students prepare gift-filled shoeboxes containing school supplies and essential items for elementary school children, spreading joy and generosity during the holiday season."
+            },
+            {
+                "title": "The Chamber of Wonders – BA Fest",
+                "icon": "bi-stars",
+                "description": "A Harry Potter-themed year-end celebration that divides BA courses into different houses for friendly competitions, performances, themed booths, and activities that promote camaraderie, teamwork, and school spirit."
+            },
+            {
+                "title": "Organization Rooms for CBA RSOs",
+                "icon": "bi-building",
+                "description": "A relocation initiative that aims to transfer Recognized Student Organization rooms from the Engineering Building to the Tan Yan Kee Building to provide a more secure, accessible, and collaborative working environment for student leaders."
+            },
+            {
+                "title": "BA Arena: The Ultimate Sports BAttle",
+                "icon": "bi-trophy",
+                "description": "A college-wide sports competition that features both physical sports such as basketball, volleyball, badminton, and soccer, as well as e-sports tournaments including Mobile Legends, Call of Duty, and Valorant, encouraging teamwork, sportsmanship, and healthy competition."
+            },
+            {
+                "title": "BAck To Better Locker",
+                "icon": "bi-lock",
+                "description": "A project aimed at upgrading and replacing damaged lockers with improved and durable storage facilities to ensure students have a safe and reliable place to store their belongings within the campus."
+            },
+            {
+                "title": "EO’s Cup",
+                "icon": "bi-patch-question",
+                "description": "A business knowledge quiz competition designed specifically for Executive Officers of CBA Recognized Student Organizations to test their knowledge, teamwork, and strategic thinking through multiple rounds of challenging questions."
+            },
+            {
+                "title": "BA Consultation: We Got Your BAck!",
+                "icon": "bi-chat-dots",
+                "description": "A consultation platform where students can anonymously voice concerns regarding academics, facilities, and student welfare, allowing the council to collect feedback and coordinate with college officials to address issues effectively."
+            },
+            {
+                "title": "The Grand BAll: Going BAyond Limits",
+                "icon": "bi-balloon",
+                "description": "A formal prom-inspired event where students gather for an elegant evening of dancing, performances, and the coronation of a BA Prom King and Queen, celebrating student confidence, unity, and school pride."
+            },
+            {
+                "title": "BAhaghari sa Silangan",
+                "icon": "bi-rainbow",
+                "description": "A Pride Month digital competition featuring poster-making and photography contests that highlight themes of diversity, acceptance, equality, and identity, promoting inclusivity within the CBA community."
+            },
+            {
+                "title": "Tatak BA: Our Mark Our Pride",
+                "icon": "bi-shirt",
+                "description": "A college merchandise initiative where students participate in a design contest to create the official CBA shirt, symbolizing unity, pride, and belonging among members of the college."
+            },
+            {
+                "title": "BAse Camp: Workshop Preparation for the Real World",
+                "icon": "bi-briefcase",
+                "description": "A career readiness workshop designed for graduating students that focuses on resume building, portfolio preparation, job interview simulations, and professional development to prepare them for employment after graduation."
+            },
+            {
+                "title": "SaBayan: BAlandra ng Talento",
+                "icon": "bi-mic",
+                "description": "A talent showcase competition where students can present their abilities in singing, dancing, spoken word, or other performances, encouraging creativity, self-expression, and confidence."
+            },
+            {
+                "title": "BAgong Hakbang sa UE CBA",
+                "icon": "bi-mortarboard",
+                "description": "An academic orientation program for senior high school ABM students that introduces them to the courses, opportunities, and career paths offered by the College of Business Administration to encourage future enrollment."
+            },
+            {
+                "title": "BA-sket of Knowledge",
+                "icon": "bi-journal-richtext",
+                "description": "A dedicated collaborative learning space designed for BA students where they can study individually or in groups, review lessons, share ideas, and prepare for examinations in a supportive academic environment."
+            },
+            {
+                "title": "Handa ka na BA?",
+                "icon": "bi-question-circle",
+                "description": "A general knowledge quiz bee that challenges students’ knowledge in various academic fields such as mathematics, science, history, and geography, promoting intellectual engagement and healthy academic competition."
             },
         ],
     },
