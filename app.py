@@ -389,8 +389,6 @@ COUNCILS: list[dict[str, Any]] = [
     {
         "code": "CBASC",
         "heart_img": "images/hearts/blue.png",
-            "code": "CFADSC",
-            "heart_img": "images/hearts/red.png",
         "slug": "business_admin",
         "name": "College of Business and Administration Student Council",
         "short_name": "CBASC",
@@ -506,8 +504,10 @@ COUNCILS: list[dict[str, Any]] = [
             },
         ],
     },
+
     {
         "code": "CFADSC",
+        "heart_img": "images/hearts/red.png",
         "slug": "fine_arts",
         "name": "College of Fine Arts, Architecture and Design Student Council",
         "short_name": "CFADSC",
