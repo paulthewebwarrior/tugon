@@ -18,6 +18,7 @@ DATA_DIR = BASE_DIR / "data"
 COUNCILS: list[dict[str, Any]] = [
     {
         "code": "CSC",
+        "heart_img": "images/hearts/yellow.png",
         "slug": "csc",
         "name": "Central Student Council",
         "short_name": "CSC",
@@ -60,6 +61,7 @@ COUNCILS: list[dict[str, Any]] = [
     },
     {
         "code": "ENSC",
+        "heart_img": "images/hearts/orange.png",
         "slug": "engineering",
         "name": "College of Engineering Student Council",
         "short_name": "ENSC",
@@ -227,6 +229,7 @@ COUNCILS: list[dict[str, Any]] = [
     },
     {
         "code": "CASSC",
+        "heart_img": "images/hearts/green.png",
         "slug": "arts_science",
         "name": "College of Arts and Science Student Council",
         "short_name": "CASSC",
@@ -384,6 +387,9 @@ COUNCILS: list[dict[str, Any]] = [
     },
     {
         "code": "CBASC",
+        "heart_img": "images/hearts/blue.png",
+            "code": "CFADSC",
+            "heart_img": "images/hearts/red.png",
         "slug": "business_admin",
         "name": "College of Business and Administration Student Council",
         "short_name": "CBASC",

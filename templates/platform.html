@@ -21,7 +21,13 @@
         <div class="gpoa-group reveal-up {% if not loop.first %}mt-4{% endif %}">
           <div class="gpoa-group-header">
             <span class="eyebrow">{{ council.short_name }}</span>
-            <h2>{{ council.name }}</h2>
+            <h2>{{ council.name }}
+              {% if council.heart_img %}
+                <span class="council-heart ms-2">
+                  <img src="{{ url_for('static', filename=council.heart_img) }}" alt="heart" style="height: 1.5em; vertical-align: middle;" />
+                </span>
+              {% endif %}
+            </h2>
           </div>
           <div class="row g-3">
             {% for section in council.gpoa %}
