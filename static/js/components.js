@@ -5,6 +5,23 @@
 
 const Components = {
   /**
+   * Get heart image filename based on council
+   * @param {string} council - Council name (CASSC, CBASC, etc.)
+   * @returns {string} Heart image filename
+   */
+  getHeartImage(council) {
+    const heartMap = {
+      'CASSC': 'heart-cas.png',
+      'CBASC': 'heart-cba.png',
+      'CFADSC': 'heart-cfad.png',
+      'CSC': 'heart-csc.png',
+      'ENSC': 'heart-ensc.png',
+      'COESC': 'heart-ensc.png'
+    };
+    return heartMap[council] || 'heart-cas.png';
+  },
+
+  /**
    * Escape HTML to prevent XSS
    * @param {string} str - String to escape
    * @returns {string} Escaped string
@@ -40,7 +57,7 @@ const Components = {
           <div class="candidate-body d-flex flex-column">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
-            <h2 class="candidate-name">${this.escapeHtml(candidate.name)}</h2>
+            <h2 class="candidate-name"><img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt="">${this.escapeHtml(candidate.name)}</h2>
             <!-- Credentials section removed from preview card -->
             <a class="btn btn-campaign mt-3" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
@@ -119,7 +136,7 @@ const Components = {
           <div class="candidate-body">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
-            <h3 class="candidate-name">${this.escapeHtml(candidate.name)}</h3>
+            <h3 class="candidate-name"><img class="council-heart" src="/static/images/${this.getHeartImage(candidate.council)}" alt="">${this.escapeHtml(candidate.name)}</h3>
             <a class="btn btn-campaign-outline btn-sm mt-2" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>

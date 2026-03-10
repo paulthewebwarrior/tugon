@@ -26,8 +26,9 @@
             <article class="candidate-card h-100">
               <img class="candidate-photo" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
               <div class="candidate-body d-flex flex-column">
+                {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png', 'COESC': 'heart-ensc.png'} %}
                 <span class="candidate-position">{{ candidate.position }}</span>
-                <h3>{{ candidate.name }}</h3>
+                <h3><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">{{ candidate.name }}</h3>
                 <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>

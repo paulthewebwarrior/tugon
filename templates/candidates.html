@@ -54,7 +54,8 @@
               <div class="candidate-body d-flex flex-column">
                 <span class="panel-kicker">{{ candidate.council }}</span>
                 <span class="candidate-position">{{ candidate.position }}</span>
-                <h2 class="candidate-name">{{ candidate.name }}</h2>
+                {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png', 'COESC': 'heart-ensc.png'} %}
+                <h2 class="candidate-name"><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">{{ candidate.name }}</h2>
                 {# Credentials section removed from preview card #}
                 <a class="btn btn-campaign mt-3" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>

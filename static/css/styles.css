@@ -25,6 +25,13 @@ body {
   overscroll-behavior-y: contain;
 }
 
+.council-heart {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
 h1,
 h2,
 h3,
