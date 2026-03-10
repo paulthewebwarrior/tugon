@@ -30,6 +30,19 @@ body {
   height: auto;
   vertical-align: middle;
   margin-right: 6px;
+  filter: drop-shadow(0 0 8px rgba(229, 184, 11, 0.8));
+  animation: heart-glow 2s ease-in-out infinite;
+}
+
+@keyframes heart-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(229, 184, 11, 0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(229, 184, 11, 1));
+    transform: scale(1.1);
+  }
 }
 
 h1,
