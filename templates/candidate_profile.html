@@ -23,12 +23,7 @@
               <div class="candidate-body">
                 <span class="panel-kicker">{{ candidate.council }}</span>
                 <span class="candidate-position">{{ candidate.position }}</span>
-                {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png'} %}
-                <h3 style="position:relative;display:inline-block;">
-                  <img class="council-heart" id="main-council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">
-                  <span class="heart-explosion" id="heart-explosion"></span>
-                  {{ candidate.name }}
-                </h3>
+                <h3>{{ candidate.name }}</h3>
 
               </div>
             </article>

@@ -1,41 +1,3 @@
-.heart-explosion {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  pointer-events: none;
-  width: 0;
-  height: 0;
-  z-index: 10;
-}
-
-
-heart-explosion-heart {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  opacity: 0;
-  transform: scale(0.5);
-  will-change: transform, opacity;
-  animation: heart-burst 2.2s cubic-bezier(0.4,1.4,0.6,1) forwards;
-}
-
-@keyframes heart-burst {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) translate(0,0);
-  }
-  10% {
-    opacity: 1;
-    transform: scale(1.2) translate(0,0);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1) translate(var(--tx, 0), var(--ty, 0));
-  }
-}
 :root {
   --campaign-yellow: #F4D03F;
   --campaign-amber: #E5B80B;
@@ -348,13 +310,6 @@ a {
   font-size: 0.78rem;
   font-weight: 700;
   color: #E5B80B;
-}
-
-.council-heart {
-  width: 20px;
-  height: auto;
-  vertical-align: middle;
-  margin-right: 6px;
 }
 
 .panel-title,

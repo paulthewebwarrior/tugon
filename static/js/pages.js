@@ -149,45 +149,6 @@ const Pages = {
         }
         
         this.initRevealAnimations();
-
-        // Heart explosion animation on click (and on load at heart icon)
-        function spawnHeartExplosion(x, y, heartSrc) {
-          let explosion = document.createElement('span');
-          explosion.className = 'heart-explosion';
-          explosion.style.left = x + 'px';
-          explosion.style.top = y + 'px';
-          explosion.style.position = 'fixed';
-          document.body.appendChild(explosion);
-          const colors = [
-            '#E5B80B', '#F4D03F', '#FF6F61', '#E57373', '#FFD700', '#FFB347', '#FF6961', '#F7CAC9'
-          ];
-          const count = 22;
-          for (let i = 0; i < count; i++) {
-            const angle = (2 * Math.PI * i) / count;
-            const tx = Math.cos(angle) * 90 + Math.random() * 30 - 15;
-            const ty = Math.sin(angle) * 90 + Math.random() * 30 - 15;
-            const heartElem = document.createElement('img');
-            heartElem.src = heartSrc;
-            heartElem.className = 'heart-explosion-heart';
-            heartElem.style.setProperty('--tx', `${tx}px`);
-            heartElem.style.setProperty('--ty', `${ty}px`);
-            heartElem.style.filter = `drop-shadow(0 0 8px ${colors[i % colors.length]})`;
-            heartElem.style.animationDuration = '2.2s';
-            explosion.appendChild(heartElem);
-          }
-          setTimeout(() => { explosion.remove(); }, 2400);
-        }
-
-        // Heart explosion on initial load at heart icon
-        setTimeout(() => {
-          const heart = document.getElementById('main-council-heart');
-          if (heart) {
-            const rect = heart.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            spawnHeartExplosion(x, y, heart.getAttribute('src'));
-          }
-        }, 400);
       }
     } catch (error) {
       credentialsContainer.innerHTML = Components.error('Failed to load candidate details.');
@@ -198,16 +159,6 @@ const Pages = {
    * Initialize council page
    */
   async initCouncilPage() {
-          // Heart explosion on initial load at council heart icon
-          setTimeout(() => {
-            const heart = document.getElementById('main-council-heart-council');
-            if (heart) {
-              const rect = heart.getBoundingClientRect();
-              const x = rect.left + rect.width / 2;
-              const y = rect.top + rect.height / 2;
-              spawnHeartExplosion(x, y, heart.getAttribute('src'));
-            }
-          }, 400);
     const slug = window.location.pathname.split('/').pop();
     const candidatesContainer = document.getElementById('council-candidates-container');
     if (!candidatesContainer) return;
@@ -216,45 +167,6 @@ const Pages = {
       const data = await API.getCouncil(slug);
       candidatesContainer.innerHTML = Components.candidateCards(data.candidates);
       this.initRevealAnimations();
-
-      // Heart explosion animation for council page
-      function spawnHeartExplosion(x, y, heartSrc) {
-        let explosion = document.createElement('span');
-        explosion.className = 'heart-explosion';
-        explosion.style.left = x + 'px';
-        explosion.style.top = y + 'px';
-        explosion.style.position = 'fixed';
-        document.body.appendChild(explosion);
-        const colors = [
-          '#E5B80B', '#F4D03F', '#FF6F61', '#E57373', '#FFD700', '#FFB347', '#FF6961', '#F7CAC9'
-        ];
-        const count = 22;
-        for (let i = 0; i < count; i++) {
-          const angle = (2 * Math.PI * i) / count;
-          const tx = Math.cos(angle) * 90 + Math.random() * 30 - 15;
-          const ty = Math.sin(angle) * 90 + Math.random() * 30 - 15;
-          const heartElem = document.createElement('img');
-          heartElem.src = heartSrc;
-          heartElem.className = 'heart-explosion-heart';
-          heartElem.style.setProperty('--tx', `${tx}px`);
-          heartElem.style.setProperty('--ty', `${ty}px`);
-          heartElem.style.filter = `drop-shadow(0 0 8px ${colors[i % colors.length]})`;
-          heartElem.style.animationDuration = '2.2s';
-          explosion.appendChild(heartElem);
-        }
-        setTimeout(() => { explosion.remove(); }, 2400);
-      }
-
-      // Initial explosion at council heart icon (many small hearts, only on load)
-      setTimeout(() => {
-        const heart = document.getElementById('main-council-heart-council');
-        if (heart) {
-          const rect = heart.getBoundingClientRect();
-          const x = rect.left + rect.width / 2;
-          const y = rect.top + rect.height / 2;
-          spawnHeartExplosion(x, y, heart.getAttribute('src'));
-        }
-      }, 400);
     } catch (error) {
       candidatesContainer.innerHTML = Components.error('Failed to load council candidates.');
     }
