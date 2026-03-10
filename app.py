@@ -1,3 +1,4 @@
+import pandas as pd
 from __future__ import annotations
 
 import os
@@ -814,8 +815,21 @@ def about() -> str:
     return render_template("about.html")
 
 
-@app.route("/contact")
-def contact() -> str:
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+        excel_path = os.path.join(DATA_DIR, "contact_messages.xlsx")
+        df = pd.DataFrame([{ "Name": name, "Email": email, "Subject": subject, "Message": message }])
+        if os.path.exists(excel_path):
+            df_existing = pd.read_excel(excel_path)
+            df = pd.concat([df_existing, df], ignore_index=True)
+        df.to_excel(excel_path, index=False)
+        flash("Your message has been recorded!", "success")
+        return redirect(url_for("contact"))
     return render_template("contact.html")
 
 
