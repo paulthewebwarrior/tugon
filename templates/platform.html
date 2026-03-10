@@ -24,7 +24,7 @@
             <h2>{{ council.name }}
               {% if council.heart_img %}
                 <span class="ms-2">
-                  <img src="{{ url_for('static', filename=council.heart_img) }}" alt="heart" class="council-heart" style="height: 1.5em; vertical-align: middle;" />
+                  <img src="{{ url_for('static', filename=council.heart_img) }}" alt="heart" class="council-heart council-heart-img" />
                 </span>
               {% endif %}
             </h2>
