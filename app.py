@@ -22,13 +22,40 @@ COUNCILS: list[dict[str, Any]] = [
         "name": "Central Student Council",
         "short_name": "CSC",
         "description": "University-wide student leadership focused on institutional representation and student rights.",
-        "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
+        "positions": [
+            "President",
+            "Vice President",
+            "Secretary",
+            "Treasurer",
+            "Auditor",
+            "PRO",
+        ],
         "gpoa": [
-            {"title": "Academic Programs", "icon": "bi-journal-check", "description": "Academic policy feedback loops and student consultation forums."},
-            {"title": "Student Welfare", "icon": "bi-heart-pulse", "description": "Campus-wide welfare desks, referral systems, and emergency support channels."},
-            {"title": "Facilities Improvement", "icon": "bi-building-check", "description": "Cross-college facility audits and student-priority improvement endorsements."},
-            {"title": "Student Representation", "icon": "bi-people", "description": "Regular assemblies and transparent policy updates for all colleges."},
-            {"title": "Innovation and Development", "icon": "bi-lightbulb", "description": "Digital student services and data-driven governance initiatives."},
+            {
+                "title": "Academic Programs",
+                "icon": "bi-journal-check",
+                "description": "Academic policy feedback loops and student consultation forums.",
+            },
+            {
+                "title": "Student Welfare",
+                "icon": "bi-heart-pulse",
+                "description": "Campus-wide welfare desks, referral systems, and emergency support channels.",
+            },
+            {
+                "title": "Facilities Improvement",
+                "icon": "bi-building-check",
+                "description": "Cross-college facility audits and student-priority improvement endorsements.",
+            },
+            {
+                "title": "Student Representation",
+                "icon": "bi-people",
+                "description": "Regular assemblies and transparent policy updates for all colleges.",
+            },
+            {
+                "title": "Innovation and Development",
+                "icon": "bi-lightbulb",
+                "description": "Digital student services and data-driven governance initiatives.",
+            },
         ],
     },
     {
@@ -37,7 +64,14 @@ COUNCILS: list[dict[str, Any]] = [
         "name": "College of Engineering Student Council",
         "short_name": "ENSC",
         "description": "Engineering-focused council promoting technical growth, welfare, and transparent governance.",
-        "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
+        "positions": [
+            "President",
+            "Vice President",
+            "Secretary",
+            "Treasurer",
+            "Auditor",
+            "PRO",
+        ],
         "gpoa": [
             {
                 "title": "ENSC Seminars",
@@ -140,13 +174,155 @@ COUNCILS: list[dict[str, Any]] = [
         "name": "College of Arts and Science Student Council",
         "short_name": "CASSC",
         "description": "Council for liberal arts and sciences centered on inclusive representation and interdisciplinary growth.",
-        "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
+        "positions": [
+            "President",
+            "Vice President",
+            "Secretary",
+            "Treasurer",
+            "Auditor",
+            "PRO",
+        ],
         "gpoa": [
-            {"title": "Academic Programs", "icon": "bi-book", "description": "Research forums, writing clinics, and program-based enrichment tracks."},
-            {"title": "Student Welfare", "icon": "bi-heart", "description": "Holistic support programs for student well-being and inclusion."},
-            {"title": "Facilities Improvement", "icon": "bi-building", "description": "Learning-space optimization and equipment accessibility improvements."},
-            {"title": "Student Representation", "icon": "bi-people", "description": "Cross-department consultations and participatory student governance."},
-            {"title": "Innovation and Development", "icon": "bi-lightbulb", "description": "Creative and scientific collaboration platforms for student projects."},
+            {
+                "title": "CAS Anchor: Navigate. Connect. Thrive.",
+                "icon": "bi-discord",
+                "description": "A digital support platform hosted through an official Discord server that provides CAS students with academic resources, campus guides, departmental information, and a real-time 'Ask-a-Senior' channel.",
+                "items": [
+                    "Academic resources and campus guides",
+                    "Departmental information database",
+                    "Real-time 'Ask-a-Senior' channel for academic and campus concerns",
+                ],
+            },
+            {
+                "title": "UE-CAS Knowledge Network",
+                "icon": "bi-book",
+                "description": "A centralized e-library and digital archive for CAS students to store and access research papers, essays, term papers, case studies, and creative works.",
+            },
+            {
+                "title": "CASalindunghan: Pagdiriwang ng Buwan ng Wika",
+                "icon": "bi-flag",
+                "description": "A celebration of Filipino culture and language through traditional Filipino games, a Filipino Sign Language seminar, and a Baybayin workshop.",
+            },
+            {
+                "title": "Ang Buhay ay Hindi CAREERa!",
+                "icon": "bi-briefcase",
+                "description": "A career guidance seminar featuring CAS alumni who share their post-graduation experiences and career journeys.",
+            },
+            {
+                "title": "Ihataw Mo CASmate!",
+                "icon": "bi-music-note-beamed",
+                "description": "Free dance sessions for CAS students promoting creativity, physical wellness, and stress relief.",
+            },
+            {
+                "title": "CAS of Heart",
+                "icon": "bi-heart",
+                "description": "Valentine-themed activity with bracelet-making, love letter writing, and a Freedom Wall for positive messages.",
+            },
+            {
+                "title": "Mr. and Ms. CASambassador",
+                "icon": "bi-camera",
+                "description": "Digital ambassador program where CAS students create promotional content for partner sponsors.",
+            },
+            {
+                "title": "CAS EmpowHERment Month",
+                "icon": "bi-gender-equality",
+                "description": "Month-long program celebrating National Women's Month with women's rights, empowerment, mental health, and wellness activities.",
+            },
+            {
+                "title": "CAS Debate Contest",
+                "icon": "bi-chat-square-quote",
+                "description": "Structured debate competition for CAS students on political, social, scientific, and cultural topics.",
+            },
+            {
+                "title": "CAS Learning Space Improvement",
+                "icon": "bi-layout-text-window-reverse",
+                "description": "Enhancing the CAS learning area with additional seating, mats, and table coverings.",
+            },
+            {
+                "title": "CASecure Lockers (CAS Lockers 2.0)",
+                "icon": "bi-lock",
+                "description": "Additional locker facilities for CAS students with an official rental system coordinated with Student Affairs.",
+            },
+            {
+                "title": "CAS Connect: Stay Connected and Recharged",
+                "icon": "bi-wifi",
+                "description": "Student support project for borrowing pocket Wi-Fi devices and extension wires.",
+            },
+            {
+                "title": "CASchedules: Information Board",
+                "icon": "bi-calendar-check",
+                "description": "Monthly updated bulletin board displaying important announcements and events for CAS students.",
+            },
+            {
+                "title": "CASiyahan sa Silangan: Welcoming Party",
+                "icon": "bi-balloon",
+                "description": "Annual welcoming celebration for CAS students with games, performances, and organization introductions.",
+            },
+            {
+                "title": "CASabay, CASkwela!: CAS Welcoming Week",
+                "icon": "bi-people",
+                "description": "Week-long initiative with student help desk, CASINEMA movie bonding, and CASyoso student marketplace.",
+            },
+            {
+                "title": "CASportsfest: Tagisan ng LaCAS!",
+                "icon": "bi-trophy",
+                "description": "Multi-week sports competition showcasing talents in physical sports and e-sports.",
+            },
+            {
+                "title": "CASquerade Ball",
+                "icon": "bi-mask",
+                "description": "Formal culminating event celebrating achievements with performances, awards, and social activities.",
+            },
+            {
+                "title": "ShowCASing: On the Record",
+                "icon": "bi-bar-chart",
+                "description": "Transparency initiative presenting financial reports and sponsorship records through creative infographics.",
+            },
+            {
+                "title": "CASulatan",
+                "icon": "bi-chat-dots",
+                "description": "Online feedback platform for CAS students to submit questions, concerns, and suggestions.",
+            },
+            {
+                "title": "CASrangalan",
+                "icon": "bi-award",
+                "description": "Semester recognition program honoring CAS student organizations for outstanding performance.",
+            },
+            {
+                "title": "CAS Gazette",
+                "icon": "bi-newspaper",
+                "description": "Student information publication highlighting campus updates and council activities.",
+            },
+            {
+                "title": "CASani-Check Dashboard",
+                "icon": "bi-qr-code",
+                "description": "Sanitation monitoring system allowing students to report restroom concerns via QR codes.",
+            },
+            {
+                "title": "CASama: Mental Health Week",
+                "icon": "bi-heart-pulse",
+                "description": "Week-long mental wellness program with art therapy, seminars, and group healing activities.",
+            },
+            {
+                "title": "The CAS Plate: Taste & Rate",
+                "icon": "bi-cup-hot",
+                "description": "Culinary showcase by Hospitality Management students with pop-up food booths and rating system.",
+            },
+            {
+                "title": "SafeCASe: Firearm Safety and Disarming Skills",
+                "icon": "bi-shield-exclamation",
+                "description": "Educational seminar on firearm safety, regulations, and basic disarming demonstrations.",
+            },
+            {
+                "title": "CASkybound: Cabin Crew Preparatory Workshop",
+                "icon": "bi-airplane",
+                "description": "Professional training workshop for Tourism students on grooming, safety, and situational handling.",
+            },
+            {
+                "title": "Filters and Frames: Turuan Mo Ako, CommATE!",
+                "icon": "bi-camera2",
+                "description": "Multimedia workshop teaching photography, videography, and filmmaking fundamentals.",
+            },
         ],
     },
     {
@@ -155,13 +331,40 @@ COUNCILS: list[dict[str, Any]] = [
         "name": "College of Business and Administration Student Council",
         "short_name": "CBASC",
         "description": "Business council promoting leadership, entrepreneurship, and student-centered services.",
-        "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
+        "positions": [
+            "President",
+            "Vice President",
+            "Secretary",
+            "Treasurer",
+            "Auditor",
+            "PRO",
+        ],
         "gpoa": [
-            {"title": "Academic Programs", "icon": "bi-briefcase", "description": "Certification support, case competitions, and internship readiness."},
-            {"title": "Student Welfare", "icon": "bi-heart-pulse", "description": "Accessible welfare systems tailored to business student concerns."},
-            {"title": "Facilities Improvement", "icon": "bi-building-check", "description": "Learning hub upgrades and resource center improvements."},
-            {"title": "Student Representation", "icon": "bi-people", "description": "Open consultation mechanisms for policy and event planning."},
-            {"title": "Innovation and Development", "icon": "bi-graph-up-arrow", "description": "Entrepreneurship labs and startup-oriented learning initiatives."},
+            {
+                "title": "Academic Programs",
+                "icon": "bi-briefcase",
+                "description": "Certification support, case competitions, and internship readiness.",
+            },
+            {
+                "title": "Student Welfare",
+                "icon": "bi-heart-pulse",
+                "description": "Accessible welfare systems tailored to business student concerns.",
+            },
+            {
+                "title": "Facilities Improvement",
+                "icon": "bi-building-check",
+                "description": "Learning hub upgrades and resource center improvements.",
+            },
+            {
+                "title": "Student Representation",
+                "icon": "bi-people",
+                "description": "Open consultation mechanisms for policy and event planning.",
+            },
+            {
+                "title": "Innovation and Development",
+                "icon": "bi-graph-up-arrow",
+                "description": "Entrepreneurship labs and startup-oriented learning initiatives.",
+            },
         ],
     },
     {
@@ -170,13 +373,40 @@ COUNCILS: list[dict[str, Any]] = [
         "name": "College of Fine Arts, Architecture and Design Student Council",
         "short_name": "CFADSC",
         "description": "Creative council championing design excellence, student welfare, and collaborative culture.",
-        "positions": ["President", "Vice President", "Secretary", "Treasurer", "Auditor", "PRO"],
+        "positions": [
+            "President",
+            "Vice President",
+            "Secretary",
+            "Treasurer",
+            "Auditor",
+            "PRO",
+        ],
         "gpoa": [
-            {"title": "Academic Programs", "icon": "bi-pencil-square", "description": "Critique sessions, portfolio development, and professional design coaching."},
-            {"title": "Student Welfare", "icon": "bi-heart", "description": "Student support systems balancing studio life and wellness."},
-            {"title": "Facilities Improvement", "icon": "bi-house-gear", "description": "Studio upgrades and better access to design resources and spaces."},
-            {"title": "Student Representation", "icon": "bi-people", "description": "Inclusive representation across art, architecture, and design programs."},
-            {"title": "Innovation and Development", "icon": "bi-palette", "description": "Creative innovation programs and interdisciplinary project showcases."},
+            {
+                "title": "Academic Programs",
+                "icon": "bi-pencil-square",
+                "description": "Critique sessions, portfolio development, and professional design coaching.",
+            },
+            {
+                "title": "Student Welfare",
+                "icon": "bi-heart",
+                "description": "Student support systems balancing studio life and wellness.",
+            },
+            {
+                "title": "Facilities Improvement",
+                "icon": "bi-house-gear",
+                "description": "Studio upgrades and better access to design resources and spaces.",
+            },
+            {
+                "title": "Student Representation",
+                "icon": "bi-people",
+                "description": "Inclusive representation across art, architecture, and design programs.",
+            },
+            {
+                "title": "Innovation and Development",
+                "icon": "bi-palette",
+                "description": "Creative innovation programs and interdisciplinary project showcases.",
+            },
         ],
     },
 ]
@@ -237,8 +467,12 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
         position = str(item.get("position") or "").strip()
         tagline = str(item.get("tagline") or "").strip()
         credentials = str(item.get("credentials") or "").strip()
-        plan_of_action = str(item.get("plan_of_action") or item.get("plan") or "").strip()
-        brief_introduction = str(item.get("brief_introduction") or item.get("bio") or plan_of_action).strip()
+        plan_of_action = str(
+            item.get("plan_of_action") or item.get("plan") or ""
+        ).strip()
+        brief_introduction = str(
+            item.get("brief_introduction") or item.get("bio") or plan_of_action
+        ).strip()
         council_code = str(item.get("council") or "ENSC").upper().strip()
 
         if council_code not in COUNCIL_BY_CODE:
@@ -247,7 +481,9 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
         base_id = str(item.get("id") or "").strip()
         if not base_id:
             slug_seed = f"{name}-{position}".lower().strip("-")
-            base_id = re.sub(r"[^a-z0-9]+", "-", slug_seed).strip("-") or f"candidate-{index}"
+            base_id = (
+                re.sub(r"[^a-z0-9]+", "-", slug_seed).strip("-") or f"candidate-{index}"
+            )
 
         candidate_id = base_id
         suffix = 2
@@ -278,7 +514,9 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
     return normalized
 
 
-def candidates_by_council(candidates: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+def candidates_by_council(
+    candidates: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
     grouped: dict[str, list[dict[str, Any]]] = {c["code"]: [] for c in COUNCILS}
     for candidate in candidates:
         grouped.setdefault(candidate["council"], []).append(candidate)
@@ -373,7 +611,8 @@ def candidates() -> str:
         filtered = [
             item
             for item in filtered
-            if query in item.get("name", "").lower() or query in item.get("position", "").lower()
+            if query in item.get("name", "").lower()
+            or query in item.get("position", "").lower()
         ]
 
     for candidate in filtered:
@@ -391,14 +630,18 @@ def candidates() -> str:
 @app.route("/candidate/<candidate_id>")
 def candidate_profile(candidate_id: str) -> str:
     all_candidates = load_candidates()
-    candidate = next((item for item in all_candidates if item.get("id") == candidate_id), None)
+    candidate = next(
+        (item for item in all_candidates if item.get("id") == candidate_id), None
+    )
 
     if not candidate:
         flash("Candidate profile not found.", "warning")
         return redirect(url_for("candidates"))
 
     council = COUNCIL_BY_CODE[candidate["council"]]
-    return render_template("candidate_profile.html", candidate=candidate, council=council)
+    return render_template(
+        "candidate_profile.html", candidate=candidate, council=council
+    )
 
 
 @app.route("/council/<slug>")
@@ -409,7 +652,9 @@ def council_page(slug: str) -> str:
         return redirect(url_for("home"))
 
     all_candidates = load_candidates()
-    council_candidates = [item for item in all_candidates if item["council"] == council["code"]]
+    council_candidates = [
+        item for item in all_candidates if item["council"] == council["code"]
+    ]
 
     for candidate in council_candidates:
         candidate["short_credentials"] = candidate_short_credentials(candidate)
@@ -438,6 +683,7 @@ def contact() -> str:
 
 # ============== API Endpoints ==============
 
+
 @app.route("/api/candidates")
 def api_candidates() -> Any:
     """API endpoint to get all candidates with optional filtering."""
@@ -452,8 +698,10 @@ def api_candidates() -> Any:
 
     if query:
         filtered = [
-            c for c in filtered
-            if query in c.get("name", "").lower() or query in c.get("position", "").lower()
+            c
+            for c in filtered
+            if query in c.get("name", "").lower()
+            or query in c.get("position", "").lower()
         ]
 
     # Add short_credentials to each candidate
@@ -526,19 +774,41 @@ def api_home() -> Any:
     ]
 
     platform_sections = [
-        {"title": "Student Welfare", "description": "Accessible support systems, transparent student funds, and responsive representation for day-to-day concerns.", "icon": "bi-heart-pulse"},
-        {"title": "Academic Excellence", "description": "Peer mentoring, review circles, and evidence-based policies for equitable learning outcomes.", "icon": "bi-journal-check"},
-        {"title": "Innovation and Technology", "description": "Hands-on innovation projects, digital services, and university-linked technology opportunities.", "icon": "bi-cpu"},
-        {"title": "Leadership Development", "description": "Leadership tracks, student training, and capacity building across all councils.", "icon": "bi-person-badge"},
-        {"title": "Community Engagement", "description": "Programs connecting student councils with service initiatives and campus partnerships.", "icon": "bi-people"},
+        {
+            "title": "Student Welfare",
+            "description": "Accessible support systems, transparent student funds, and responsive representation for day-to-day concerns.",
+            "icon": "bi-heart-pulse",
+        },
+        {
+            "title": "Academic Excellence",
+            "description": "Peer mentoring, review circles, and evidence-based policies for equitable learning outcomes.",
+            "icon": "bi-journal-check",
+        },
+        {
+            "title": "Innovation and Technology",
+            "description": "Hands-on innovation projects, digital services, and university-linked technology opportunities.",
+            "icon": "bi-cpu",
+        },
+        {
+            "title": "Leadership Development",
+            "description": "Leadership tracks, student training, and capacity building across all councils.",
+            "icon": "bi-person-badge",
+        },
+        {
+            "title": "Community Engagement",
+            "description": "Programs connecting student councils with service initiatives and campus partnerships.",
+            "icon": "bi-people",
+        },
     ]
 
-    return jsonify({
-        "spotlight_candidates": spotlight_candidates,
-        "council_cards": council_cards,
-        "platform_sections": platform_sections,
-        "election_day": str(date(2026, 3, 25)),
-    })
+    return jsonify(
+        {
+            "spotlight_candidates": spotlight_candidates,
+            "council_cards": council_cards,
+            "platform_sections": platform_sections,
+            "election_day": str(date(2026, 3, 25)),
+        }
+    )
 
 
 if __name__ == "__main__":
