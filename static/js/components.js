@@ -40,7 +40,7 @@ const Components = {
           <div class="candidate-body d-flex flex-column">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
-            <h2 class="candidate-name">{{ this.escapeHtml(candidate.name) }}</h2>
+            <h2 class="candidate-name">${this.escapeHtml(candidate.name)}</h2>
             <!-- Credentials section removed from preview card -->
             <a class="btn btn-campaign mt-3" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
@@ -119,7 +119,7 @@ const Components = {
           <div class="candidate-body">
             <span class="panel-kicker">${this.escapeHtml(candidate.council)}</span>
             <span class="candidate-position">${this.escapeHtml(candidate.position)}</span>
-            <h3 class="candidate-name">{{ this.escapeHtml(candidate.name) }}</h3>
+            <h3 class="candidate-name">${this.escapeHtml(candidate.name)}</h3>
             <a class="btn btn-campaign-outline btn-sm mt-2" href="/candidate/${this.escapeHtml(candidate.id)}">View Profile</a>
           </div>
         </article>

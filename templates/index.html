@@ -17,7 +17,6 @@
           </p>
           <div class="d-flex flex-wrap gap-3 mt-4">
             <a class="btn btn-campaign btn-lg" href="{{ url_for('candidates') }}">Explore All Candidates</a>
-            <a class="btn btn-outline-campaign btn-lg" href="{{ url_for('platform') }}">Alliance Platform</a>
           </div>
           <div class="hero-stats row g-3 mt-4">
             <div class="col-sm-4">
@@ -119,27 +118,6 @@
       </div>
       <div class="text-center mt-5 reveal-up">
         <a class="btn btn-outline-campaign btn-lg" href="{{ url_for('candidates') }}">View Full Slate</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-space bg-white">
-    <div class="container">
-      <div class="section-heading reveal-up">
-        <span class="eyebrow">Alliance Platform</span>
-        <h2>University-wide priorities</h2>
-        <p>The alliance platform links all councils under a shared strategic agenda.</p>
-      </div>
-      <div class="row g-4 mt-1">
-        {% for item in platform_sections %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
-            <div class="platform-card h-100">
-              <div class="platform-icon"><i class="bi {{ item.icon }}"></i></div>
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        {% endfor %}
       </div>
     </div>
   </section>
