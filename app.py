@@ -689,7 +689,7 @@ def _split_credentials_into_sections(credentials: str) -> list[dict[str, Any]]:
         "REGIONAL LEVEL": "bi-file-earmark-text",
         "CITY-WIDE LEVEL": "bi-map",
         "SCHOOL LEVEL": "bi-book",
-        "ACADEMICS": "bi-book",
+        "ACADEMICS": "bi-mortarboard-fill",
         "AWARDS": "bi-trophy",
     }
 
