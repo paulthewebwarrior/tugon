@@ -1,7 +1,6 @@
 """
 Script to run the Flask app with a public ngrok tunnel.
 """
-from flask import Flask
 import os
 from pyngrok import ngrok
 import sys
