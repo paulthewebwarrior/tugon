@@ -1,3 +1,7 @@
+/* Footer white text for party alliance */
+.footer-title-white {
+  color: #fff !important;
+}
 /* Shrink council and candidate header panels */
 .subpage-hero {
   padding-top: 2.2rem;
