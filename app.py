@@ -1,5 +1,5 @@
 import pandas as pd
-#from __future__ import annotations
+# from __future__ import annotations
 
 import os
 import re
@@ -405,106 +405,105 @@ COUNCILS: list[dict[str, Any]] = [
             {
                 "title": "Beacons Serving BAcon",
                 "icon": "bi-people",
-                "description": "An interactive seminar featuring alumni and graduating students who will share their experiences regarding coursework, examinations, internships, time management, and college life. The event will conclude with an open forum where students can ask questions and gain practical advice that will guide them throughout their academic and professional journeys."
+                "description": "An interactive seminar featuring alumni and graduating students who will share their experiences regarding coursework, examinations, internships, time management, and college life. The event will conclude with an open forum where students can ask questions and gain practical advice that will guide them throughout their academic and professional journeys.",
             },
             {
                 "title": "BAlanseng Budget: Financial Literacy Bootcamp",
                 "icon": "bi-cash-coin",
-                "description": "A financial literacy seminar led by qualified speakers that will discuss practical financial skills such as budgeting, saving, investing, managing allowances or income, understanding debt, and making responsible financial decisions to help students build financial independence."
+                "description": "A financial literacy seminar led by qualified speakers that will discuss practical financial skills such as budgeting, saving, investing, managing allowances or income, understanding debt, and making responsible financial decisions to help students build financial independence.",
             },
             {
                 "title": "BAsta Prepared sa BA!: A Finals Review Session",
                 "icon": "bi-journal-check",
-                "description": "An academic support program conducted every finals week that provides students with guided review sessions on key subjects, helping them prepare effectively for examinations through discussions, shared study resources, and collaboration with Recognized Student Organizations."
+                "description": "An academic support program conducted every finals week that provides students with guided review sessions on key subjects, helping them prepare effectively for examinations through discussions, shared study resources, and collaboration with Recognized Student Organizations.",
             },
             {
                 "title": "BAgong BArkada sa BA",
                 "icon": "bi-emoji-smile",
-                "description": "A welcoming general assembly and freshman orientation event that aims to introduce new students to the CBA community, allowing them to meet fellow students, faculty members, and student leaders through games, performances, and organization presentations."
+                "description": "A welcoming general assembly and freshman orientation event that aims to introduce new students to the CBA community, allowing them to meet fellow students, faculty members, and student leaders through games, performances, and organization presentations.",
             },
             {
                 "title": "BA Market",
                 "icon": "bi-shop",
-                "description": "A week-long entrepreneurial pop-up fair where student entrepreneurs can promote and sell their products such as handmade goods, apparel, and novelty items, providing them with hands-on experience in marketing, selling, and business operations."
+                "description": "A week-long entrepreneurial pop-up fair where student entrepreneurs can promote and sell their products such as handmade goods, apparel, and novelty items, providing them with hands-on experience in marketing, selling, and business operations.",
             },
             {
                 "title": "Pasko sa Kahon: Gift-Giving Program",
                 "icon": "bi-gift",
-                "description": "A Christmas outreach initiative where students prepare gift-filled shoeboxes containing school supplies and essential items for elementary school children, spreading joy and generosity during the holiday season."
+                "description": "A Christmas outreach initiative where students prepare gift-filled shoeboxes containing school supplies and essential items for elementary school children, spreading joy and generosity during the holiday season.",
             },
             {
                 "title": "The Chamber of Wonders – BA Fest",
                 "icon": "bi-stars",
-                "description": "A Harry Potter-themed year-end celebration that divides BA courses into different houses for friendly competitions, performances, themed booths, and activities that promote camaraderie, teamwork, and school spirit."
+                "description": "A Harry Potter-themed year-end celebration that divides BA courses into different houses for friendly competitions, performances, themed booths, and activities that promote camaraderie, teamwork, and school spirit.",
             },
             {
                 "title": "Organization Rooms for CBA RSOs",
                 "icon": "bi-building",
-                "description": "A relocation initiative that aims to transfer Recognized Student Organization rooms from the Engineering Building to the Tan Yan Kee Building to provide a more secure, accessible, and collaborative working environment for student leaders."
+                "description": "A relocation initiative that aims to transfer Recognized Student Organization rooms from the Engineering Building to the Tan Yan Kee Building to provide a more secure, accessible, and collaborative working environment for student leaders.",
             },
             {
                 "title": "BA Arena: The Ultimate Sports BAttle",
                 "icon": "bi-trophy",
-                "description": "A college-wide sports competition that features both physical sports such as basketball, volleyball, badminton, and soccer, as well as e-sports tournaments including Mobile Legends, Call of Duty, and Valorant, encouraging teamwork, sportsmanship, and healthy competition."
+                "description": "A college-wide sports competition that features both physical sports such as basketball, volleyball, badminton, and soccer, as well as e-sports tournaments including Mobile Legends, Call of Duty, and Valorant, encouraging teamwork, sportsmanship, and healthy competition.",
             },
             {
                 "title": "BAck To Better Locker",
                 "icon": "bi-lock",
-                "description": "A project aimed at upgrading and replacing damaged lockers with improved and durable storage facilities to ensure students have a safe and reliable place to store their belongings within the campus."
+                "description": "A project aimed at upgrading and replacing damaged lockers with improved and durable storage facilities to ensure students have a safe and reliable place to store their belongings within the campus.",
             },
             {
                 "title": "EO’s Cup",
                 "icon": "bi-patch-question",
-                "description": "A business knowledge quiz competition designed specifically for Executive Officers of CBA Recognized Student Organizations to test their knowledge, teamwork, and strategic thinking through multiple rounds of challenging questions."
+                "description": "A business knowledge quiz competition designed specifically for Executive Officers of CBA Recognized Student Organizations to test their knowledge, teamwork, and strategic thinking through multiple rounds of challenging questions.",
             },
             {
                 "title": "BA Consultation: We Got Your BAck!",
                 "icon": "bi-chat-dots",
-                "description": "A consultation platform where students can anonymously voice concerns regarding academics, facilities, and student welfare, allowing the council to collect feedback and coordinate with college officials to address issues effectively."
+                "description": "A consultation platform where students can anonymously voice concerns regarding academics, facilities, and student welfare, allowing the council to collect feedback and coordinate with college officials to address issues effectively.",
             },
             {
                 "title": "The Grand BAll: Going BAyond Limits",
                 "icon": "bi-balloon",
-                "description": "A formal prom-inspired event where students gather for an elegant evening of dancing, performances, and the coronation of a BA Prom King and Queen, celebrating student confidence, unity, and school pride."
+                "description": "A formal prom-inspired event where students gather for an elegant evening of dancing, performances, and the coronation of a BA Prom King and Queen, celebrating student confidence, unity, and school pride.",
             },
             {
                 "title": "BAhaghari sa Silangan",
                 "icon": "bi-rainbow",
-                "description": "A Pride Month digital competition featuring poster-making and photography contests that highlight themes of diversity, acceptance, equality, and identity, promoting inclusivity within the CBA community."
+                "description": "A Pride Month digital competition featuring poster-making and photography contests that highlight themes of diversity, acceptance, equality, and identity, promoting inclusivity within the CBA community.",
             },
             {
                 "title": "Tatak BA: Our Mark Our Pride",
                 "icon": "bi-shirt",
-                "description": "A college merchandise initiative where students participate in a design contest to create the official CBA shirt, symbolizing unity, pride, and belonging among members of the college."
+                "description": "A college merchandise initiative where students participate in a design contest to create the official CBA shirt, symbolizing unity, pride, and belonging among members of the college.",
             },
             {
                 "title": "BAse Camp: Workshop Preparation for the Real World",
                 "icon": "bi-briefcase",
-                "description": "A career readiness workshop designed for graduating students that focuses on resume building, portfolio preparation, job interview simulations, and professional development to prepare them for employment after graduation."
+                "description": "A career readiness workshop designed for graduating students that focuses on resume building, portfolio preparation, job interview simulations, and professional development to prepare them for employment after graduation.",
             },
             {
                 "title": "SaBayan: BAlandra ng Talento",
                 "icon": "bi-mic",
-                "description": "A talent showcase competition where students can present their abilities in singing, dancing, spoken word, or other performances, encouraging creativity, self-expression, and confidence."
+                "description": "A talent showcase competition where students can present their abilities in singing, dancing, spoken word, or other performances, encouraging creativity, self-expression, and confidence.",
             },
             {
                 "title": "BAgong Hakbang sa UE CBA",
                 "icon": "bi-mortarboard",
-                "description": "An academic orientation program for senior high school ABM students that introduces them to the courses, opportunities, and career paths offered by the College of Business Administration to encourage future enrollment."
+                "description": "An academic orientation program for senior high school ABM students that introduces them to the courses, opportunities, and career paths offered by the College of Business Administration to encourage future enrollment.",
             },
             {
                 "title": "BA-sket of Knowledge",
                 "icon": "bi-journal-richtext",
-                "description": "A dedicated collaborative learning space designed for BA students where they can study individually or in groups, review lessons, share ideas, and prepare for examinations in a supportive academic environment."
+                "description": "A dedicated collaborative learning space designed for BA students where they can study individually or in groups, review lessons, share ideas, and prepare for examinations in a supportive academic environment.",
             },
             {
                 "title": "Handa ka na BA?",
                 "icon": "bi-question-circle",
-                "description": "A general knowledge quiz bee that challenges students’ knowledge in various academic fields such as mathematics, science, history, and geography, promoting intellectual engagement and healthy academic competition."
+                "description": "A general knowledge quiz bee that challenges students’ knowledge in various academic fields such as mathematics, science, history, and geography, promoting intellectual engagement and healthy academic competition.",
             },
         ],
     },
-
     {
         "code": "CFADSC",
         "heart_img": "images/hearts/red.png",
@@ -522,29 +521,94 @@ COUNCILS: list[dict[str, Any]] = [
         ],
         "gpoa": [
             {
-                "title": "Academic Programs",
-                "icon": "bi-pencil-square",
-                "description": "Critique sessions, portfolio development, and professional design coaching.",
+                "title": "ABOT KAMAY 3.0: Paminggalan ng Tulungan",
+                "icon": "bi-box-seam",
+                "description": "A resource-sharing initiative that collects pre-loved and extra art materials from alumni and students, redistributing them to CFAD students who need creative supplies. The project promotes sustainability, accessibility, and community support by giving unused materials a second life.",
             },
             {
-                "title": "Student Welfare",
-                "icon": "bi-heart",
-                "description": "Student support systems balancing studio life and wellness.",
+                "title": "MALIKHAING SALAMIN 3.0: Reflecting Truth, Projecting Change",
+                "icon": "bi-chat-dots",
+                "description": "A hybrid communication platform that enables CFAD students to share feedback, concerns, and suggestions through both digital and face-to-face channels, strengthening transparency and student representation within the council.",
             },
             {
-                "title": "Facilities Improvement",
-                "icon": "bi-house-gear",
-                "description": "Studio upgrades and better access to design resources and spaces.",
+                "title": "TALA-UGNAYAN: Komite Konstelasyon",
+                "icon": "bi-star",
+                "description": "A leadership development program that engages CFAD students in council-led initiatives, providing hands-on experience in project planning, collaboration, and student governance while nurturing future student leaders.",
             },
             {
-                "title": "Student Representation",
+                "title": "HIMIG AT HABI: CFAD Artist Alley",
+                "icon": "bi-shop",
+                "description": "A bimonthly student marketplace where CFAD artists and designers can showcase and sell their creative works through curated themed installations aligned with cultural milestones and global observances.",
+            },
+            {
+                "title": "CFAD-NIMULA: Freshmen Walk and Welcoming Party",
                 "icon": "bi-people",
-                "description": "Inclusive representation across art, architecture, and design programs.",
+                "description": "A welcoming program for first-year CFAD students featuring a campus tour, parade, and general assembly to help freshmen familiarize themselves with facilities, organizations, and the creative community.",
             },
             {
-                "title": "Innovation and Development",
+                "title": "CFADPASKUHAN: Paskong Mapaglikha",
+                "icon": "bi-snow",
+                "description": "A year-end celebration for the CFAD community that highlights creative collaboration, reflection, and camaraderie through festive activities and artistic presentations.",
+            },
+            {
+                "title": "CFADPluma: Kalipunan ng Kahusayan",
+                "icon": "bi-journal-bookmark",
+                "description": "An official digital publication and exhibit that archives the achievements, awards, and milestones of CFAD students and alumni, culminating in a recognition program celebrating excellence in the arts and design.",
+            },
+            {
+                "title": "Sa Muling Pag-alala: Caloocan Heritage Tour",
+                "icon": "bi-building",
+                "description": "A cultural immersion program that reconnects CFAD students with the historical, architectural, and cultural heritage of Caloocan through guided tours, lectures, and discussions with heritage advocates and historians.",
+            },
+            {
+                "title": "Creative Paths: Career Opportunities in CFAD",
+                "icon": "bi-briefcase",
+                "description": "A career orientation program introducing students to diverse professional opportunities in architecture, fine arts, and design, helping them explore industry pathways and connect with mentors.",
+            },
+            {
+                "title": "CFAD Academic Consultation Day",
+                "icon": "bi-calendar-check",
+                "description": "A recurring academic support initiative that allows students to review grades, consult with faculty, and receive academic guidance during every Prelim, Midterm, and Finals period.",
+            },
+            {
+                "title": "Colors of Love: CFAD Valentine's Special",
+                "icon": "bi-heart",
+                "description": "A Valentine's event that combines creative expression with social advocacy through talks on inclusive education and LGBTQIA+ awareness alongside student-led artistic activities celebrating diversity.",
+            },
+            {
+                "title": "CFAD Unified: Connecting Creative Community",
+                "icon": "bi-diagram-3",
+                "description": "A collaborative program that strengthens communication among CFAD departments and student organizations, ensuring equal representation and a stronger sense of community within the college.",
+            },
+            {
+                "title": "LikahLink: Art in Motion",
                 "icon": "bi-palette",
-                "description": "Creative innovation programs and interdisciplinary project showcases.",
+                "description": "A collaborative art event where participants pass around artworks to be continued by other artists, encouraging creativity, spontaneity, and artistic collaboration within the CFAD community.",
+            },
+            {
+                "title": "Studio Sessions: Behind the CFAD Canvas",
+                "icon": "bi-mic",
+                "description": "A student-led podcast featuring conversations with faculty, students, and alumni about design trends, creative processes, and student experiences, fostering dialogue and inspiration within CFAD.",
+            },
+            {
+                "title": "Habi-Haligi: Weaving Art, Building the Future",
+                "icon": "bi-threads",
+                "description": "A sustainability-focused workshop that teaches students eco-friendly art techniques such as weaving, transforming creative ideas into functional and environmentally responsible works.",
+            },
+            {
+                "title": "CFAD CoLab: Create, Collaborate, Recharge",
+                "icon": "bi-layout-text-window-reverse",
+                "description": "A spatial optimization project that converts vacant classrooms into open creative workspaces where students can study, draft, collaborate, and work on projects.",
+            },
+            {
+                "title": "CFAD Inspiration Talks",
+                "icon": "bi-lightbulb",
+                "description": "A lecture series featuring professional artists, architects, and designers who share their experiences, insights, and career journeys to inspire and guide CFAD students.",
+            },
+            {
+                "title": "Arts & Assets Workshop: Smart Money for Creative Students",
+                "icon": "bi-cash-coin",
+                "description": "A seminar-workshop that teaches financial literacy for creative students, including budgeting, project costing, pricing artwork, and managing creative projects as sustainable ventures.",
             },
         ],
     },
@@ -823,7 +887,9 @@ def contact():
         subject = request.form.get("subject")
         message = request.form.get("message")
         excel_path = os.path.join(DATA_DIR, "contact_messages.xlsx")
-        df = pd.DataFrame([{ "Name": name, "Email": email, "Subject": subject, "Message": message }])
+        df = pd.DataFrame(
+            [{"Name": name, "Email": email, "Subject": subject, "Message": message}]
+        )
         if os.path.exists(excel_path):
             df_existing = pd.read_excel(excel_path)
             df = pd.concat([df_existing, df], ignore_index=True)
