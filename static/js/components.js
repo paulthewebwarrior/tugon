@@ -190,42 +190,46 @@ const Components = {
 
   /**
    * Render credentials with proper hierarchy
-   * @param {string} credentials - Raw credentials string
+   * Supports both legacy string format and new structured sections
+   * @param {string|Array} credentials - Raw string or structured sections
    * @returns {string} HTML string
    */
   credentials(credentials) {
     if (!credentials) return '<p class="text-muted">No credentials listed.</p>';
-    
+    // Structured sections
+    if (Array.isArray(credentials)) {
+      let html = '';
+      credentials.forEach((sec) => {
+        const title = sec.title || '';
+        const icon = sec.icon || 'bi-info-circle';
+        const items = Array.isArray(sec.items) ? sec.items : [];
+        html += `<div class="credentials-header mt-3"><i class="bi ${icon}"></i> ${title}</div>`;
+        items.forEach((it) => {
+          html += `<p class="credentials-item">${this.escapeHtml(it)}</p>`;
+        });
+      });
+      return html;
+    }
+    // Fallback to legacy parsing
     const lines = credentials.split('\n');
     let html = '';
-    
     const headerKeywords = [
       'ACADEMIC EXCELLENCE', 'EXTRA CURRICULARS', 'INTERNATIONAL LEVEL',
       'NATIONAL LEVEL', 'REGIONAL LEVEL', 'CITY-WIDE LEVEL', 'SCHOOL LEVEL'
     ];
-    
     for (const rawLine of lines) {
       const line = rawLine.trim();
       if (!line) continue;
-      
       const isHeader = headerKeywords.some(keyword => line.includes(keyword));
-      
       if (isHeader) {
         let icon = 'bi-star-fill';
         if (line.includes('ACADEMIC')) icon = 'bi-mortarboard-fill';
         else if (line.includes('INTERNATIONAL')) icon = 'bi-globe';
-        
-        html += `
-          <div class="credentials-header mt-3">
-            <i class="bi ${icon}"></i>
-            ${this.escapeHtml(line)}
-          </div>
-        `;
+        html += `<div class="credentials-header mt-3"><i class="bi ${icon}"></i> ${this.escapeHtml(line)}</div>`;
       } else {
         html += `<p class="credentials-item">${this.escapeHtml(line)}</p>`;
       }
     }
-    
     return html;
   },
 

@@ -3,54 +3,64 @@
  */
 
 // Page loading screen
-const pageLoader = document.getElementById('page-loader');
+(function() {
+  const pageLoader = document.getElementById('page-loader');
+  
+  if (!pageLoader) {
+    console.log('Page loader not found');
+    return;
+  }
 
-function showLoader() {
-  pageLoader.classList.add('active');
-  pageLoader.style.display = 'flex';
-}
+  function showLoader() {
+    pageLoader.classList.add('active');
+    pageLoader.style.display = 'flex';
+    console.log('Loader shown');
+  }
 
-function hideLoader() {
-  pageLoader.classList.remove('active');
-  setTimeout(() => {
+  function hideLoader() {
+    pageLoader.classList.remove('active');
     pageLoader.style.display = 'none';
-  }, 300);
-}
-
-// Show loader on link click - stay visible until new page loads
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a');
-  if (!link) return;
-  
-  const href = link.getAttribute('href');
-  if (!href) return;
-  
-  // Skip external links, anchors, and special links
-  if (href.startsWith('mailto:') || 
-      href.startsWith('tel:') || 
-      href.startsWith('http') && !href.includes(window.location.hostname) ||
-      href.startsWith('#') ||
-      link.getAttribute('data-bs-toggle') === 'dropdown') {
-    return;
+    console.log('Loader hidden');
   }
-  
-  // Skip council page links
-  if (href.includes('/council/')) {
-    return;
-  }
-  
-  showLoader();
-});
 
-// Hide loader when new page fully loads
-window.addEventListener('load', () => {
-  hideLoader();
-});
+  // Show loader on link click
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    if (!href) return;
+    
+    // Skip external links, anchors, and special links
+    if (href.startsWith('mailto:') || 
+        href.startsWith('tel:') || 
+        (href.startsWith('http') && !href.includes(window.location.hostname)) ||
+        href.startsWith('#') ||
+        link.getAttribute('data-bs-toggle') === 'dropdown') {
+      return;
+    }
+    
+    // Skip council page links
+    if (href.includes('/council/')) {
+      return;
+    }
+    
+    showLoader();
+  });
 
-// Handle browser back/forward buttons
-window.addEventListener('pageshow', () => {
-  hideLoader();
-});
+  // Hide loader when page loads
+  window.addEventListener('load', () => {
+    setTimeout(hideLoader, 100);
+  });
+
+  // Handle browser back/forward buttons
+  window.addEventListener('pageshow', () => {
+    setTimeout(hideLoader, 100);
+  });
+
+  // Force hide after 2 seconds as fallback
+  setTimeout(hideLoader, 2000);
+})();
 
 document.addEventListener("DOMContentLoaded", () => {
   // Election countdown

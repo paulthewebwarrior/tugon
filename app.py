@@ -671,6 +671,53 @@ def save_message(message: dict[str, Any]) -> None:
     database.save_message(message)
 
 
+def _split_credentials_into_sections(credentials: str) -> list[dict[str, Any]]:
+    """Parse a raw credentials string into structured sections.
+    Each section has a title, an icon, and a list of items.
+    This provides a consistent UI for credentials across candidates.
+
+    Known section headers are normalized to icons for display.
+    """
+    if not credentials:
+        return []
+    # Map common headers to Bootstrap icons
+    header_icons = {
+        "ACADEMIC EXCELLENCE": "bi-mortarboard-fill",
+        "EXTRA CURRICULARS": "bi-star-fill",
+        "INTERNATIONAL LEVEL": "bi-globe",
+        "NATIONAL LEVEL": "bi-diagram-3",
+        "REGIONAL LEVEL": "bi-file-earmark-text",
+        "CITY-WIDE LEVEL": "bi-map",
+        "SCHOOL LEVEL": "bi-book",
+        "ACADEMICS": "bi-book",
+        "AWARDS": "bi-trophy",
+    }
+
+    lines = [ln.strip() for ln in credentials.split("\n") if ln.strip()]
+    sections: list[dict[str, Any]] = []
+    current: dict[str, Any] | None = None
+
+    for line in lines:
+        key = line.upper()
+        if key in header_icons:
+            # start a new section
+            if current:
+                sections.append(current)
+            current = {
+                "title": line,
+                "icon": header_icons.get(key, "bi-info-circle"),
+                "items": [],
+            }
+        else:
+            if current is None:
+                current = {"title": "Overview", "icon": "bi-info-circle", "items": []}
+            current["items"].append(line)
+
+    if current:
+        sections.append(current)
+    return sections
+
+
 def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
     normalized: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -712,6 +759,8 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "position": position,
             "tagline": tagline,
             "credentials": credentials,
+            # Structured sections for UI rendering
+            "credentials_sections": _split_credentials_into_sections(credentials),
             "plan_of_action": plan_of_action,
             "brief_introduction": brief_introduction,
             "council": council_code,
