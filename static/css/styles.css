@@ -311,57 +311,6 @@ a {
 }
 
 /* Mobile Toggler - Light Icon */
-.navbar-toggler {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.toggler-icon {
-  position: relative;
-  width: 22px;
-  height: 2px;
-  background: #ffffff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.toggler-icon::before,
-.toggler-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ffffff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.toggler-icon::before { top: -7px; }
-.toggler-icon::after { top: 7px; }
-
-.navbar-toggler[aria-expanded="true"] .toggler-icon {
-  background: transparent;
-}
-
-.navbar-toggler[aria-expanded="true"] .toggler-icon::before {
-  top: 0;
-  transform: rotate(45deg);
-  background: #E5B80B;
-}
-
-.navbar-toggler[aria-expanded="true"] .toggler-icon::after {
-  top: 0;
-  transform: rotate(-45deg);
-  background: #E5B80B;
-}
 
 /* Mobile Styles */
 @media (max-width: 991px) {
