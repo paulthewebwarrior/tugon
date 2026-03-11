@@ -18,11 +18,7 @@ class Config:
     CACHE_DEFAULT_TIMEOUT = 300
 
     # Database
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL",
-        "postgresql+psycopg2://postgres:postgres@localhost:5432/tugon"
-    )
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    # (SQLAlchemy config removed)
 
     # Static files
     SEND_FILE_MAX_AGE_DEFAULT = 31536000  # 1 year

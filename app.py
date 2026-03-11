@@ -11,48 +11,14 @@ from typing import Any
 from flask import Flask, flash, jsonify, redirect, render_template, request, url_for
 
 import database
-from flask_sqlalchemy import SQLAlchemy
-from models import db
 
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 
 
-# Flask app and SQLAlchemy setup
-app = Flask(__name__)
-app.config.from_object("config.Config")
-db.init_app(app)
 
 # --- CLI command for table creation (must be after app/db init) ---
-import click
-from flask.cli import with_appcontext
-from models_pg import db
-
-@click.command('create-tables')
-@with_appcontext
-def create_tables_command():
-    """Create all database tables."""
-    db.create_all()
-    click.echo('Tables created.')
-
-app.cli.add_command(create_tables_command)
-
-# --- CLI command for table creation (must be after app/db init) ---
-import click
-from flask.cli import with_appcontext
-from models_pg import db
-
-@click.command('create-tables')
-@with_appcontext
-def create_tables_command():
-    """Create all database tables."""
-    db.create_all()
-    click.echo('Tables created.')
-
-app.cli.add_command(create_tables_command)
-# Import models_pg to register models with SQLAlchemy
-import models_pg
 
 
 
@@ -825,49 +791,13 @@ def ensure_storage() -> None:
 
 @lru_cache(maxsize=1)
 def load_candidates() -> list[dict[str, Any]]:
-    """Load all candidates from PostgreSQL using SQLAlchemy (cached)."""
-    from models_pg import Candidate
-    candidates = Candidate.query.all()
-    # highlights is stored as JSON string, convert to list
-    for c in candidates:
-        if hasattr(c, 'highlights') and isinstance(c.highlights, str):
-            import json
-            try:
-                c.highlights = json.loads(c.highlights)
-            except Exception:
-                c.highlights = []
-    return normalize_candidates([c.__dict__ for c in candidates])
+    """Load all candidates from the database, sorted by council and position hierarchy."""
+    return database.load_candidates()
 
 
 def save_candidates(candidates: list[dict[str, Any]]) -> None:
-    """Save candidates to PostgreSQL using SQLAlchemy."""
-    from models_pg import Candidate, db
-    import json
-    # Remove all existing candidates
-    Candidate.query.delete()
-    db.session.commit()
-    # Add new candidates
-    for candidate in normalize_candidates(candidates):
-        highlights = candidate.get('highlights', [])
-        if isinstance(highlights, list):
-            highlights = json.dumps(highlights)
-        c = Candidate(
-            id=candidate.get('id', ''),
-            name=candidate.get('name', ''),
-            position=candidate.get('position', ''),
-            tagline=candidate.get('tagline', ''),
-            credentials=candidate.get('credentials', ''),
-            bio=candidate.get('bio', ''),
-            photo=candidate.get('photo', 'images/default-candidate.svg'),
-            highlights=highlights,
-            plan_of_action=candidate.get('plan_of_action', ''),
-            council=candidate.get('council', 'ENSC').upper(),
-            created_at=candidate.get('created_at', '2026-03-08'),
-            facebook=candidate.get('facebook', '')
-        )
-        db.session.add(c)
-    db.session.commit()
-    load_candidates.cache_clear()
+    """Save multiple candidates (replaces all existing data)."""
+    return database.save_candidates(candidates)
 
 
 @lru_cache(maxsize=1)
@@ -878,23 +808,11 @@ def load_council_candidates(council_code: str) -> list[dict[str, Any]]:
 
 
 def load_messages() -> list[dict[str, Any]]:
-    """Load all messages from PostgreSQL using SQLAlchemy."""
-    from models_pg import Message
-    return [m.__dict__ for m in Message.query.order_by(Message.created_at.desc()).all()]
+    return []
 
 
 def save_message(message: dict[str, Any]) -> None:
-    """Save a single message to PostgreSQL using SQLAlchemy."""
-    from models_pg import Message, db
-    msg = Message(
-        name=message.get('name', ''),
-        email=message.get('email', ''),
-        subject=message.get('subject', ''),
-        message=message.get('message', ''),
-        created_at=message.get('created_at', None)
-    )
-    db.session.add(msg)
-    db.session.commit()
+    pass
 
 
 def _split_credentials_into_sections(credentials: str) -> list[dict[str, Any]]:

@@ -4,7 +4,7 @@ import click
 from flask.cli import with_appcontext
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'  # Change to your Postgres URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/tugon.db'  # Use your existing tugon.db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
