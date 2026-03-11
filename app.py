@@ -35,29 +35,169 @@ COUNCILS: list[dict[str, Any]] = [
         ],
         "gpoa": [
             {
-                "title": "Academic Programs",
-                "icon": "bi-journal-check",
-                "description": "Academic policy feedback loops and student consultation forums.",
-            },
-            {
-                "title": "Student Welfare",
-                "icon": "bi-heart-pulse",
-                "description": "Campus-wide welfare desks, referral systems, and emergency support channels.",
-            },
-            {
-                "title": "Facilities Improvement",
-                "icon": "bi-building-check",
-                "description": "Cross-college facility audits and student-priority improvement endorsements.",
-            },
-            {
-                "title": "Student Representation",
+                "title": "IGNITING LEADERS; SHAPING WARRIORS",
                 "icon": "bi-people",
-                "description": "Regular assemblies and transparent policy updates for all colleges.",
+                "description": "An engaging and interactive leadership seminar for aspiring SHS and College student leaders, featuring carefully selected speakers who will share their leadership experiences, insights, and practical approaches to student leadership.",
             },
             {
-                "title": "Innovation and Development",
-                "icon": "bi-lightbulb",
-                "description": "Digital student services and data-driven governance initiatives.",
+                "title": "MANDIRIGMA NG PAGKAKAIBA: Warriors of Diversity",
+                "icon": "bi-globe2",
+                "description": "A youth-driven advocacy that champions inclusivity and unity in the university. Rooted in the warrior spirit (mandirigma), it calls on students to embrace cultural, social, and personal differences as sources of strength through a series of events and seminars.",
+            },
+            {
+                "title": "UE-DUCATIONAL WARRIORS' DISCUSSION",
+                "icon": "bi-chat-dots",
+                "description": "An engaging university-wide seminar that serves as a healthy dialogue bridging expert insights and student perspectives on social, political, environmental, and educational issues.",
+            },
+            {
+                "title": "MENTAL HEALTH TALK",
+                "icon": "bi-heart-pulse",
+                "description": "A seminar focused on mental health awareness, emotional well-being, and providing students with knowledge about self-care practices and available support systems within the university.",
+            },
+            {
+                "title": "Akbay Balikat Program: Warriors with Diverse Abilities",
+                "icon": "bi-universal-access",
+                "description": "This program empowers and supports the diverse abilities of PWD students through needs-based and talent-focused interventions rather than disability-based categorization.",
+            },
+            {
+                "title": "Mandirigma Study Grounds: Study Areas and Benches",
+                "icon": "bi-book",
+                "description": "This project provides additional study areas and benches across campus to create a comfortable and conducive environment for learning.",
+            },
+            {
+                "title": "BOOK NOOK",
+                "icon": "bi-bookmark",
+                "description": "This project maximizes the vacant area outside the library to be transformed into a comfortable and favorable spot for students to spend their leisure time, read, and/or study with less restrictions.",
+            },
+            {
+                "title": "SUPPORT THE UE CHAMPIONS: Students Assistance Program",
+                "icon": "bi-trophy",
+                "description": "A council-led movement to help students compete outside the university through administrative support, sponsorships, and in-kind contributions, ensuring they represent UE-Caloocan with pride.",
+            },
+            {
+                "title": "PA System in EN Building",
+                "icon": "bi-speaker",
+                "description": "This project provides a Public Address (PA) system in the EN Building to improve communication and announcements for students and staff.",
+            },
+            {
+                "title": "WIFI BOOSTER",
+                "icon": "bi-wifi",
+                "description": "WiFi boosters will be requested to improve internet connectivity all over the campus to help students attend online classes without interruptions.",
+            },
+            {
+                "title": "CAPEX",
+                "icon": "bi-cash-coin",
+                "description": "This petition seeks clarification and reconsideration of the current policy of allocating unutilized Student Council funds to Capital Expenditures (CAPEX).",
+            },
+            {
+                "title": "MANDIRIGMA NG PAG-UNLAD: Warriors for a Functional University",
+                "icon": "bi-building",
+                "description": "This advocacy seeks to address unfixed, neglected, and lacking facilities in the university, requesting the addition of blinds to every classroom and strengthening the directory in every college.",
+            },
+            {
+                "title": "NO TO TOFI",
+                "icon": "bi-x-circle",
+                "description": "This action plan campaigns against any increase in tuition and other school fees to protect students from additional financial burden.",
+            },
+            {
+                "title": "7% SCHOLARSHIP QUOTA",
+                "icon": "bi-graduation-cap",
+                "description": "This project serves as a dedicated advocacy that focuses on reassessing and improving the 7% scholarship quota to better support deserving students.",
+            },
+            {
+                "title": "DIGITAL SURVEY FEEDBACK",
+                "icon": "bi-qr-code",
+                "description": "QR codes posted around the campus will lead to a Google Form where students can easily submit concerns about the council, administration, faculty members, or facilities.",
+            },
+            {
+                "title": "The Warriors' Trail: The Ultimate UEversity Walk",
+                "icon": "bi-signpost-2",
+                "description": "Formerly the 'Freshmen Walk', is an enhanced interactive campus tour for all year levels to explore the school and meet fellow students.",
+            },
+            {
+                "title": "UEnited: The General Assembly",
+                "icon": "bi-people-fill",
+                "description": "This university-wide event will include all grade levels and colleges to gather for a general assembly and a formal welcoming for the new school year.",
+            },
+            {
+                "title": "UE RAVE & LOUD: The Ultimate Campus Concert Experience 2026",
+                "icon": "bi-music-note-beamed",
+                "description": "A high-energy, rave-concept campus concert showcasing the talent, music, and school spirit of UE-Caloocan students.",
+            },
+            {
+                "title": "ALL EYES ON UE: MIX ECO WARRIORS",
+                "icon": "bi-gem",
+                "description": "An inclusive, glamorous campus pageant showcasing the talent, charm, and confidence of UE students through outfits made from recyclable or upcycled materials.",
+            },
+            {
+                "title": "UE GOT TALENT",
+                "icon": "bi-star",
+                "description": "An event and competition designed to showcase a diverse variety of talents from the UE-Caloocan students.",
+            },
+            {
+                "title": "SUSTAINATOPIA 2.0",
+                "icon": "bi-shop",
+                "description": "A campus bazaar that allows students from different departments to sell their products, such as artworks, crafts, and pre-loved items.",
+            },
+            {
+                "title": "UELYMPICS SPORTSFEST 2027",
+                "icon": "bi-controller",
+                "description": "A week-long sports festival promoting fitness, teamwork, and school spirit, featuring basketball, volleyball, and badminton tournaments.",
+            },
+            {
+                "title": "ORGANIZATION WEEK",
+                "icon": "bi-calendar-event",
+                "description": "Organization Week is a week-long campus event designed to highlight the programs, initiatives, and creativity of RSOs and uni-wide organizations.",
+            },
+            {
+                "title": "Cinema ng Mandirigma: Discover Your Future at UE",
+                "icon": "bi-film",
+                "description": "A campus-wide film screening that provides relaxation, entertainment, and social interaction among students.",
+            },
+            {
+                "title": "EastCast: The Pulse of UE",
+                "icon": "bi-mic",
+                "description": "This project implements a PA System across the university that will allow students to showcase their broadcasting skills.",
+            },
+            {
+                "title": "WONDER PETS",
+                "icon": "bi-heart",
+                "description": "A day where Student-Pet Lovers are invited to bring their pets inside the campus for a get-together and a short program.",
+            },
+            {
+                "title": "Warrior Fest: Rides, Pride, and Spirit",
+                "icon": "bi-balloon",
+                "description": "A campus carnival featuring exciting rides designed to engage students, foster camaraderie, and promote school spirit.",
+            },
+            {
+                "title": "Transparency and Inventory Report",
+                "icon": "bi-clipboard-data",
+                "description": "This project ensures transparency and accountability in the management of Student Council resources through regular inventory checks and reports.",
+            },
+            {
+                "title": "Bukas sa Silangan: Discover Your Future at UE",
+                "icon": "bi-door-open",
+                "description": "This project is an Open Campus initiative designed to give future students the opportunity to explore the university.",
+            },
+            {
+                "title": "KAPIT KARAMAY: Calamity Response Initiative",
+                "icon": "bi-hand-thumbs-up",
+                "description": "Kapit Karamay is a student-led initiative that serves as an immediate and organized assistance to members of the school community affected by calamities.",
+            },
+            {
+                "title": "PUSO NG MANDIRIGMA: Celebrating Family Bonds",
+                "icon": "bi-gift",
+                "description": "Outreach program that provides grocery packs and essential food items to non-teaching staff to support staff welfare.",
+            },
+            {
+                "title": "MANDIRIGMA SHARE & CARE",
+                "icon": "bi-arrow-repeat",
+                "description": "A sharing initiative where students can borrow, share, and return essential items such as books, art materials, calculators, and other academic materials.",
+            },
+            {
+                "title": "VOICE FOR PEACE: Supporting Refugee Students",
+                "icon": "bi-people",
+                "description": "This initiative promotes understanding and support for refugee students, advocating for their rights and inclusion.",
             },
         ],
     },
