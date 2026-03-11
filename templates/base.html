@@ -60,7 +60,7 @@
           </div>
         <!-- Sidebar menu toggler for mobile -->
         <button id="sidebarToggle" class="sidebar-toggle d-lg-none" type="button" aria-label="Open navigation">
-          <i class="bi bi-list" style="font-size:2rem;color:#fff;"></i>
+          <i class="bi bi-list"></i>
         </button>
         </a>
         
@@ -79,6 +79,11 @@
         <!-- Sidebar Navigation for Mobile -->
         <div id="mobileSidebar" class="mobile-sidebar">
           <button id="sidebarClose" class="sidebar-close" aria-label="Close navigation">&times;</button>
+          <div class="sidebar-logo">
+            <img src="{{ url_for('static', filename='images/TUGON PNGS.png') }}" alt="Tugon logo">
+            <span class="sidebar-brand">Nagkakaisang Tugon</span>
+          </div>
+          <div class="sidebar-divider"></div>
           <nav class="sidebar-nav">
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('council_page', slug='CAS') }}">Councils</a>
