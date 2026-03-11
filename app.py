@@ -1081,18 +1081,20 @@ def about() -> str:
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
+        from datetime import datetime
+        from database import save_message
         name = request.form.get("name")
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
-        excel_path = os.path.join(DATA_DIR, "contact_messages.xlsx")
-        df = pd.DataFrame(
-            [{"Name": name, "Email": email, "Subject": subject, "Message": message}]
-        )
-        if os.path.exists(excel_path):
-            df_existing = pd.read_excel(excel_path)
-            df = pd.concat([df_existing, df], ignore_index=True)
-        df.to_excel(excel_path, index=False)
+        created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        save_message({
+            "name": name,
+            "email": email,
+            "subject": subject,
+            "message": message,
+            "created_at": created_at
+        })
         flash("Your message has been recorded!", "success")
         return redirect(url_for("contact"))
     return render_template("contact.html")
