@@ -273,6 +273,7 @@ a {
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   background: rgba(30, 30, 30, 0.98);
+  -webkit-backdrop-filter: blur(10px); /* Safari 9+, iOS 9+ */
   backdrop-filter: blur(10px);
   animation: dropdownFade 0.2s ease;
 }
