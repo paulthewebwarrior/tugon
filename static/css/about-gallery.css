@@ -1,0 +1,54 @@
+/* Add this to styles.css for background and panel image effects on the about page */
+.about-bg-gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.about-bg-gallery img {
+  position: absolute;
+  opacity: 0.12;
+  max-width: 30vw;
+  max-height: 30vh;
+  object-fit: cover;
+  filter: grayscale(0.2) blur(0.5px);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+/* Individual background image positions */
+.bg-img-1 { top:5vh; left:3vw; transform:rotate(-2deg); }
+.bg-img-2 { top:40vh; left:10vw; transform:rotate(3deg); }
+.bg-img-3 { top:10vh; left:60vw; transform:rotate(-4deg); }
+.bg-img-4 { top:55vh; left:70vw; transform:rotate(2deg); }
+.bg-img-5 { top:30vh; left:40vw; transform:rotate(-1deg); }
+.bg-img-6 { top:65vh; left:20vw; transform:rotate(1deg); }
+.bg-img-7 { top:20vh; left:80vw; transform:rotate(-3deg); }
+.bg-img-8 { top:10vh; left:10vw; transform:rotate(2deg); }
+.bg-img-9 { top:50vh; left:50vw; transform:rotate(-2deg); }
+.bg-img-10 { top:70vh; left:60vw; transform:rotate(1deg); }
+.bg-img-11 { top:80vh; left:30vw; transform:rotate(-1deg); }
+}
+.about-panel-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.about-panel-gallery img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  opacity: 0.95;
+}
+@media (max-width: 900px) {
+  .about-bg-gallery img { max-width: 50vw; max-height: 20vh; }
+  .about-panel-gallery img { width: 120px; height: 80px; }
+}
