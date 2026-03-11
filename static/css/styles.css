@@ -216,7 +216,7 @@ a {
 }
 
 .modern-navbar .brand-tagline strong {
-  color: #E5B80B;
+  color: #fff;
   font-weight: 700;
 }
 
@@ -996,7 +996,7 @@ a {
 
 .gpoa-group .eyebrow {
   margin-bottom: 0.45rem;
-  color: #a57400;
+  color: #a57400; /* keep gold for gpoa-group only */
 }
 
 .gpoa-item {
