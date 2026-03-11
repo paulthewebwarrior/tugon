@@ -3,7 +3,6 @@
   --campaign-amber: #E5B80B;
   --campaign-gradient: linear-gradient(135deg, #E5B80B 0%, #F4D03F 35%, #FFE682 100%);
   --campaign-shadow: 0 24px 60px rgba(229, 184, 11, 0.22);
-}
 
 .page-loader {
   position: fixed;
@@ -59,6 +58,7 @@
   60% { transform: scale(1); }
 }
 
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
@@ -69,6 +69,7 @@ html {
 @supports (scroll-timeline: auto) {
   html {
     scroll-timeline: --page-scroll y;
+
   }
 }
 
@@ -970,10 +971,6 @@ a {
   transform: translateY(-6px);
   box-shadow: 0 20px 42px rgba(57, 44, 12, 0.12), 0 14px 28px rgba(229, 184, 11, 0.15);
 }
-
-.gpoa-group {
-  border-top: 1px solid rgba(229, 184, 11, 0.22);
-  padding-top: 2.2rem;
 }
 
 .gpoa-group-header {
@@ -1056,6 +1053,7 @@ a {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(229, 184, 11, 0.2);
+
   color: #3f3a31;
   font-size: 0.9rem;
   line-height: 1.45;
