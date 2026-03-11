@@ -39,29 +39,28 @@
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg fixed-top campaign-navbar">
-      <div class="container py-2">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('home') }}">
-          <img
-            class="brand-logo brand-logo-shadow"
-            width="68"
-            height="68"
-            src="{{ url_for('static', filename='images/TUGON PNGS.png') }}"
-            alt="Nagkakaisang Tugon logo"
-          >
-          <img
-            class="brand-text-logo brand-logo-shadow"
-            height="55"
-            src="{{ url_for('static', filename='images/true w texture darker ver.png') }}"
-            alt="True & Through"
-          >
-          <div class="d-flex flex-column">
-            <span class="brand-text"><strong>Nagkakaisang Tugon</strong> <span class="brand-text-light">Party Alliance</span></span>
-            <span class="brand-motto">Nagbabago. Nagwawasto. <strong>Lumalaban.</strong></span>
+    <nav class="navbar navbar-expand-lg fixed-top modern-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <div class="brand-wrapper">
+            <img
+              class="brand-logo"
+              src="{{ url_for('static', filename='images/TUGON PNGS.png') }}"
+              alt="Nagkakaisang Tugon"
+            >
+            <div class="brand-text-group">
+              <img
+                class="brand-text-logo"
+                src="{{ url_for('static', filename='images/true w texture darker ver.png') }}"
+                alt="Nagkakaisang Tugon"
+              >
+              <span class="brand-tagline">Nagbabago. Nagwawasto. <strong>Lumalaban.</strong></span>
+            </div>
           </div>
         </a>
+        
         <button
-          class="navbar-toggler border-0 shadow-none"
+          class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#siteNav"
@@ -69,19 +68,22 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="siteNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}"><span>Home</span></a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Councils</a>
-              <div class="dropdown-menu dropdown-menu-end">{% for council in councils %}<a class="dropdown-item" href="{{ url_for('council_page', slug=council.slug) }}">{{ council.name }}</a>{% endfor %}</div>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>Councils</span>
+              </a>
+              <div class="dropdown-menu">{% for council in councils %}<a class="dropdown-item" href="{{ url_for('council_page', slug=council.slug) }}">{{ council.name }}</a>{% endfor %}</div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('candidates') }}">Candidates</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('platform') }}">Platform</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('candidates') }}"><span>Candidates</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('platform') }}"><span>Platform</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}"><span>About</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}"><span>Contact</span></a></li>
           </ul>
         </div>
       </div>
