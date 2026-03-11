@@ -58,9 +58,9 @@
               <span class="brand-tagline">Nagbabago. Nagwawasto. <strong>Lumalaban.</strong></span>
             </div>
           </div>
-        <!-- Burger menu toggler for Android/mobile -->
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <!-- Sidebar menu toggler for mobile -->
+        <button id="sidebarToggle" class="sidebar-toggle d-lg-none" type="button" aria-label="Open navigation">
+          <i class="bi bi-list" style="font-size:2rem;color:#fff;"></i>
         </button>
         </a>
         
@@ -74,6 +74,21 @@
             <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}"><span>About</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}"><span>Contact</span></a></li>
           </ul>
+        </div>
+
+        <!-- Sidebar Navigation for Mobile -->
+        <div id="mobileSidebar" class="mobile-sidebar">
+          <button id="sidebarClose" class="sidebar-close" aria-label="Close navigation">&times;</button>
+          <nav class="sidebar-nav">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('council_page', slug='CAS') }}">Councils</a>
+            <a href="{{ url_for('candidates') }}">Candidates</a>
+            <a href="{{ url_for('platform') }}">Platform</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+          </nav>
+        </div>
+        <div id="sidebarOverlay" class="sidebar-overlay"></div>
         </div>
       </div>
     </nav>

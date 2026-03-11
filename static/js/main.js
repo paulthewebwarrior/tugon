@@ -1,3 +1,31 @@
+// Sidebar Navigation for Mobile
+document.addEventListener("DOMContentLoaded", function() {
+  const sidebar = document.getElementById("mobileSidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  const openBtn = document.getElementById("sidebarToggle");
+  const closeBtn = document.getElementById("sidebarClose");
+  if (sidebar && overlay && openBtn && closeBtn) {
+    openBtn.addEventListener("click", function() {
+      sidebar.classList.add("open");
+      overlay.classList.add("open");
+    });
+    closeBtn.addEventListener("click", function() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("open");
+    });
+    overlay.addEventListener("click", function() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("open");
+    });
+    // Optional: close sidebar on nav link click
+    sidebar.querySelectorAll(".sidebar-nav a").forEach(link => {
+      link.addEventListener("click", function() {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("open");
+      });
+    });
+  }
+});
 /**
  * Tugon Main Application Entry Point
  */
