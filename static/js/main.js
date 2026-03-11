@@ -2,6 +2,55 @@
  * Tugon Main Application Entry Point
  */
 
+// Page transition loader
+const pageLoader = document.getElementById('page-loader');
+
+function showTransition() {
+  pageLoader.classList.add('active');
+  pageLoader.style.display = 'flex';
+  
+  setTimeout(() => {
+    pageLoader.classList.remove('active');
+    setTimeout(() => {
+      pageLoader.style.display = 'none';
+    }, 300);
+  }, 2000);
+}
+
+// Show transition on any internal link click
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (!link) return;
+  
+  const href = link.getAttribute('href');
+  if (!href) return;
+  
+  // Skip external links, anchors, and special links
+  if (href.startsWith('mailto:') || 
+      href.startsWith('tel:') || 
+      href.startsWith('http') && !href.includes(window.location.hostname) ||
+      href.startsWith('#') ||
+      link.getAttribute('data-bs-toggle') === 'dropdown') {
+    return;
+  }
+  
+  showTransition();
+});
+
+// Always show transition on page load (2 seconds)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    showTransition();
+  }, 100);
+});
+
+// Handle browser back/forward buttons
+window.addEventListener('pageshow', () => {
+  setTimeout(() => {
+    showTransition();
+  }, 100);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // Election countdown
   const countdownElement = document.getElementById("electionCountdown");
