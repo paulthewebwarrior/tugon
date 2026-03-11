@@ -17,7 +17,7 @@ function showTransition() {
   }, 2000);
 }
 
-// Show transition on any internal link click
+// Show transition on any internal link click except council pages
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a');
   if (!link) return;
@@ -31,6 +31,11 @@ document.addEventListener('click', (e) => {
       href.startsWith('http') && !href.includes(window.location.hostname) ||
       href.startsWith('#') ||
       link.getAttribute('data-bs-toggle') === 'dropdown') {
+    return;
+  }
+  
+  // Skip council page links (keep transition for main nav only)
+  if (href.includes('/council/')) {
     return;
   }
   
