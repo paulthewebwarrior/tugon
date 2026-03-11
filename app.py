@@ -24,15 +24,38 @@ app = Flask(__name__)
 app.config.from_object("config.Config")
 db.init_app(app)
 
+# --- CLI command for table creation (must be after app/db init) ---
+import click
+from flask.cli import with_appcontext
+from models_pg import db
+
+@click.command('create-tables')
+@with_appcontext
+def create_tables_command():
+    """Create all database tables."""
+    db.create_all()
+    click.echo('Tables created.')
+
+app.cli.add_command(create_tables_command)
+
+# --- CLI command for table creation (must be after app/db init) ---
+import click
+from flask.cli import with_appcontext
+from models_pg import db
+
+@click.command('create-tables')
+@with_appcontext
+def create_tables_command():
+    """Create all database tables."""
+    db.create_all()
+    click.echo('Tables created.')
+
+app.cli.add_command(create_tables_command)
 # Import models_pg to register models with SQLAlchemy
 import models_pg
 
-# Import and register CLI only after models are registered
-try:
-    from manage import create_tables_command
-    app.cli.add_command(create_tables_command)
-except ImportError:
-    pass
+
+
 
 
 COUNCILS: list[dict[str, Any]] = [
