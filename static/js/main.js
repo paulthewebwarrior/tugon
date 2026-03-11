@@ -2,22 +2,22 @@
  * Tugon Main Application Entry Point
  */
 
-// Page transition loader
+// Page loading screen
 const pageLoader = document.getElementById('page-loader');
 
-function showTransition() {
+function showLoader() {
   pageLoader.classList.add('active');
   pageLoader.style.display = 'flex';
-  
-  setTimeout(() => {
-    pageLoader.classList.remove('active');
-    setTimeout(() => {
-      pageLoader.style.display = 'none';
-    }, 300);
-  }, 2000);
 }
 
-// Show transition on any internal link click except council pages
+function hideLoader() {
+  pageLoader.classList.remove('active');
+  setTimeout(() => {
+    pageLoader.style.display = 'none';
+  }, 300);
+}
+
+// Show loader on link click - stay visible until new page loads
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a');
   if (!link) return;
@@ -34,26 +34,22 @@ document.addEventListener('click', (e) => {
     return;
   }
   
-  // Skip council page links (keep transition for main nav only)
+  // Skip council page links
   if (href.includes('/council/')) {
     return;
   }
   
-  showTransition();
+  showLoader();
 });
 
-// Always show transition on page load (2 seconds)
+// Hide loader when new page fully loads
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    showTransition();
-  }, 100);
+  hideLoader();
 });
 
 // Handle browser back/forward buttons
 window.addEventListener('pageshow', () => {
-  setTimeout(() => {
-    showTransition();
-  }, 100);
+  hideLoader();
 });
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import re
 from datetime import date
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -641,14 +642,23 @@ def ensure_storage() -> None:
     # Database initialization is handled by the database module on import
 
 
+@lru_cache(maxsize=1)
 def load_candidates() -> list[dict[str, Any]]:
-    """Load all candidates from SQLite database."""
+    """Load all candidates from SQLite database (cached)."""
     return normalize_candidates(database.load_candidates())
 
 
 def save_candidates(candidates: list[dict[str, Any]]) -> None:
     """Save candidates to SQLite database."""
     database.save_candidates(normalize_candidates(candidates))
+    load_candidates.cache_clear()
+
+
+@lru_cache(maxsize=1)
+def load_council_candidates(council_code: str) -> list[dict[str, Any]]:
+    """Load candidates filtered by council (cached)."""
+    all_candidates = load_candidates()
+    return [c for c in all_candidates if c.get("council") == council_code]
 
 
 def load_messages() -> list[dict[str, Any]]:
