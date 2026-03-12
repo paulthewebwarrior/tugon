@@ -1581,8 +1581,31 @@ a {
   }
 
   .gpoa-detail-item {
-    font-size: 0.9rem;
-    padding: 0.64rem 0.72rem 0.66rem 1.35rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.6rem 0.5rem 1rem;
+  }
+
+  .gpoa-detail-item::before {
+    left: 0.4rem;
+    top: 0.7rem;
+    width: 5px;
+    height: 5px;
+  }
+
+  .platform-card {
+    padding: 1rem;
+  }
+
+  .platform-card h3 {
+    font-size: 1rem;
+  }
+
+  .gpoa-summary {
+    font-size: 0.85rem;
+  }
+
+  .gpoa-details {
+    gap: 0.25rem;
   }
 
   /* Credentials responsive - phone */
@@ -1632,6 +1655,55 @@ a {
     font-size: 0.68rem;
     padding: 0.3rem 0.5rem;
   }
+
+  .credentials-item {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.45rem 0.4rem 1rem;
+    line-height: 1.4;
+  }
+
+  /* GPOA mobile improvements */
+  .gpoa-group-header {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .gpoa-group-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .platform-card {
+    padding: 0.85rem;
+  }
+
+  .platform-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gpoa-summary {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .gpoa-detail-item {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.5rem 0.4rem 0.85rem;
+    border-radius: 8px;
+    line-height: 1.35;
+  }
+
+  .gpoa-detail-item::before {
+    left: 0.35rem;
+    top: 0.55rem;
+    width: 4px;
+    height: 4px;
+  }
+
+  .gpoa-details {
+    gap: 0.2rem;
+  }
+}
 
   .credentials-item {
     font-size: 0.78rem;
