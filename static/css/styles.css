@@ -1488,6 +1488,15 @@ a {
   will-change: opacity, transform;
 }
 
+/* Disable animations on mobile for better performance */
+@media (max-width: 767.98px) {
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 .reveal-up.is-visible {
   opacity: 1;
   transform: translateY(0);
