@@ -11,17 +11,14 @@ from typing import Any
 from flask import Flask, flash, jsonify, redirect, render_template, request, url_for
 
 import database
+from database import get_position_order
 
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 
 
-
 # --- CLI command for table creation (must be after app/db init) ---
-
-
-
 
 
 COUNCILS: list[dict[str, Any]] = [
@@ -1014,12 +1011,35 @@ def candidates() -> str:
         filtered = [item for item in filtered if item["council"] == selected_council]
 
     if query:
-        filtered = [
-            item
-            for item in filtered
-            if query in item.get("name", "").lower()
-            or query in item.get("position", "").lower()
-        ]
+        exact_position = None
+        if query == "president":
+            exact_position = "President"
+        elif query == "vice president":
+            exact_position = "Vice President"
+
+        if exact_position:
+            filtered = [
+                item
+                for item in filtered
+                if item.get("position", "").lower() == exact_position.lower()
+            ]
+        else:
+            filtered = [
+                item
+                for item in filtered
+                if query in item.get("name", "").lower()
+                or query in item.get("position", "").lower()
+            ]
+
+    COUNCIL_ORDER = {"CSC": 0, "ENSC": 1, "CASSC": 2, "CBASC": 3, "CFADSC": 4}
+
+    def sort_key(c):
+        pos_order = get_position_order(c.get("position", ""))
+        council_order = COUNCIL_ORDER.get(c.get("council", ""), 99)
+        name = c.get("name", "")
+        return (pos_order, council_order, name)
+
+    filtered.sort(key=sort_key)
 
     for candidate in filtered:
         candidate["short_credentials"] = candidate_short_credentials(candidate)
@@ -1044,9 +1064,31 @@ def candidate_profile(candidate_id: str) -> str:
         flash("Candidate profile not found.", "warning")
         return redirect(url_for("candidates"))
 
+    council_candidates = [
+        item for item in all_candidates if item["council"] == candidate["council"]
+    ]
+    council_candidates.sort(key=lambda x: get_position_order(x.get("position", "")))
+
+    current_index = next(
+        (i for i, c in enumerate(council_candidates) if c["id"] == candidate_id), -1
+    )
+
+    prev_candidate = (
+        council_candidates[current_index - 1] if current_index > 0 else None
+    )
+    next_candidate = (
+        council_candidates[current_index + 1]
+        if current_index < len(council_candidates) - 1
+        else None
+    )
+
     council = COUNCIL_BY_CODE[candidate["council"]]
     return render_template(
-        "candidate_profile.html", candidate=candidate, council=council
+        "candidate_profile.html",
+        candidate=candidate,
+        council=council,
+        prev_candidate=prev_candidate,
+        next_candidate=next_candidate,
     )
 
 
@@ -1061,6 +1103,8 @@ def council_page(slug: str) -> str:
     council_candidates = [
         item for item in all_candidates if item["council"] == council["code"]
     ]
+
+    council_candidates.sort(key=lambda x: get_position_order(x.get("position", "")))
 
     for candidate in council_candidates:
         candidate["short_credentials"] = candidate_short_credentials(candidate)
@@ -1087,18 +1131,21 @@ def contact():
     if request.method == "POST":
         from datetime import datetime
         from database import save_message
+
         name = request.form.get("name")
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
         created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        save_message({
-            "name": name,
-            "email": email,
-            "subject": subject,
-            "message": message,
-            "created_at": created_at
-        })
+        save_message(
+            {
+                "name": name,
+                "email": email,
+                "subject": subject,
+                "message": message,
+                "created_at": created_at,
+            }
+        )
         flash("Your message has been recorded!", "success")
         return redirect(url_for("contact"))
     return render_template("contact.html")
