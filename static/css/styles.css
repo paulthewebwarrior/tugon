@@ -1,3 +1,9 @@
+/* Maximize screen - full width containers */
+.container, .container-fluid {
+  max-width: 100% !important;
+  width: 100%;
+}
+
 /* Footer white text for party alliance */
 .footer-title-white {
   color: #fff !important;
