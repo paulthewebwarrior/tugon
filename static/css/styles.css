@@ -1,3 +1,13 @@
+/* Centered contact form for contact page */
+/* Centered contact form for contact page */
+.contact-form-centered {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(229,184,11,0.10);
+}
 /* Maximize screen - full width containers */
 .container, .container-fluid {
   max-width: 100% !important;
