@@ -1,7 +1,33 @@
+.site-footer .row.g-4.align-items-center {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991.98px) {
+  .site-footer .row.g-4.align-items-center {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 2rem !important;
+  }
+  .site-footer .footer-brand {
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .site-footer .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .site-footer .text-lg-end {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .site-footer .d-flex.justify-content-lg-end {
+    justify-content: center !important;
+  }
+}
 /* Centered contact form for contact page */
 /* Centered contact form for contact page */
 .contact-form-centered {
-  max-width: 800px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   background: rgba(255,255,255,0.97);
@@ -11,9 +37,9 @@
 /* Maximize screen - full width containers */
 .container, .container-fluid {
   max-width: 100% !important;
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  width: 100% !important;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Footer white text for party alliance */
