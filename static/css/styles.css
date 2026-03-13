@@ -948,7 +948,7 @@ a {
 }
 
 .campaign-banner {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 28px;
   overflow: hidden;
@@ -1014,7 +1014,7 @@ a {
 }
 
 .section-heading {
-  max-width: 720px;
+  max-width: 100%;
 }
 
 .candidate-card,
@@ -1239,7 +1239,7 @@ a {
 }
 
 .gpoa-group-header {
-  max-width: 900px;
+  max-width: 100%;
   margin-bottom: 1.2rem;
   padding: 0.95rem 1.05rem;
   border-radius: 20px;
