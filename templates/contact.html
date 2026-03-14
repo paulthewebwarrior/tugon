@@ -4,7 +4,7 @@
 
 {% block content %}
   <section class="subpage-hero">
-    <div class="container-fluid px-0">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <span class="eyebrow">Contact and Support</span>
@@ -17,22 +17,29 @@
 
   <section class="section-space bg-white">
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row g-4">
+        <!-- Left Column - Google Form (Full Width) -->
         <div class="col-12">
-          <div class="contact-form-centered p-4 text-center mx-auto mb-4">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdnW7iMmFvw8LZisjKVScQc1BZ0M1O_8bkOUnfF3oyfm2MEfQ/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form">Loading…</iframe>
+          <div class="contact-form">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdnW7iMmFvw8LZisjKVScQc1BZ0M1O_8bkOUnfF3oyfm2MEfQ/viewform?embedded=true" width="100%" height="900" style="min-height: 700px;" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form">Loading…</iframe>
           </div>
         </div>
+      </div>
+
+      <!-- Support Panel Below -->
+      <div class="row g-4 mt-4">
         <div class="col-12">
-          <div class="support-panel h-100 text-center mx-auto">
+          <div class="support-panel">
             <span class="eyebrow">Support the Campaign</span>
             <h2>Stay connected with the alliance</h2>
-            <p>
-              Follow campaign updates, participate in consultations, and help us amplify student-centered, engineering-focused leadership.
-            </p>
+            <p>Follow campaign updates, participate in consultations, and help us amplify student-centered, engineering-focused leadership.</p>
             <div class="support-links mt-4">
-              <a href="https://www.facebook.com/share/18qFZWbJqB/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Facebook Campaign Page</a>
-              <a href="https://www.instagram.com/TugonUE" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Instagram Updates</a>
+              <a href="https://www.facebook.com/share/18qFZWbJqB/" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-facebook"></i> Facebook Campaign Page
+              </a>
+              <a href="https://www.instagram.com/TugonUE" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-instagram"></i> Instagram Updates
+              </a>
             </div>
           </div>
         </div>
