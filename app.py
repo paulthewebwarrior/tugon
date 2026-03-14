@@ -357,11 +357,6 @@ COUNCILS: list[dict[str, Any]] = [
                 "description": "This advocacy promotes open communication, honesty, and accountability. Updates on facility inspections will be regularly posted. Financial reports including budget allocation, expenses, remaining balance, and sponsors will be shared online.",
             },
             {
-                "title": "NO TO TOFI",
-                "icon": "bi-x-circle",
-                "description": "Scholarship Quota advocacy.",
-            },
-            {
                 "title": "EN-Gauge - Competency Mapping",
                 "icon": "bi-signpost-split",
                 "description": "The Student Council will publish a Yearly Skills Roadmap that clearly lists the specific technical and soft skills students should focus on at each year level to stay job-ready.",
@@ -370,6 +365,16 @@ COUNCILS: list[dict[str, Any]] = [
                 "title": "PROJECT VENdoExtend",
                 "icon": "bi-cart",
                 "description": "Aims to provide easier access to essential hygiene products for students. This project plans to add vending machines on both sides of the 3rd floor with sanitary napkins, wipes, and tissues.",
+            },
+            {
+                "title": "ENrise",
+                "icon": "bi-rockets-takeoff",
+                "description": "A leadership development seminar for Recognized Student Organizations (RSOs), ENSC committees, and aspiring engineering student leaders—strengthening leadership skills, clarifying organizational roles, and promoting responsible participation in the student body.",
+            },
+            {
+                "title": "ENPlant: Plant and Learn",
+                "icon": "bi-flower1",
+                "description": "Environmental Month outreach activity for EN students at the UE Designated Planting Spots, promoting environmental awareness, sustainability, and hands-on learning through planting activities.",
             },
         ],
     },
