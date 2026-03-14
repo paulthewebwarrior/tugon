@@ -24,22 +24,29 @@
     justify-content: center !important;
   }
 }
-/* Centered contact form for contact page */
-/* Centered contact form for contact page */
-.contact-form-centered {
+/* Contact form styling */
+.contact-form {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background: rgba(255,255,255,0.97);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(229,184,11,0.10);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-/* Maximize screen - full width containers */
-.container, .container-fluid {
-  max-width: 100% !important;
+
+.contact-form iframe {
   width: 100% !important;
-  padding-left: 0;
-  padding-right: 0;
+  border: none;
+  min-height: 700px;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Container - full width with padding */
+.container, .container-fluid {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 /* Footer white text for party alliance */
@@ -1037,12 +1044,8 @@ a {
 .mini-feature,
 .support-panel,
 .admin-card,
-.contact-form,
 .about-panel {
-  padding: 1.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, outline 0.2s ease;
-  will-change: auto;
-  outline: 3px solid transparent;
+  padding: 2.5rem;
 }
 
 .candidate-card:hover,
@@ -1050,7 +1053,6 @@ a {
 .mini-feature:hover,
 .support-panel:hover,
 .about-panel:hover,
-.contact-form:hover,
 .admin-card:hover {
   transform: translateY(-8px);
   will-change: transform;
@@ -1528,12 +1530,28 @@ a {
     animation: none !important;
   }
   
+  .container, .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
   .page-shell {
     padding-top: 78px;
   }
 
   .hero-section {
     min-height: 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .subpage-hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-space {
+    padding: 4rem 0;
   }
 
   .campaign-banner-section {
@@ -1543,6 +1561,11 @@ a {
   .campaign-banner {
     border-radius: 20px;
   }
+
+  .gpoa-group-header {
+    padding: 1.5rem;
+  }
+}
 
   .section-space {
     padding: 4.5rem 0;
@@ -1573,9 +1596,23 @@ a {
 }
 
 @media (max-width: 767.98px) {
+  .container, .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .hero-title,
   .subpage-hero h1 {
-    font-size: clamp(2.2rem, 10vw, 3.3rem);
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .subpage-hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .section-space {
+    padding: 3rem 0;
   }
 
   .brand-logo {
@@ -1587,6 +1624,22 @@ a {
     width: 56px;
     height: 56px;
   }
+
+  /* Reduce card padding on mobile */
+  .candidate-card,
+  .platform-card,
+  .support-panel,
+  .contact-form,
+  .about-panel,
+  .admin-card,
+  .card-glass {
+    padding: 1.5rem;
+  }
+
+  .row.g-4 {
+    gap: 1.5rem !important;
+  }
+}
 
   .contact-form,
   .admin-form,

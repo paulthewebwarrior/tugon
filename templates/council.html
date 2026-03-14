@@ -4,32 +4,34 @@
 
 {% block content %}
   <section class="subpage-hero">
-    <div class="container py-5">
-      <div class="col-lg-9 reveal-up">
-        <span class="eyebrow">{{ council.short_name }}</span>
-        <h1>{{ council.name }}</h1>
-        <p>{{ council.description }}</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <span class="eyebrow">{{ council.short_name }}</span>
+          <h1>{{ council.name }}</h1>
+          <p>{{ council.description }}</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section-space bg-white">
     <div class="container">
-      <div class="section-heading reveal-up">
+      <div class="section-heading">
         <span class="eyebrow">Candidates</span>
         <h2>{{ council.short_name }} Candidate Lineup</h2>
         <p>Explore the candidates, credentials, and profile details for this council.</p>
       </div>
-      <div id="council-candidates-container" class="row g-4 mt-1">
+      <div id="council-candidates-container" class="row g-4">
         {% for candidate in candidates %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+          <div class="col-md-6 col-xl-4">
             <article class="candidate-card h-100">
-              <img class="candidate-photo" loading="lazy" width="300" height="260" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
-              <div class="candidate-body d-flex flex-column">
+              <img class="candidate-photo" loading="lazy" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
+              <div class="candidate-body">
                 {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png', 'COESC': 'heart-ensc.png'} %}
                 <span class="candidate-position">{{ candidate.position }}</span>
                 <h3><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">{{ candidate.name }}</h3>
-                <a class="btn btn-campaign mt-auto" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
+                <a class="btn btn-campaign mt-3" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>
           </div>
@@ -40,27 +42,27 @@
 
   <section class="section-space section-accent">
     <div class="container">
-      <div class="section-heading reveal-up">
+      <div class="section-heading">
         <span class="eyebrow">General Plan of Action</span>
         <h2>{{ council.short_name }} GPOA</h2>
         <p>Key action tracks for council governance and student development.</p>
       </div>
-      <div class="row g-4 mt-1">
+      <div class="row g-4">
         {% for item in council.gpoa %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+          <div class="col-md-6 col-xl-4">
             <article class="platform-card h-100">
               <div class="platform-icon"><i class="bi {{ item.icon }}"></i></div>
               <h3><strong>{{ item.title }}</strong></h3>
               <p class="gpoa-summary">{{ item.description }}</p>
               {% if item.get('items') %}
-                <div class="gpoa-details mt-3 mb-0">
+                <div class="gpoa-details mt-3">
                   {% for detail in item.get('items') %}
                     {% if ':' in detail %}
-                      <p class="gpoa-detail-item mb-2"><strong>{{ detail.split(':')[0] }}:</strong>{{ detail.split(':')[1:] | join(':') }}</p>
+                      <p class="gpoa-detail-item"><strong>{{ detail.split(':')[0] }}:</strong>{{ detail.split(':')[1:] | join(':') }}</p>
                     {% elif ' - ' in detail %}
-                      <p class="gpoa-detail-item mb-2"><strong>{{ detail.split(' - ')[0] }}</strong> - {{ detail.split(' - ')[1:] | join(' - ') }}</p>
+                      <p class="gpoa-detail-item"><strong>{{ detail.split(' - ')[0] }}</strong> - {{ detail.split(' - ')[1:] | join(' - ') }}</p>
                     {% else %}
-                      <p class="gpoa-detail-item mb-2">{{ detail }}</p>
+                      <p class="gpoa-detail-item">{{ detail }}</p>
                     {% endif %}
                   {% endfor %}
                 </div>

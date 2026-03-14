@@ -7,18 +7,15 @@
     <div class="hero-orb hero-orb-one"></div>
     <div class="hero-orb hero-orb-two"></div>
     <div class="container position-relative">
-      <div class="row align-items-center min-vh-100 pt-5">
-        <div class="col-lg-8 py-5 reveal-up">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-8">
           <span class="eyebrow">University Elections 2026</span>
           <h1 class="hero-title">Nagkakaisang Tugon Party Alliance</h1>
-          <p class="hero-copy">
-            Tugon is a university-wide political alliance representing multiple student councils,
-            united by responsive leadership, measurable programs, and transparent governance.
-          </p>
+          <p class="hero-copy">Tugon is a university-wide political alliance representing multiple student councils, united by responsive leadership, measurable programs, and transparent governance.</p>
           <div class="d-flex flex-wrap gap-3 mt-4">
             <a class="btn btn-campaign btn-lg" href="{{ url_for('candidates') }}">Explore All Candidates</a>
           </div>
-          <div class="hero-stats row g-3 mt-4">
+          <div class="hero-stats row g-4 mt-4">
             <div class="col-sm-4">
               <div class="stat-card">
                 <strong>5</strong>
@@ -39,8 +36,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 reveal-up delay-2">
-          <div class="hero-panel card-glass p-4 p-lg-5">
+        <div class="col-lg-4">
+          <div class="hero-panel card-glass">
             <p class="panel-kicker">Election Countdown</p>
             <h2 class="panel-title">Time Until Election Day</h2>
             <div id="electionCountdown" class="countdown-box" data-election-date="{{ election_day }}">
@@ -48,9 +45,7 @@
               <div class="countdown-item"><strong data-unit="hours">--</strong><span>Hours</span></div>
               <div class="countdown-item"><strong data-unit="minutes">--</strong><span>Minutes</span></div>
             </div>
-            <p class="mb-4">
-              Stay updated on campaign milestones and council-level plans as election day approaches.
-            </p>
+            <p class="mb-4">Stay updated on campaign milestones and council-level plans as election day approaches.</p>
             <div class="hero-list">
               <div><i class="bi bi-check2-circle"></i> Multi-council representation</div>
               <div><i class="bi bi-check2-circle"></i> Candidate spotlight and search</div>
@@ -64,14 +59,14 @@
 
   <section class="section-space bg-white">
     <div class="container">
-      <div class="section-heading reveal-up">
+      <div class="section-heading">
         <span class="eyebrow">Council Selector</span>
         <h2>Choose your student council</h2>
         <p>Each council has dedicated candidates, credentials, and General Plan of Action.</p>
       </div>
-      <div class="row g-4 mt-1">
+      <div class="row g-4">
         {% for council in council_cards %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+          <div class="col-md-6 col-xl-4">
             <a class="council-card h-100" href="{{ council.url }}">
               <span class="panel-kicker">{{ council.short_name }}</span>
               <h3>{{ council.name }}</h3>
@@ -89,35 +84,28 @@
 
   <section class="section-space section-accent">
     <div class="container">
-      <div class="section-heading reveal-up">
+      <div class="section-heading">
         <span class="eyebrow">Candidate Spotlight</span>
         <h2>Key candidates across councils</h2>
         <p>Meet alliance leaders representing different student councils across the university.</p>
       </div>
-      <div class="row g-4 mt-1">
+      <div class="row g-4">
         {% for candidate in spotlight_candidates %}
-          <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
+          <div class="col-md-6 col-xl-4">
             <article class="candidate-card h-100">
-              <img
-                class="candidate-photo"
-                loading="lazy"
-                width="300"
-                height="300"
-                src="{{ url_for('static', filename=candidate.photo) }}"
-                alt="{{ candidate.name }}"
-              >
+              <img class="candidate-photo" loading="lazy" src="{{ url_for('static', filename=candidate.photo) }}" alt="{{ candidate.name }}">
               <div class="candidate-body">
                 <span class="panel-kicker">{{ candidate.council }}</span>
                 <span class="candidate-position">{{ candidate.position }}</span>
                 {% set heart_map = {'CASSC': 'heart-cas.png', 'CBASC': 'heart-cba.png', 'CFADSC': 'heart-cfad.png', 'CSC': 'heart-csc.png', 'ENSC': 'heart-ensc.png', 'COESC': 'heart-ensc.png'} %}
                 <h3><img class="council-heart" src="{{ url_for('static', filename='images/' + heart_map.get(candidate.council, 'heart-cas.png')) }}" alt="">{{ candidate.name }}</h3>
-                <a class="btn btn-outline-campaign mt-2" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
+                <a class="btn btn-outline-campaign mt-3" href="{{ url_for('candidate_profile', candidate_id=candidate.id) }}">View Profile</a>
               </div>
             </article>
           </div>
         {% endfor %}
       </div>
-      <div class="text-center mt-5 reveal-up">
+      <div class="text-center mt-5">
         <a class="btn btn-outline-campaign btn-lg" href="{{ url_for('candidates') }}">View Full Slate</a>
       </div>
     </div>
