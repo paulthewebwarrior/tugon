@@ -1522,6 +1522,12 @@ a {
 }
 
 @media (max-width: 991.98px) {
+  /* Disable all animations/transitions on mobile for better performance */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
   .page-shell {
     padding-top: 78px;
   }
