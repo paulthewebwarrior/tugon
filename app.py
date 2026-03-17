@@ -731,7 +731,7 @@ COUNCILS: list[dict[str, Any]] = [
                 "description": "A collaborative program that strengthens communication among CFAD departments and student organizations, ensuring equal representation and a stronger sense of community within the college.",
             },
             {
-                "title": "LikahLink: Art in Motion",
+                "title": "LikhaLink: Art in Motion",
                 "icon": "bi-palette",
                 "description": "A collaborative art event where participants pass around artworks to be continued by other artists, encouraging creativity, spontaneity, and artistic collaboration within the CFAD community.",
             },
